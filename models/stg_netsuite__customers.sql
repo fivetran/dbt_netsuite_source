@@ -42,7 +42,7 @@ final as (
         state,
         zipcode,
         country,
-        date_first_order,
+        date_first_order as date_first_order_at,
         _fivetran_deleted
 
         --The below script allows for pass through columns.
@@ -57,3 +57,4 @@ final as (
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

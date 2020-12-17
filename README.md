@@ -1,4 +1,4 @@
-# Netsuite ([docs](https://dbt-netsuite-source.netlify.app/)) 
+# Netsuite
 
 This package models Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1sgWiu5PMdFdBZgWtQ-aWqrym3dNcZvOtBNKT0q084pI/edit#slide=id.g3cb9b617cd_0_1).
 
@@ -15,7 +15,7 @@ This package contains staging models, designed to work simultaneously with our [
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`
     * Timestamps are appended with `_at`
-    * ID primary keys are prefixed with the name of the table.  For example, the user table's ID column is renamed user_id.
+    * ID primary keys are prefixed with the name of the table.  For example, the user table's ID column is renamed customer_id.
 
 
 ## Installation Instructions
@@ -43,9 +43,23 @@ This package includes all source columns defined in the `generate_columns.sql` m
 ...
 vars:
   netsuite_source:
-    account_pass_through_columns: [account_custom_field_1, account_custom_field_2]
-    opportunity_pass_through_columns: [my_opp_custom_field]
-    user_pass_through_columns: [users_have_custom_fields_too, lets_add_them_all]
+    accounting_books_pass_through_columns: [accounting_book_custom_field]
+    accounting_periods_pass_through_columns: [accounting_periods_have_fields, accounting_period_custom]
+    accounts_pass_through_columns: [accounts_pass_custom_fields]
+    classes_pass_through_columns: [class_custom_1, class_custom_2, class_custom_3]
+    consolidated_exchange_rates_pass_through_columns: [consolidated_custom_field]
+    currencies_pass_through_columns: [current_currency, past_currency]
+    customers_pass_through_columns: [customer_wants_a_custom_field]
+    departments_pass_through_columns: [im_a_custom_field_woohoo]
+    expense_accounts_pass_through_columns: [poof_new_custom_field, cachow_newer_custom_field]
+    income_accounts_pass_through_columns: [income_field, income_field_custom]
+    items_pass_through_columns: [who_knew_i_could_use_these_custom_fields]
+    locations_pass_through_columns: [location_3, location_1, location_2]
+    subsidiaries_pass_through_columns: [super_important_subsidiary_field]
+    transaction_lines_pass_through_columns: [just_passing_through, nothing_to_see_here]
+    transactions_pass_through_columns: [hello_i_am_a, custom_field]
+    vendor_type_pass_through_columns: [custom_field, costume_field]
+    vendors_pass_through_columns: [last_custom_field_to_makeup]
 ```
 
 ## Contributions

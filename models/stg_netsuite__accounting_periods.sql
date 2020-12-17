@@ -39,8 +39,8 @@ final as (
         accounting_period_id,
         name,
         full_name,
-        fiscal_calendar_id
-        ending,
+        fiscal_calendar_id,
+        ending as ending_at,
         is_adjustment,
         closed
 

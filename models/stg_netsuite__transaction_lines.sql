@@ -43,7 +43,6 @@ final as (
         company_id,
         item_id,
         amount,
-        transaction_lines,
         non_posting_line,
         class_id,
         location_id,

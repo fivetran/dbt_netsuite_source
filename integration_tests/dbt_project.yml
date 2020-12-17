@@ -1,0 +1,59 @@
+name: 'netsuite_source_integration_tests'
+version: '0.1.0'
+profile: 'integration_tests'
+config-version: 2
+
+models: 
+  netsuite_source:
+    materialized: table
+    tmp:
+      materialized: view
+
+vars:
+  netsuite_source:
+    accounting_books: "{{ ref('accounting_books_data') }}"
+    accounting_periods: "{{ ref('accounting_periods_data') }}"
+    accounts: "{{ ref('accounts_data') }}"
+    classes: "{{ ref('classes_data') }}"
+    consolidated_exchange_rates: "{{ ref('consolidated_exchange_rates_data') }}"
+    currencies: "{{ ref('currencies_data') }}"
+    customers: "{{ ref('customers_data') }}"
+    departments: "{{ ref('departments_data') }}"
+    expense_accounts: "{{ ref('expense_accounts_data') }}"
+    income_accounts: "{{ ref('income_accounts_data') }}"
+    items: "{{ ref('items_data') }}"
+    locations: "{{ ref('locations_data') }}"
+    subsidiaries: "{{ ref('subsidiaries_data') }}"
+    transaction_lines: "{{ ref('transaction_lines_data') }}"
+    transactions: "{{ ref('transactions_data') }}"
+    vendor_types: "{{ ref('vendor_types_data') }}"
+    vendors: "{{ ref('vendors_data') }}"
+    
+seeds:
+    +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+    netsuite_source_integration_tests:
+        accounting_books_data:
+        accounting_periods_data:
+            +column_types:
+                ending: timestamp
+        accounts_data:
+        classes_data:
+        consolidated_exchange_rates_data:
+        currencies_data:
+        customers_data:
+        departments_data:
+        expense_accounts_data:
+        income_accounts_data:
+        items_data:
+        locations_data:
+        subsidiaries_data:
+        transaction_line_data:
+        transactions_data:
+            +column_types:
+                due_date: timestamp
+        vendor_types_data:
+        vendors_data:
+
+clean-targets:
+    - target
+    - dbt_modules

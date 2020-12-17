@@ -41,7 +41,7 @@ final as (
         trandate as transaction_date,
         currency_id,
         accounting_period_id,
-        due_date,
+        due_date as due_date_at,
         transaction_type,
         is_intercompany,
         is_advanced_intercompany,
@@ -59,3 +59,4 @@ final as (
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

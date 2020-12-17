@@ -36,6 +36,7 @@ fields as (
 final as (
     
     select 
+        consolidated_exchange_rate_id,
         accounting_book_id,
         accounting_period_id,
         average_rate,
@@ -57,3 +58,4 @@ final as (
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)
