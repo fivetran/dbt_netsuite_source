@@ -1,6 +1,6 @@
 # Netsuite
 
-This package models Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1sgWiu5PMdFdBZgWtQ-aWqrym3dNcZvOtBNKT0q084pI/edit#slide=id.g3cb9b617cd_0_1).
+This package models Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/netsuite-suiteanalytics#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 * Adds descriptions to tables and columns that are synced using Fivetran
