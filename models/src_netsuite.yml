@@ -1,0 +1,32 @@
+ 
+version: 2
+
+sources:
+  - name: netsuite
+    schema: "{{ var('netsuite_schema', 'netsuite') }}" # you will need to customize if your schema name is not netsuite
+    database: "{{ var('netsuite_database', target.database) }}"
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: accounts
+      - name: accounting_periods
+      - name: subsidiaries
+      - name: transaction_lines
+      - name: transactions
+      - name: income_accounts
+      - name: expense_accounts
+      - name: customers
+      - name: items
+      - name: locations
+      - name: vendors
+      - name: vendor_types
+      - name: departments
+      - name: currencies
+      - name: accounting_books
+      - name: consolidated_exchange_rates
+      - name: classes
+    

@@ -1,0 +1,50 @@
+config-version: 2
+
+name: 'netsuite_source'
+version: '0.1.0'
+
+vars:
+  netsuite_source:
+    accounts: "{{ source('netsuite','accounts') }}"
+    accounting_periods: "{{ source('netsuite','accounting_periods') }}"
+    subsidiaries: "{{ source('netsuite','subsidiaries') }}"
+    transaction_lines: "{{ source('netsuite','transaction_lines') }}"
+    transactions: "{{ source('netsuite','transactions') }}"
+    income_accounts: "{{ source('netsuite','income_accounts') }}"
+    expense_accounts: "{{ source('netsuite','expense_accounts') }}"
+    customers: "{{ source('netsuite','customers') }}"
+    items: "{{ source('netsuite','items') }}"
+    locations: "{{ source('netsuite','locations') }}"
+    vendors: "{{ source('netsuite','vendors') }}"
+    vendor_types: "{{ source('netsuite','vendor_types') }}"
+    departments: "{{ source('netsuite','departments') }}"
+    currencies: "{{ source('netsuite','currencies') }}"
+    accounting_books: "{{ source('netsuite','accounting_books') }}"
+    consolidated_exchange_rates: "{{ source('netsuite','consolidated_exchange_rates') }}"
+    classes: "{{ source('netsuite','classes') }}"
+
+    #(Optional) Pass-through arrays.
+    accounts_pass_through_columns: []
+    accounting_periods_pass_through_columns: []
+    subsidiaries_pass_through_columns: []
+    transaction_lines_pass_through_columns: []
+    transactions_pass_through_columns: []
+    income_accounts_pass_through_columns: []
+    expense_accounts_pass_through_columns: []
+    customers_pass_through_columns: []
+    items_pass_through_columns: []
+    locations_pass_through_columns: []
+    vendors_pass_through_columns: []
+    vendor_type_pass_through_columns: []
+    departments_pass_through_columns: []
+    currencies_pass_through_columns: []
+    accounting_books_pass_through_columns: []
+    consolidated_exchange_rates_pass_through_columns: []
+    classes_pass_through_columns: []
+
+models:
+    netsuite_source:
+        materialized: table
+        tmp:
+            materialized: view
+        
