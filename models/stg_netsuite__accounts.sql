@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_accounts_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('accounts_pass_through_columns') %}
-        ,
-        {{ var('accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -41,14 +34,9 @@ final as (
         name,
         type_name,
         accountnumber as account_number,
-        general_rate_type
-
-         --The below script allows for pass through columns.
-        {% if var('accounts_pass_through_columns') %}
-        ,
-        {{ var('accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        general_rate_type,
+        is_leftside,
+        is_balancesheet
         
     from fields
 )

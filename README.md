@@ -34,34 +34,6 @@ vars:
     netsuite_schema: your_schema_name
 ```
 
-This package includes all source columns defined in the `generate_columns.sql` macro. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
-
-
-```yml
-# dbt_project.yml
-
-...
-vars:
-  netsuite_source:
-    accounting_books_pass_through_columns: [accounting_book_custom_field]
-    accounting_periods_pass_through_columns: [accounting_periods_have_fields, accounting_period_custom]
-    accounts_pass_through_columns: [accounts_pass_custom_fields]
-    classes_pass_through_columns: [class_custom_1, class_custom_2, class_custom_3]
-    consolidated_exchange_rates_pass_through_columns: [consolidated_custom_field]
-    currencies_pass_through_columns: [current_currency, past_currency]
-    customers_pass_through_columns: [customer_wants_a_custom_field]
-    departments_pass_through_columns: [im_a_custom_field_woohoo]
-    expense_accounts_pass_through_columns: [poof_new_custom_field, cachow_newer_custom_field]
-    income_accounts_pass_through_columns: [income_field, income_field_custom]
-    items_pass_through_columns: [who_knew_i_could_use_these_custom_fields]
-    locations_pass_through_columns: [location_3, location_1, location_2]
-    subsidiaries_pass_through_columns: [super_important_subsidiary_field]
-    transaction_lines_pass_through_columns: [just_passing_through, nothing_to_see_here]
-    transactions_pass_through_columns: [hello_i_am_a, custom_field]
-    vendor_type_pass_through_columns: [custom_field, costume_field]
-    vendors_pass_through_columns: [last_custom_field_to_makeup]
-```
-
 ## Contributions
 
 Additional contributions to this package are very welcome! Please create issues

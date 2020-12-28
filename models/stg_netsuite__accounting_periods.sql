@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_accounting_periods_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('accounting_periods_pass_through_columns') %}
-        ,
-        {{ var('accounting_periods_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -40,16 +33,13 @@ final as (
         name,
         full_name,
         fiscal_calendar_id,
+        year_id,
+        starting as starting_at,
         ending as ending_at,
+        quarter,
+        year_0,
         is_adjustment,
         closed
-
-        --The below script allows for pass through columns.
-        {% if var('accounting_periods_pass_through_columns') %}
-        ,
-        {{ var('accounting_periods_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

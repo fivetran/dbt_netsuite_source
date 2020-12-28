@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_vendors_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('vendors_pass_through_columns') %}
-        ,
-        {{ var('vendors_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -39,14 +32,8 @@ final as (
         vendor_id,
         companyname as company_name,
         create_date as create_date_at,
+        vendor_type_id,
         _fivetran_deleted
-
-        --The below script allows for pass through columns.
-        {% if var('vendors_pass_through_columns') %}
-        ,
-        {{ var('vendors_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

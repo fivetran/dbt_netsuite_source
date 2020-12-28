@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_transaction_lines_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('transaction_lines_pass_through_columns') %}
-        ,
-        {{ var('transaction_lines_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -48,13 +41,6 @@ final as (
         location_id,
         department_id,
         memo
-
-        --The below script allows for pass through columns.
-        {% if var('transaction_lines_pass_through_columns') %}
-        ,
-        {{ var('transaction_lines_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

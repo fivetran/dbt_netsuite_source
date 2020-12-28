@@ -28,25 +28,6 @@ vars:
     transactions: "{{ source('netsuite','transactions') }}"
     vendor_types: "{{ source('netsuite','vendor_types') }}"
     vendors: "{{ source('netsuite','vendors') }}"
-
-    #(Optional) Pass-through arrays.
-    accounting_books_pass_through_columns: []
-    accounting_periods_pass_through_columns: []
-    accounts_pass_through_columns: []
-    classes_pass_through_columns: []
-    consolidated_exchange_rates_pass_through_columns: []
-    currencies_pass_through_columns: []
-    customers_pass_through_columns: []
-    departments_pass_through_columns: []
-    expense_accounts_pass_through_columns: []
-    income_accounts_pass_through_columns: []
-    items_pass_through_columns: []
-    locations_pass_through_columns: []    
-    subsidiaries_pass_through_columns: []
-    transaction_lines_pass_through_columns: []
-    transactions_pass_through_columns: []
-    vendor_type_pass_through_columns: []
-    vendors_pass_through_columns: []   
         
 clean-targets:
     - target

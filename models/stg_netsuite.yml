@@ -29,12 +29,20 @@ models:
         description: The name of the accounting period.
       - name: full_name
         description: The full name of the accounting period.
+      - name: year_id
+        description: The year id the accounting period is associated with.
       - name: fiscal_calendar_id
         description: The fiscal calendar id the accounting period is associated with.
         tests:
           - not_null
+      - name: quarter
+        description: The quarter which the accounting period takes place in.
+      - name: starting_at
+        description: The timestamp indicating the start of the accounting period.
       - name: ending_at
         description: The timestamp indicating the end of the accounting period.
+      - name: year_0
+        description: Value indicating whether the accounting period is in it's initial year.
       - name: is_adjustment
         description: Value indicating whether the accounting period is an adjustment (either yes or no).
       - name: closed
@@ -58,6 +66,10 @@ models:
         description: The account number associated with the account.
       - name: general_rate_type
         description: The general rate type of the account (Current, Historical, Average).
+      - name: is_leftside
+        description: Value indicating whether the account is on the leftside (debit).
+      - name: is_balancesheet
+        description: Value indicating whether the account is a balance sheet account.
 
   - name: stg_netsuite__classes
     description: Table detailing all classes set up in Netsuite.
@@ -308,6 +320,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: vendor_type_id
+        description: The vendor type the vendor is associated with.
       - name: company_name
         description: The vendor's company name.
       - name: created_date_at

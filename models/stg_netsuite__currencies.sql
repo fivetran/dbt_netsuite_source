@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_currencies_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('currencies_pass_through_columns') %}
-        ,
-        {{ var('currencies_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -40,13 +33,6 @@ final as (
         name,
         symbol,
         _fivetran_deleted
-
-        --The below script allows for pass through columns.
-        {% if var('currencies_pass_through_columns') %}
-        ,
-        {{ var('currencies_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

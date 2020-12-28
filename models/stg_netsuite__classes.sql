@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_classes_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('classes_pass_through_columns') %}
-        ,
-        {{ var('classes_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -38,13 +31,6 @@ final as (
     select 
         class_id,
         full_name
-
-        --The below script allows for pass through columns.
-        {% if var('classes_pass_through_columns') %}
-        ,
-        {{ var('classes_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

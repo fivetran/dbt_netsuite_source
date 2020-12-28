@@ -22,14 +22,6 @@ fields as (
                 staging_columns=get_expense_accounts_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('expense_accounts_pass_through_columns') %}
-        ,
-        {{ var('expense_accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-
         
     from base
 ),
@@ -41,13 +33,6 @@ final as (
         name,
         parent_id,
         account_number
-
-        --The below script allows for pass through columns.
-        {% if var('expense_accounts_pass_through_columns') %}
-        ,
-        {{ var('expense_accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

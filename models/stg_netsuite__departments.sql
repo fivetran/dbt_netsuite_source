@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_departments_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('departments_pass_through_columns') %}
-        ,
-        {{ var('departments_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -39,13 +32,6 @@ final as (
         department_id,
         name,
         full_name
-
-        --The below script allows for pass through columns.
-        {% if var('departments_pass_through_columns') %}
-        ,
-        {{ var('departments_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

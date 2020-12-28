@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_accounting_books_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('accounting_books_pass_through_columns') %}
-        ,
-        {{ var('accounting_books_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -38,13 +31,6 @@ final as (
     select 
         accounting_book_id,
         is_primary
-
-        --The below script allows for pass through columns.
-        {% if var('accounting_books_pass_through_columns') %}
-        ,
-        {{ var('accounting_books_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )
