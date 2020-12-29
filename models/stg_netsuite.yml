@@ -62,7 +62,7 @@ models:
         description: The name of the account.
       - name: type_name
         description: The name of the type of the account (ie. Bank, Equity, Income, Expense).
-      - name: accounting_number
+      - name: account_number
         description: The account number associated with the account.
       - name: general_rate_type
         description: The general rate type of the account (Current, Historical, Average).
@@ -324,7 +324,7 @@ models:
         description: The vendor type the vendor is associated with.
       - name: company_name
         description: The vendor's company name.
-      - name: created_date_at
+      - name: create_date_at
         description: The timestamp of the date the vendor was created.
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.

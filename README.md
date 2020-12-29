@@ -35,7 +35,6 @@ vars:
 ```
 
 ## Contributions
-
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
