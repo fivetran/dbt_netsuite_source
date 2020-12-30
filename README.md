@@ -34,6 +34,19 @@ vars:
     netsuite_schema: your_schema_name
 ```
 
+This package includes all source columns defined in the macros folder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
+
+```yml
+# dbt_project.yml
+
+...
+vars:
+  netsuite_source:
+    accounts_pass_through_columns: ['new_custom_field', 'we_can_account_for_that']
+    classes_pass_through_columns: ['class_is_in_session', 'pass_through_additional_fields_here']
+    departments_pass_through_columns: ['department_custom_fields']
+```
+
 ## Contributions
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 

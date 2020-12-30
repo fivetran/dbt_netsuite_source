@@ -28,6 +28,10 @@ vars:
     transactions: "{{ source('netsuite','transactions') }}"
     vendor_types: "{{ source('netsuite','vendor_types') }}"
     vendors: "{{ source('netsuite','vendors') }}"
+
+    accounts_pass_through_columns: []
+    classes_pass_through_columns: []
+    departments_pass_through_columns: []
         
 clean-targets:
     - target
