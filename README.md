@@ -15,7 +15,7 @@ This package contains staging models, designed to work simultaneously with our [
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`
     * Timestamps are appended with `_at`
-    * ID primary keys are prefixed with the name of the table.  For example, the user table's ID column is renamed customer_id.
+    * Columns are renamed to fit consistency of other fields. For example, the accounts accountnumber field is renamed to account_number.
 
 
 ## Installation Instructions
@@ -45,6 +45,8 @@ vars:
     accounts_pass_through_columns: ['new_custom_field', 'we_can_account_for_that']
     classes_pass_through_columns: ['class_is_in_session', 'pass_through_additional_fields_here']
     departments_pass_through_columns: ['department_custom_fields']
+    transactions_pass_through_columns: ['transactions_can_be_custom','pass_this_transaction_field_on']
+    transaction_lines_pass_through_columns: ['transaction_lines_field']
 ```
 
 ## Contributions

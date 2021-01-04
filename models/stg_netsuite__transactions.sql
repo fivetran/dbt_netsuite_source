@@ -22,6 +22,13 @@ fields as (
                 staging_columns=get_transactions_columns()
             )
         }}
+
+        --The below script allows for pass through columns.
+        {% if var('transactions_pass_through_columns') %}
+        ,
+        {{ var('transactions_pass_through_columns') | join (", ")}}
+
+        {% endif %}
         
     from base
 ),
@@ -39,6 +46,13 @@ final as (
         is_intercompany,
         is_advanced_intercompany,
         _fivetran_deleted
+
+        --The below script allows for pass through columns.
+        {% if var('transactions_pass_through_columns') %}
+        ,
+        {{ var('transactions_pass_through_columns') | join (", ")}}
+
+        {% endif %}
 
     from fields
 )
