@@ -3,7 +3,6 @@
 {% set columns = [
     {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
-    {"name": "bill_com_last_updated_by_impo", "datatype": dbt_utils.type_string()},
     {"name": "date_deleted", "datatype": dbt_utils.type_timestamp()},
     {"name": "date_last_modified", "datatype": dbt_utils.type_timestamp()},
     {"name": "department_extid", "datatype": dbt_utils.type_string()},

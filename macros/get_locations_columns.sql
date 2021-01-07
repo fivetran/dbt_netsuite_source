@@ -9,7 +9,6 @@
     {"name": "address_two", "datatype": dbt_utils.type_string()},
     {"name": "addressee", "datatype": dbt_utils.type_string()},
     {"name": "attention", "datatype": dbt_utils.type_string()},
-    {"name": "bill_com_last_updated_by_impo", "datatype": dbt_utils.type_string()},
     {"name": "branch_id", "datatype": dbt_utils.type_string()},
     {"name": "city", "datatype": dbt_utils.type_string()},
     {"name": "country", "datatype": dbt_utils.type_string()},
