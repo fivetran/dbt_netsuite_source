@@ -32,7 +32,8 @@ final as (
         subsidiary_id,
         fiscal_calendar_id,
         name,
-        parent_id
+        parent_id,
+        _fivetran_deleted
 
     from fields
 )

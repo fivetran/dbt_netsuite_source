@@ -30,7 +30,8 @@ final as (
     
     select 
         accounting_book_id,
-        is_primary
+        is_primary,
+        _fivetran_deleted
 
     from fields
 )

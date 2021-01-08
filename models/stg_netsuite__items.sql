@@ -32,7 +32,8 @@ final as (
         item_id,
         name,
         type_name,
-        salesdescription as sales_description
+        salesdescription as sales_description,
+        _fivetran_deleted
 
     from fields
 )

@@ -33,7 +33,8 @@ final as (
         name,
         full_name,
         city,
-        country
+        country,
+        _fivetran_deleted
 
     from fields
 )

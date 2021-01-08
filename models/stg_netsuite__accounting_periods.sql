@@ -39,7 +39,8 @@ final as (
         quarter,
         year_0,
         is_adjustment,
-        closed
+        closed,
+        _fivetran_deleted
 
     from fields
 )

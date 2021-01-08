@@ -32,7 +32,8 @@ final as (
         expense_account_id,
         name,
         parent_id,
-        account_number
+        account_number,
+        _fivetran_deleted
 
     from fields
 )
