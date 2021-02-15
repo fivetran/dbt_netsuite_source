@@ -7,7 +7,6 @@
     {"name": "account_id", "datatype": dbt_utils.type_float()},
     {"name": "accountnumber", "datatype": dbt_utils.type_string()},
     {"name": "bank_account_number", "datatype": dbt_utils.type_string()},
-    {"name": "bill_com_last_updated_by_impo", "datatype": dbt_utils.type_string()},
     {"name": "budget_type", "datatype": dbt_utils.type_string()},
     {"name": "cashflow_rate_type", "datatype": dbt_utils.type_string()},
     {"name": "category_1099_misc", "datatype": dbt_utils.type_string()},

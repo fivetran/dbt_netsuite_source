@@ -43,7 +43,8 @@ final as (
         accountnumber as account_number,
         general_rate_type,
         is_leftside,
-        is_balancesheet
+        is_balancesheet,
+        _fivetran_deleted
 
         --The below script allows for pass through columns.
         {% if var('accounts_pass_through_columns') %}
@@ -57,3 +58,4 @@ final as (
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

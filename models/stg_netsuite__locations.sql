@@ -33,10 +33,12 @@ final as (
         name,
         full_name,
         city,
-        country
+        country,
+        _fivetran_deleted
 
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

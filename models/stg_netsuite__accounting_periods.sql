@@ -39,10 +39,12 @@ final as (
         quarter,
         year_0,
         is_adjustment,
-        closed
+        closed,
+        _fivetran_deleted
 
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

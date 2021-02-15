@@ -38,7 +38,8 @@ final as (
     select 
         department_id,
         name,
-        full_name
+        full_name,
+        _fivetran_deleted
 
         --The below script allows for pass through columns.
         {% if var('departments_pass_through_columns') %}
@@ -52,3 +53,4 @@ final as (
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

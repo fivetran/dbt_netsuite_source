@@ -32,10 +32,13 @@ final as (
         subsidiary_id,
         fiscal_calendar_id,
         name,
-        parent_id
+        parent_id,
+        _fivetran_deleted
 
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)
+
