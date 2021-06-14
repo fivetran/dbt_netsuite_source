@@ -49,6 +49,18 @@ vars:
     transaction_lines_pass_through_columns: ['transaction_lines_field']
 ```
 
+### Changing the Build Schema
+By default this package will build the Netsuite staging models within a schema titled (<target_schema> + `_stg_netsuite`) in your target database. If this is not where you would like your Netsuite staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+    netsuite_source:
+      +schema: my_new_schema_name # leave blank for just the target_schema
+```
+
 ## Contributions
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
