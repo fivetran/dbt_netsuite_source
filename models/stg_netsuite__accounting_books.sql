@@ -30,10 +30,12 @@ final as (
     
     select 
         accounting_book_id,
-        is_primary
+        is_primary,
+        _fivetran_deleted
 
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)

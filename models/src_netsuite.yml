@@ -19,6 +19,8 @@ sources:
             description: The unique identifier of the accounting book.
           - name: is_primary
             description: Boolean indicating whether it is a primary accounting book.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: accounting_periods
         description: Table detailing all accounting periods, including monthly, quarterly and yearly.
@@ -45,6 +47,8 @@ sources:
             description: Value indicating whether the accounting period is an adjustment (either yes or no).
           - name: closed
             description: Value indicating whether the accounting period is closed (either yes or no).
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: accounts
         description: Table that provides a complete listing of every account in the accounting system.
@@ -65,6 +69,8 @@ sources:
             description: Value indicating whether the account is on the leftside (debit).
           - name: is_balancesheet
             description: Value indicating whether the account is a balance sheet account.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: classes
         description: Table detailing all classes set up in Netsuite.
@@ -73,6 +79,8 @@ sources:
             description: The unique identifier of the class.
           - name: full_name
             description: The full name of the class.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: consolidated_exchange_rates
         description: Table detailing average, historical and current exchange rates for all accounting periods.
@@ -135,6 +143,8 @@ sources:
             description: The name of the department.
           - name: full_name
             description: The department's full name.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: expense_accounts
         description: Table detailing all expense accounts.
@@ -147,6 +157,8 @@ sources:
             description: The expense account's associated parent account.
           - name: account_number
             description: The account number associated with the expense account.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: income_accounts
         description: Table detailing all income accounts.
@@ -159,6 +171,8 @@ sources:
             description: The income account's associated parent account.
           - name: account_number
             description: The account number associated with the income account.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: items
         description: Table detailing information about the items created in Netsuite.
@@ -171,6 +185,8 @@ sources:
             description: The type of the item (ie. Markup, Service, Discount).
           - name: salesdescription
             description: The items sales description.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: locations
         description: Table detailing all locations, including store, warehouse and office locations.
@@ -185,6 +201,8 @@ sources:
             description: The location's city.
           - name: country
             description: The location's country.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: subsidiaries
         description: Table detailing all subsidiaries.
@@ -197,6 +215,8 @@ sources:
             description: The name of the subsidiary.
           - name: parent_id 
             description: The parent subsidiary id which the subsidiary is under.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: transaction_lines
         description: A table detailing all transaction lines for all transactions.
