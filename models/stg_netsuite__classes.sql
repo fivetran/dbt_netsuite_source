@@ -37,8 +37,7 @@ final as (
     
     select 
         class_id,
-        full_name,
-        _fivetran_deleted
+        full_name
 
         --The below script allows for pass through columns.
         {% if var('classes_pass_through_columns') %}
@@ -52,4 +51,3 @@ final as (
 
 select * 
 from final
-where not coalesce(_fivetran_deleted, false)
