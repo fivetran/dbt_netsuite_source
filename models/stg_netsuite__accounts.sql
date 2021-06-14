@@ -22,7 +22,6 @@ fields as (
                 staging_columns=get_accounts_columns()
             )
         }}
-
         --The below script allows for pass through columns.
         {% if var('accounts_pass_through_columns') %}
         ,

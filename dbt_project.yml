@@ -1,13 +1,15 @@
 config-version: 2
+require-dbt-version: [">=0.18.0", "<0.20.0"]
  
 name: 'netsuite_source'
-version: '0.1.0'
+version: '0.2.0'
 
 models:
     netsuite_source:
-        materialized: table
+        +materialized: table
+        +schema: stg_netsuite
         tmp:
-            materialized: view
+            +materialized: view
 
 vars:
   netsuite_source:
