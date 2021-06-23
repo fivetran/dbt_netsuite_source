@@ -8,6 +8,26 @@ This package enriches your Fivetran data by doing the following:
 * Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 * Models staging tables, which will be used in our transform package
 
+## Requirements 
+A Fivetran NetSuite Analytics connector, with the following tables synced:
+- accounts
+- accounting_periods
+- accounting_books
+- consolidated_exchange_rates
+- currencies
+- customers
+- classes
+- departments
+- expense_accounts
+- income_accounts
+- items
+- locations
+- partners
+- transaction_lines
+- transactions
+- subsidiaries
+- vendors
+- vendor_types
 ## Models
 
 This package contains staging models, designed to work simultaneously with our [netsuite modeling package](https://github.com/fivetran/dbt_netsuite).  The staging models:
