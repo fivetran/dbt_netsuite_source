@@ -1,8 +1,7 @@
 name: 'netsuite_source_integration_tests'
-version: '0.2.0'
+version: '0.3.0'
 profile: 'integration_tests'
 config-version: 2
-require-dbt-version: [">=0.18.0", "<0.20.0"]
  
 models: 
   netsuite_source:
