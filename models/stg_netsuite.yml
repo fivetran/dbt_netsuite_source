@@ -139,7 +139,9 @@ models:
           - unique
           - not_null
       - name: company_name
-        description: The name of thecompany.
+        description: The name of the company.
+      - name: customer_external_id
+        description: The unique identifier of the external customer reference.
       - name: city
         description: The city where the customer is located.
       - name: state
