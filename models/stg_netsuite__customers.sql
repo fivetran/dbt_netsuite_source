@@ -31,6 +31,7 @@ final as (
     select 
         customer_id,
         companyname as company_name,
+        customer_extid as customer_external_id,
         city,
         state,
         zipcode,
