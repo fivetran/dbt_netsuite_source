@@ -121,6 +121,8 @@ sources:
             description: The unique identifier of the customer.
           - name: companyname
             description: The name of the company.
+          - name: customer_extid
+            description: The unique identifier of the external customer reference.
           - name: city
             description: The city where the customer is located.
           - name: state
@@ -211,6 +213,8 @@ sources:
             description: The unique identifier of the subsidiary.
           - name: fiscal_calendar_id
             description: The fiscal calendar id associated with the fiscal calendar the subsidiary is on.
+          - name: full_name
+            description: The full name of the subsidiary.
           - name: name
             description: The name of the subsidiary.
           - name: parent_id 

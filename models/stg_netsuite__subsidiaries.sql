@@ -31,6 +31,7 @@ final as (
     select 
         subsidiary_id,
         fiscal_calendar_id,
+        full_name,
         name,
         parent_id,
         _fivetran_deleted
