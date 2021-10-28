@@ -22,6 +22,13 @@ fields as (
                 staging_columns=get_locations_columns()
             )
         }}
+
+        --The below script allows for pass through columns.
+        {% if var('locations_pass_through_columns') %}
+        ,
+        {{ var('locations_pass_through_columns') | join (", ")}}
+
+        {% endif %}
         
     from base
 ),
@@ -35,6 +42,13 @@ final as (
         city,
         country,
         _fivetran_deleted
+
+        --The below script allows for pass through columns.
+        {% if var('locations_pass_through_columns') %}
+        ,
+        {{ var('locations_pass_through_columns') | join (", ")}}
+
+        {% endif %}
 
     from fields
 )
