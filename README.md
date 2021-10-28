@@ -62,7 +62,7 @@ vars:
     netsuite_database: your_database_name
     netsuite_schema: your_schema_name
 ```
-
+### Passthrough Columns
 This package includes all source columns defined in the macros folder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
 
 ```yml
