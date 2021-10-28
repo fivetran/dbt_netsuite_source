@@ -76,6 +76,7 @@ vars:
     departments_pass_through_columns: ['department_custom_fields']
     transactions_pass_through_columns: ['transactions_can_be_custom','pass_this_transaction_field_on']
     transaction_lines_pass_through_columns: ['transaction_lines_field']
+    customers_pass_through_columns: ['customers_field']
 ```
 
 ### Changing the Build Schema

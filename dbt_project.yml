@@ -1,6 +1,6 @@
 config-version: 2
 require-dbt-version: ">=0.20.0"
- 
+
 name: 'netsuite_source'
 version: '0.3.2'
 
@@ -36,7 +36,8 @@ vars:
         departments_pass_through_columns: []
         transactions_pass_through_columns: []
         transaction_lines_pass_through_columns: []
-        
+        customers_pass_through_columns: []
+
 clean-targets:
     - target
     - dbt_modules

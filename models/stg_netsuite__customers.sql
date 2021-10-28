@@ -23,6 +23,13 @@ fields as (
             )
         }}
         
+        --The below script allows for pass through columns.
+        {% if var('customers_pass_through_columns') %}
+        ,
+        {{ var('customers_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+        
     from base
 ),
 
@@ -38,6 +45,14 @@ final as (
         country,
         date_first_order as date_first_order_at,
         _fivetran_deleted
+
+        --The below script allows for pass through columns.
+        {% if var('customers_pass_through_columns') %}
+        ,
+        {{ var('customers_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+
 
     from fields
 )
