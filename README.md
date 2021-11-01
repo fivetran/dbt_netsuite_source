@@ -62,7 +62,7 @@ vars:
     netsuite_database: your_database_name
     netsuite_schema: your_schema_name
 ```
-
+### Passthrough Columns
 This package includes all source columns defined in the macros folder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
 
 ```yml
@@ -76,6 +76,8 @@ vars:
     departments_pass_through_columns: ['department_custom_fields']
     transactions_pass_through_columns: ['transactions_can_be_custom','pass_this_transaction_field_on']
     transaction_lines_pass_through_columns: ['transaction_lines_field']
+    customers_pass_through_columns: ['customers_field']
+    locations_pass_through_columns: ['this_new_location','lets_also_add_this_location_field']
 ```
 
 ### Changing the Build Schema
