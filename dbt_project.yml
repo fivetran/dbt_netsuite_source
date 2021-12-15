@@ -1,44 +1,45 @@
 config-version: 2
-require-dbt-version: ">=0.20.0"
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 name: 'netsuite_source'
-version: '0.3.2'
+version: '0.4.0'
 
 models:
-    netsuite_source:
-        +materialized: table
-        +schema: stg_netsuite
-        tmp:
-            +materialized: view
+  netsuite_source:
+    +materialized: table
+    +schema: stg_netsuite
+    tmp:
+      +materialized: view
 
 vars:
-    netsuite_source:
-        accounting_books: "{{ source('netsuite','accounting_books') }}"
-        accounting_periods: "{{ source('netsuite','accounting_periods') }}"
-        accounts: "{{ source('netsuite','accounts') }}"
-        classes: "{{ source('netsuite','classes') }}"
-        consolidated_exchange_rates: "{{ source('netsuite','consolidated_exchange_rates') }}"
-        currencies: "{{ source('netsuite','currencies') }}"
-        customers: "{{ source('netsuite','customers') }}"
-        departments: "{{ source('netsuite','departments') }}"
-        expense_accounts: "{{ source('netsuite','expense_accounts') }}"
-        income_accounts: "{{ source('netsuite','income_accounts') }}"
-        items: "{{ source('netsuite','items') }}"
-        locations: "{{ source('netsuite','locations') }}"
-        subsidiaries: "{{ source('netsuite','subsidiaries') }}"
-        transaction_lines: "{{ source('netsuite','transaction_lines') }}"
-        transactions: "{{ source('netsuite','transactions') }}"
-        vendor_types: "{{ source('netsuite','vendor_types') }}"
-        vendors: "{{ source('netsuite','vendors') }}"
+  netsuite_source:
+    accounting_books: "{{ source('netsuite','accounting_books') }}"
+    accounting_periods: "{{ source('netsuite','accounting_periods') }}"
+    accounts: "{{ source('netsuite','accounts') }}"
+    classes: "{{ source('netsuite','classes') }}"
+    consolidated_exchange_rates: "{{ source('netsuite','consolidated_exchange_rates') }}"
+    currencies: "{{ source('netsuite','currencies') }}"
+    customers: "{{ source('netsuite','customers') }}"
+    departments: "{{ source('netsuite','departments') }}"
+    expense_accounts: "{{ source('netsuite','expense_accounts') }}"
+    income_accounts: "{{ source('netsuite','income_accounts') }}"
+    items: "{{ source('netsuite','items') }}"
+    locations: "{{ source('netsuite','locations') }}"
+    subsidiaries: "{{ source('netsuite','subsidiaries') }}"
+    transaction_lines: "{{ source('netsuite','transaction_lines') }}"
+    transactions: "{{ source('netsuite','transactions') }}"
+    vendor_types: "{{ source('netsuite','vendor_types') }}"
+    vendors: "{{ source('netsuite','vendors') }}"
 
-        accounts_pass_through_columns: []
-        classes_pass_through_columns: []
-        departments_pass_through_columns: []
-        transactions_pass_through_columns: []
-        transaction_lines_pass_through_columns: []
-        customers_pass_through_columns: []
-        locations_pass_through_columns: []
+    accounts_pass_through_columns: []
+    classes_pass_through_columns: []
+    departments_pass_through_columns: []
+    transactions_pass_through_columns: []
+    transaction_lines_pass_through_columns: []
+    customers_pass_through_columns: []
+    locations_pass_through_columns: []
 
 clean-targets:
-    - target
-    - dbt_modules
+- target
+- dbt_modules
+- dbt_packages
