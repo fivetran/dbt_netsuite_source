@@ -40,6 +40,6 @@ vars:
     locations_pass_through_columns: []
 
 clean-targets:
-- target
-- dbt_modules
-- dbt_packages
+  - target
+  - dbt_modules
+  - dbt_packages
