@@ -38,6 +38,7 @@ vars:
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
+    subsidiaries_pass_through_columns: []
 
 clean-targets:
   - target
