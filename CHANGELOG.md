@@ -1,3 +1,13 @@
+# dbt_netsuite_source v0.4.1
+
+## Features
+- Added this changelog to capture iterations of the package!
+- Added the `subsidiaries_pass_through_columns` variable to be leveraged within the `stg_netsuite__subsidiaries` model. This variable will allow users to pass through fields which are not natively included to the package staging model. This variable is empty by default and may be overridden within a users root `dbt_project.yml`. ([#13](https://github.com/fivetran/dbt_netsuite_source/pull/13))
+- Added the `consolidated_exchange_rates_pass_through_columns` variable to be leveraged within the `stg_netsuite__consolidated_exchange_rates` model. This variable will allow users to pass through fields which are not natively included to the package staging model. This variable is empty by default and may be overridden within a users root `dbt_project.yml`. ([#13](https://github.com/fivetran/dbt_netsuite_source/pull/13))
+
+## Contributors
+- [phillem15](https://github.com/phillem15) ([#13](https://github.com/fivetran/dbt_netsuite_source/pull/13))
+
 # dbt_netsuite_source v0.4.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
