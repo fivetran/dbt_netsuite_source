@@ -78,6 +78,8 @@ vars:
     transaction_lines_pass_through_columns: ['transaction_lines_field']
     customers_pass_through_columns: ['customers_field']
     locations_pass_through_columns: ['this_new_location','lets_also_add_this_location_field']
+    subsidiaries_pass_through_columns: ['subsidiaries_field']
+    consolidated_exchange_rates_pass_through_columns: ['this_exchange_rate','that_exchange_rate']
 ```
 
 ### Changing the Build Schema
