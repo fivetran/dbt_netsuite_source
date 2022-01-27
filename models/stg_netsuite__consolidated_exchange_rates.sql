@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_consolidated_exchange_rates_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('consolidated_exchange_rates_pass_through_columns') %}
-        ,
-        {{ var('consolidated_exchange_rates_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
