@@ -39,6 +39,13 @@ final as (
         to_subsidiary_id,
         _fivetran_deleted
 
+        --The below script allows for pass through columns.
+        {% if var('consolidated_exchange_rates_pass_through_columns') %}
+        ,
+        {{ var('consolidated_exchange_rates_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+
     from fields
 )
 
