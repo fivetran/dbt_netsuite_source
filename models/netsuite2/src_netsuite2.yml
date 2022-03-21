@@ -1,0 +1,496 @@
+version: 2
+
+sources:
+  - name: netsuite
+    schema: "{{ var('netsuite_schema', 'netsuite') }}" # you will need to customize if your schema name is not netsuite
+    database: "{{ var('netsuite_database', target.database) }}"
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+    freshness:
+      warn_after: { count: 24, period: hour }
+      error_after: { count: 48, period: hour }
+
+    tables:
+      - name: accountingbook
+        description: Table detailing all accounting books set up in Netsuite.
+        columns:
+          - name: identifier
+            description: The unique identifier of the accounting book.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+          - name: effectiveperiod
+            description: The existing historical base period for this secondary accounting book.
+          - name: isadjustmentonly
+            description: Value indicating whether the accounting book is adjustment only (either yes or no).
+          - name: isconsolidated
+            description: Value indicating whether the accounting book is consolidated (either yes or no).
+          - name: isprimary
+            description: Value indicating whether the accounting book is the primary.
+          - name: name
+            description: The name of the accounting book.
+          - name: parent
+            description: The name of the Subsidary associated with the accounting book.
+
+      - name: accountingperiod
+        description: Table detailing all accounting periods, including monthly, quarterly and yearly.
+        columns:
+          - name: identifier
+            description: The unique identifier of the accounting period.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+          - name: alllocked
+            description: Value indicating whether the accounting period is all locked (either yes or no).
+          - name: aplocked
+            description: Value indicating whether the accounting period is A/P locked (either yes or no).
+          - name: arlocked
+            description: Value indicating whether the accounting period is A/R locked (either yes or no).
+          - name: closed
+            description: Value indicating whether the accounting period is closed (either yes or no).
+          - name: closedondate
+            description: The timestamp indicating the closure of the accounting period.
+          - name: enddate
+            description: The timestamp indicating the end of the accounting period.
+          - name: isadjust
+            description: Value indicating whether the accounting period is an adjustment (either yes or no).
+          - name: isinactive
+            description: Value indicating whether the accounting period is inactive (either yes or no).
+          - name: isposting
+            description: Value indicating whether the accounting period is posting (either yes or no).
+          - name: isquarter
+            description: Value indicating whether the accounting period is a quarter (either yes or no).
+          - name: isyear
+            description: Value indicating whether the accounting period is a year (either yes or no).
+          - name: parent
+            description: The accounting period's associated parent account identifier.
+          - name: periodname
+            description: The full name of the accounting period.
+          - name: startdate
+            description: The timestamp indicating the start of the accounting period.
+
+      - name: account
+        description: Table that provides a complete listing of every account in the accounting system.
+        columns:
+          - name: identifier
+            description: The unique identifier associated with the account.
+          - name: acctnumber
+            description: The account number associated with the account.
+          - name: accttype
+            description: The name of the type of the account (ie. Bank, Equity, Income, Expense).
+          - name: cashflowrate
+            description: The cash flow rate type of the account (Current, Historical, Average).
+          - name: class
+            description: The class identifier the account is restricted to.
+          - name: currency
+            description: The currency of this account.
+          - name: deferralacct
+            description: The deferred revenue account used to record transactions for revenue recognition.
+          - name: department
+            description: The department identifier the account is restricted to.
+          - name: description
+            description: The description of the account.
+          - name: externalid
+            description: The external identifier of the account; if assigned.
+          - name: fullname
+            description: The full name of the account.
+          - name: parent
+            description: The account's associated parent account identifier.
+          - name: generalratetype
+            description: The general rate type of the account (Current, Historical, Average).
+          - name: includechildren
+            description: Value indicating whether the account includes child subsidiaries  (either yes or no).
+          - name: isinactive
+            description: Value indicating whether the account is inactive (either yes or no).
+          - name: issummary
+            description: Value indicating whether the account is a summary account (either yes or no).
+          - name: location
+            description: The location identifier the account is restricted to.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: billingclass
+        description: Table detailing all classes set up in Netsuite.
+        columns:
+          - name: identifier
+            description: The unique identifier of the class.
+          - name: description
+            description: The description of the class.
+          - name: externalid
+            description: The external identifier of the class.
+          - name: isinactive
+            description: Value indicating whether the class is inactive (either yes or no).
+          - name: name
+            description: The name of the class.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: consolidatedexchangerate
+        description: Table detailing average, historical and current exchange rates for all accounting periods.
+        columns:
+          - name: identifier
+            description: The unique identifier of the consolidated exchange rate.
+          - name: averagerate
+            description: The consolidated exchange rates average rate.
+          - name: currentrate
+            description: The consolidated exchange rates current rate.
+          - name: identifier
+            description: The external identifier of the consolidated exchange rate.
+          - name: fromcurrency
+            description: The currency identifier which the consolidated exchange rate is for.
+          - name: fromsubsidiary
+            description: The subsidiary identifier which the consolidated exchange rate is for.
+          - name: historicalrate
+            description: The consolidated exchange rates historical rate.
+          - name: postingperiod
+            description: The accounting period the consolidated exchange rate is associated with.
+          - name: tocurrency
+            description: The currency identifier which the consolidated exchange rate is for.
+          - name: tosubsidiary
+            description: The subsidiary identifier which the consolidated exchange rate is for.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: currency
+        description: The names and symbols for all currencies set up in Netsuite.
+        columns:
+          - name: identifier
+            description: The unique identifier of the currency.
+          - name: currencyprecision
+            description: The display precision of the currency.
+          - name: displaysymbol
+            description: The display symbol of the currency (ie. $, €, £).
+          - name: exchangerate
+            description: The exchange rate of the currency against the base currency.
+          - name: isbasecurrency
+            description: Value indicating whether the currency is the company base currency (either yes or no).
+          - name: isinactive
+            description: Value indicating whether the class is inactive (either yes or no).
+          - name: name
+            description: The name of the currency.
+          - name: symbol
+            description: The currency's three letter symbol (ie. USD, EUR, CAD).
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: customer
+        description: Table detailing all customer information.
+        columns:
+          - name: identifier
+            description: The unique identifier of the customer.
+          - name: companyname
+            description: The name of the company.
+          - name: currency
+            description: The default currency identifier of the customer.
+          - name: defaultbillingaddress
+            description: The default billing address identifier of the customer.
+          - name: defaultshippingaddress
+            description: The default shipping address identifier of the customer.
+          - name: email
+            description: The email address of the customer.
+          - name: entityid
+            description: The unique entity identifier of the customer.
+          - name: externalid
+            description: The unique identifier of the external customer reference.
+          - name: firstname
+            description: The first name of the customer.
+          - name: isinactive
+            description: Value indicating whether the class is inactive (either yes or no).
+          - name: isperson
+            description: Value indicating whether the customer is a person, not a company (either yes or no).
+          - name: lastname
+            description: The last name of the customer.
+          - name: parent
+            description: The parent customer identifier of the customer.
+          - name: phone
+            description: The phone number of the customer.
+          - name: receivablesaccount
+            description: The default receiveables account identifier of the customer.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: department
+        description: Table detailing all departments set up in Netsuite.
+        columns:
+          - name: identifier
+            description: The unique identifier of the department.
+          - name: externalid
+            description: The unique external identifier of the department.
+          - name: full_name
+            description: The department's full name.
+          - name: isinactive
+            description: Value indicating whether the class is inactive (either yes or no).
+          - name: name
+            description: The name of the department.
+          - name: parent
+            description: The parent department identifier of the department.
+          - name: subsidiary
+            description: The subsidiary identifier of the department.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: item
+        description: Table detailing information about the items created in Netsuite.
+        columns:
+          - name: id
+            description: The unique identifier of the item.
+          - name: alternatedemandsourceitem
+            description: The unique identifier of the alternative source item.
+          - name: assetaccount
+            description: The unique identifier of the item's asset account.
+          - name: averagecost
+            description: The average cost of the item.
+          - name: backwardconsumptiondays
+            description: Backward consumption days.
+          - name: consumptionunit
+            description: The unique identifier of the consumption unit.
+          - name: class
+            description: The unique identifier of the item's class.
+          - name: cost
+            description: The cost of the item.
+          - name: costestimatetype
+            description: The cost estimate type of the item.
+          - name: costingmethod
+            description: The costing method of the item.
+          - name: countryofmanufacture
+            description: The country of origin of the item.
+          - name: createddate
+            description: The creation date of the item.
+          - name: deferralaccount
+            description: The unique identifier of the item's deferral expense account.
+          - name: deferredrevenueaccount
+            description: The unique identifier of the item's deferred revenue account.
+          - name: department
+            description: The unique identifier of the item's department.
+          - name: description
+            description: The description of the item.
+          - name: dropshipexpenseaccount
+            description: The unique identifier of the item's dropship expense account.
+          - name: expenseaccount
+            description: The unique identifier of the item's expense account.
+          - name: externalid
+            description: The unique external identifier of the item.
+          - name: forwardconsumptiondays
+            description: Forward consumption days.
+          - name: fullname
+            description: The full name of the item.
+          - name: gainlossaccount
+            description: The unique identifier of the item's gain/loss account.
+          - name: handlingcost
+            description: The handling cost of the item.
+          - name: incomeaccount
+            description: The unique identifier of the item's income account.
+          - name: intercoexpenseaccount
+            description: The unique identifier of the item's intercompany expense account.
+          - name: intercoincomeaccount
+            description: The unique identifier of the item's intercompany income account.
+          - name: isinactive
+            description: Value indicating whether the item is inactive (either yes or no).
+          - name: isphantom
+            description: Value indicating whether the item produces phantom income (either yes or no).
+          - name: isspecialorderitem
+            description: Value indicating whether the item is special order (either yes or no).
+          - name: itemid
+            description: The unique idenifier of the item.
+          - name: itemrevenuecategory
+            description: The revenue category of the item.
+          - name: itemtype
+            description: The type of the item (ie. Markup, Service, Discount).
+          - name: lastpurchaseprice
+            description: The last purchase price of the item.
+          - name: location
+            description: The unique identifier of the item's location.
+          - name: manufacturer
+            description: The manufacturer of the item.
+          - name: matrixtype
+            description: |
+              If item is a matrix item, this field determines the item type. The Matrix Item type can be 
+              either Parent or Child. Otherwise the field is empty.
+          - name: minimumquantity
+            description: The minimum order quantity of the item.
+          - name: maximumquantity
+            description: The maximum order quantity of the item.
+          - name: mpn
+            description: The Manufacturer Part Number (MPN) of the item.
+          - name: parent
+            description: The parent identifier of the item.
+          - name: revenuerecognitionrule
+            description: The unique identifier of the item's revenue recognition rule.
+          - name: revrecforecastrule
+            description: The unique identifier of the item's revenue recognition forecast rule.
+          - name: roundupascomponent
+            description: Value indicating whether the item rounds up as a component (either yes or no).
+          - name: saleunit
+            description: The unique identifier of the item's sale unit.
+          - name: stockunit
+            description: The unique identifier of the item's stock unit.
+          - name: subsidiary
+            description: The unique identifier of the item's subsidiary.
+          - name: subtype
+            description: The subtype of the item.
+          - name: supplyreplenishmentmethod
+            description: The replenishment type of the item.
+          - name: unitstype
+            description: The units of the item.
+          - name: upccode
+            description: The UPC code of the item.
+          - name: vendorname
+            description: The vendor name of the item.
+          - name: vendreturnvarianceaccount
+            description: The unique identifer of the item's vendor return variance account.
+          - name: vsoedelivered
+            description: Value indicating whether the item has been VSOE delivered (either yes or no).
+          - name: vsoepermitdiscount
+            description: The VSOE discount of the item.
+          - name: vsoesopgroup
+            description: The VSOE group of the item.
+          - name: weight
+            description: The weight of the item.
+          - name: weightunits
+            description: The weight units of the item.
+          - name: wipacct
+            description: The unique identifier of the item's WIP account.
+          - name: wipvarianceacct
+            description: The unique identifier of the item's WIP variance account.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: location
+        description: Table detailing all locations, including store, warehouse and office locations.
+        columns:
+          - name: id
+            description: The unique identifier of the location.
+          - name: externalid
+            description: The unique external identifier of the location.
+          - name: fullname
+            description: The full name of the location.
+          - name: mainaddress
+            description: The unique identifier of the location address.
+          - name: name
+            description: The location's name.
+          - name: parent
+            description: The unique identifier of the parent location.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: subsidiary
+        description: Table detailing all subsidiaries.
+        columns:
+          - name: id
+            description: The unique identifier of the subsidiary.
+          - name: country
+            description: The subsidiary's country.
+          - name: currency
+            description: The unique identifier of the subsidiary currency.
+          - name: email
+            description: The email address of the subsidiary.
+          - name: externalid
+            description: The unique external identifier of the subsidiary.
+          - name: fiscalcalendar
+            description: The fiscal calendar identifier associated with the fiscal calendar the subsidiary is on.
+          - name: full_name
+            description: The full name of the subsidiary.
+          - name: name
+            description: The name of the subsidiary.
+          - name: parent
+            description: The parent subsidiary identifier which the subsidiary is under.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: transactionline
+        description: A table detailing all transaction lines for all transactions.
+        columns:
+          - name: id
+            description: The unique identifier of the transaction line.
+          - name: transaction
+            description: The unique identifier of the transaction which the transaction line is associated with.
+          - name: class
+            description: The unique identifier of the class which the transaction line is associated with.
+          - name: cleared
+            description: Value indicating that the transaction line is cleared (either yes or no).
+          - name: commitmentfirm
+            description: Value indicating that the transaction line has a confirmed commitment (either yes or no).
+          - name: costestimatetype
+            description: The cost estimate type of the transaction line.
+          - name: department
+            description: The unique identifier of the department linked to the transaction line.
+          - name: entity
+            description: The unique identifier of the entity linked to the transaction line.
+          - name: expenseaccount
+            description: The unique identifier of the expense account linked to the transaction line.
+          - name: isbillable
+            description: Value indicating that the transaction line is billable (either yes or no).
+          - name: iscogs
+            description: Value indicating that the transaction line is COGS (either yes or no).
+          - name: item
+            description: The item identifier of the item which is included in the transaction line.
+          - name: itemtype
+            description: The item type of the item in the transaction line.
+          - name: linesequencenumber
+            description: The sequence number of the transaction line.
+          - name: location
+            description: The location identifier of the location which the transaction line took place.
+          - name: mainline
+            description: Value indicating whether the transaction line is a main line (either Yes or No).
+          - name: memo
+            description: The memo attached to the transaction line.
+          - name: netamount
+            description: The net amount of the transaction line.
+          - name: subsidiary
+            description: The subsidiary identifier of the subsidiary which the transaction line is associated with.
+          - name: taxline
+            description: Value indicating whether the transaction line is a tax line (either Yes or No).
+
+      - name: transaction
+        description: A table detailing all transactions.
+        columns:
+          - name: id
+            description: The unique identifier of the transaction.
+          - name: billingaddress
+            description: The unique identifier of the billing address of the transaction.
+          - name: closedate
+            description: The date the transaction was closed.
+          - name: createddate
+            description: The date the transaction was created.
+          - name: currency
+            description: The currency identifier of the currency used in the transaction.
+          - name: duedate
+            description: The date the transaction is due.
+          - name: email
+            description: The email address associated with the transaction.
+          - name: entity
+            description: The entity identifier of the entity associated with the transaction.
+          - name: externalid
+            description: The unique external identifier of the transaction.
+          - name: intercoadj
+            description: Value indicating whether the transaction is an intercompany adjustment (either Yes or No).
+          - name: isfinchrg
+            description: Value indicating whether the transaction is a financial charge (either Yes or No).
+          - name: isreversal
+            description: Value indicating whether the transaction is a reversal (either Yes or No).
+          - name: memo
+            description: The memo attached to the transaction.
+          - name: posting
+            description: Value indicating whether the transaction is a posting (either Yes or No).
+          - name: postingperiod
+            description: The accounting period identifier of the accounting period which the transaction took place in.
+          - name: shippingaddress
+            description: The unique identifier of the billing address of the transaction.
+          - name: status
+            description: The status of the transaction (ie. Paid In Full, Open, Cancelled).
+          - name: trandate
+            description: The timestamp of the transaction date.
+          - name: type
+            description: The transaction type (ie. Bill, Check, Deposit).
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: vendor
+        description: A table detailing all vendor information.
+        columns:
+          - name: id
+            description: The unique identifier of the vendor.
+          - name: companyname
+            description: The vendor's company name.
+          - name: datecreated
+            description: The timestamp of the date the vendor was created.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
