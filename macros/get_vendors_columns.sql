@@ -108,3 +108,45 @@
 {{ return(columns) }}
 
 {% endmacro %}
+
+{% macro get_netsuite2_vendors_columns() %}
+
+{% set columns = [
+    {"name": "id", "datatype": dbt_utils.type_float()},
+    {"name": "_fivetran_deleted", "datatype": "boolean"},
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "accountnumber", "datatype": dbt_utils.type_string()},
+    {"name": "balance", "datatype": dbt_utils.type_float()},
+    {"name": "companyname", "datatype": dbt_utils.type_string()},
+    {"name": "contact", "datatype": dbt_utils.type_float()},
+    {"name": "currency", "datatype": dbt_utils.type_float()},
+    {"name": "creditlimit", "datatype": dbt_utils.type_float()},
+    {"name": "date_deleted", "datatype": dbt_utils.type_timestamp()},
+    {"name": "datecreated", "datatype": dbt_utils.type_timestamp()},
+    {"name": "defaultbillingaddress", "datatype": dbt_utils.type_float()},
+    {"name": "defaultshippingaddress", "datatype": dbt_utils.type_float()},
+    {"name": "email", "datatype": dbt_utils.type_string()},
+    {"name": "emailpreference", "datatype": dbt_utils.type_string()},
+    {"name": "emailtransactions", "datatype": dbt_utils.type_string()},
+    {"name": "entityid", "datatype": dbt_utils.type_string()},
+    {"name": "entitytitle", "datatype": dbt_utils.type_string()},
+    {"name": "expenseaccount", "datatype": dbt_utils.type_float()},
+    {"name": "fax", "datatype": dbt_utils.type_string()},
+    {"name": "firstname", "datatype": dbt_utils.type_string()},
+    {"name": "isinactive", "datatype": dbt_utils.type_string()},
+    {"name": "isperson", "datatype": dbt_utils.type_string()},
+    {"name": "laborcost", "datatype": dbt_utils.type_float()},
+    {"name": "lastmodifieddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "lastname", "datatype": dbt_utils.type_string()},
+    {"name": "legalname", "datatype": dbt_utils.type_string()},
+    {"name": "mobilephone", "datatype": dbt_utils.type_string()},
+    {"name": "payablesaccount", "datatype": dbt_utils.type_float()},
+    {"name": "phone", "datatype": dbt_utils.type_string()},
+    {"name": "printoncheckas", "datatype": dbt_utils.type_string()},
+    {"name": "terms", "datatype": dbt_utils.type_float()},
+    {"name": "url", "datatype": dbt_utils.type_string()}
+] %}
+
+{{ return(columns) }}
+
+{% endmacro %}

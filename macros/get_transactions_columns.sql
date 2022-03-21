@@ -16,3 +16,36 @@
 {{ return(columns) }}
 
 {% endmacro %}
+
+{% macro get_netsuite2_transactions_columns() %}
+
+{% set columns = [
+    {"name": "id", "datatype": dbt_utils.type_float()},
+    {"name": "_fivetran_deleted", "datatype": "boolean"},
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "billingaddress", "datatype": dbt_utils.type_float()},
+    {"name": "closedate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "createddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "currency", "datatype": dbt_utils.type_float()},
+    {"name": "duedate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "email", "datatype": dbt_utils.type_string()},
+    {"name": "entity", "datatype": dbt_utils.type_float()},
+    {"name": "externalid", "datatype": dbt_utils.type_string()},
+    {"name": "intercoadj", "datatype": dbt_utils.type_string()},
+    {"name": "isfinchrg", "datatype": dbt_utils.type_string()},
+    {"name": "isreversal", "datatype": dbt_utils.type_string()},
+    {"name": "lastmodifieddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "memo", "datatype": dbt_utils.type_string()},
+    {"name": "posting", "datatype": dbt_utils.type_string()},
+    {"name": "postingperiod", "datatype": dbt_utils.type_float()},
+    {"name": "shippingaddress", "datatype": dbt_utils.type_float()},
+    {"name": "source", "datatype": dbt_utils.type_string()},
+    {"name": "status", "datatype": dbt_utils.type_string()},
+    {"name": "terms", "datatype": dbt_utils.type_float()},
+    {"name": "trandate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "type", "datatype": dbt_utils.type_string()}
+] %}
+
+{{ return(columns) }}
+
+{% endmacro %}
