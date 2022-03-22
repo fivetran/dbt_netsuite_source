@@ -11,6 +11,9 @@ This package enriches your Fivetran data by doing the following:
 
 ## Requirements 
 A Fivetran NetSuite Analytics connector, with the following tables synced:
+
+
+#### Netsuite.com
 - accounts
 - accounting_periods
 - accounting_books
@@ -29,6 +32,23 @@ A Fivetran NetSuite Analytics connector, with the following tables synced:
 - subsidiaries
 - vendors
 - vendor_types
+
+#### Netsuite2.com
+- account
+- accountingperiod
+- accountingbook
+- consolidatedexchangerate
+- currency
+- customer
+- classification
+- department
+- item
+- location
+- transactionline
+- transaction
+- subsidiary
+- vendor
+
 ## Models
 
 This package contains staging models, designed to work simultaneously with our [netsuite modeling package](https://github.com/fivetran/dbt_netsuite).  The staging models:

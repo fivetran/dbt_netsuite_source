@@ -107,7 +107,7 @@ sources:
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
-      - name: billingclass
+      - name: classification
         description: Table detailing all classes set up in Netsuite.
         columns:
           - name: identifier

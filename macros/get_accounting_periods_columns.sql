@@ -38,23 +38,24 @@
 {% macro get_netsuite2_accounting_periods_columns() %}
 
 {% set columns = [
-    {"name": "id", "datatype": dbt_utils.type_float()},
     {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "alllocked", "datatype": dbt_utils.type_string()},
+    {"name": "allownonglchanges", "datatype": dbt_utils.type_string()},
     {"name": "aplocked", "datatype": dbt_utils.type_string()},
     {"name": "arlocked", "datatype": dbt_utils.type_string()},
     {"name": "closed", "datatype": dbt_utils.type_string()},
     {"name": "closedondate", "datatype": dbt_utils.type_timestamp()},
     {"name": "date_deleted", "datatype": dbt_utils.type_timestamp()},
     {"name": "enddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "id", "datatype": dbt_utils.type_int()},
     {"name": "isadjust", "datatype": dbt_utils.type_string()},
     {"name": "isinactive", "datatype": dbt_utils.type_string()},
     {"name": "isposting", "datatype": dbt_utils.type_string()},
     {"name": "isquarter", "datatype": dbt_utils.type_string()},
     {"name": "isyear", "datatype": dbt_utils.type_string()},
     {"name": "lastmodifieddate", "datatype": dbt_utils.type_timestamp()},
-    {"name": "parent", "datatype": dbt_utils.type_float()},
+    {"name": "parent", "datatype": dbt_utils.type_int()},
     {"name": "periodname", "datatype": dbt_utils.type_string()},
     {"name": "startdate", "datatype": dbt_utils.type_timestamp()}
 ] %}
