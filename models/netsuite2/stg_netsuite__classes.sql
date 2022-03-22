@@ -42,7 +42,7 @@ final as (
         id as class_id,
         externalid as class_external_id,
         name as class_name,
-        description as class_description,
+        fullname as class_full_name,
         isinactive = 'T' as is_inactive
 
         --The below script allows for pass through columns.
