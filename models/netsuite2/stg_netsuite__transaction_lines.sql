@@ -38,7 +38,7 @@ final as (
     
     select
         _fivetran_synced,
-        id as transaction_line_id,
+        uniquekey as transaction_line_id,
         transaction as transaction_id,
         linesequencenumber as transaction_line_number,
         memo,

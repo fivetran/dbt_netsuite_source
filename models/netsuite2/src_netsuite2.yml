@@ -398,7 +398,7 @@ sources:
       - name: transactionline
         description: A table detailing all transaction lines for all transactions.
         columns:
-          - name: id
+          - name: uniquekey
             description: The unique identifier of the transaction line.
           - name: transaction
             description: The unique identifier of the transaction which the transaction line is associated with.
