@@ -44,6 +44,7 @@ A Fivetran NetSuite Analytics connector, with the following tables synced:
 - department
 - item
 - location
+- transactionaccountingline
 - transactionline
 - transaction
 - subsidiary

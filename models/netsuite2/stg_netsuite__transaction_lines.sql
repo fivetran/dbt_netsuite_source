@@ -38,14 +38,12 @@ final as (
     
     select
         _fivetran_synced,
-        uniquekey as transaction_line_id,
+        id as transaction_line_id,
         transaction as transaction_id,
         linesequencenumber as transaction_line_number,
         memo,
         entity as entity_id,
         item as item_id,
-        netamount as net_amount,
-        expenseaccount as expense_account_id,
         class as class_id,
         location as location_id,
         subsidiary as subsidiary_id,

@@ -45,12 +45,12 @@ final as (
         trandate as transaction_date,
         status as transaction_status,
         createddate as created_at,
-        duedate as due_date_at,
+        duedate as due_date,
         closedate as closed_at,
         currency as currency_id,
         entity as entity_id,
         postingperiod as accounting_period_id,
-        posting = 'T' as is_posted,
+        posting = 'T' as is_posting,
         intercoadj = 'T' as is_intercompany_adjustment,
         isreversal = 'T' as is_reversal
 

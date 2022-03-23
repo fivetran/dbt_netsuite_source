@@ -395,6 +395,26 @@ sources:
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
+      - name: transactionaccountingline
+        description: A table detailing all transaction accounting line detail for all transactions.
+        columns:
+          - name: account
+            description: The unique identifier of the account linked to the transaction line.
+          - name: accountingbook
+            description: The unique identifier of the accounting book linked to the transaction line.
+          - name: amount
+            description: The net amount of the transaction line.  
+          - name: credit
+            description: The credit amount of the transaction line.
+          - name: debit
+            description: The debit amount of the transaction line.
+          - name: netamount
+            description: The net amount of the transaction line.
+          - name: transaction
+            description: The unique identifier of the transaction which the transaction line is associated with.
+          - name: transactionline
+            description: The unique identifier of the transaction line which the transaction line accounting info is associated with.
+
       - name: transactionline
         description: A table detailing all transaction lines for all transactions.
         columns:

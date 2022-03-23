@@ -46,6 +46,7 @@ vars:
     items_netsuite2: "{{ source('netsuite','item') }}"
     locations_netsuite2: "{{ source('netsuite','location') }}"
     subsidiaries_netsuite2: "{{ source('netsuite','subsidiary') }}"
+    transaction_accounting_lines_netsuite2: "{{ source('netsuite','transactionaccountingline') }}"
     transaction_lines_netsuite2: "{{ source('netsuite','transactionline') }}"
     transactions_netsuite2: "{{ source('netsuite','transaction') }}"
     vendors_netsuite2: "{{ source('netsuite','vendor') }}"
