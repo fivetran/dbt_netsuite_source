@@ -40,6 +40,7 @@
     {"name": "committed", "datatype": dbt_utils.type_float()},
     {"name": "createdby", "datatype": dbt_utils.type_int()},
     {"name": "createddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "currency", "datatype": dbt_utils.type_int()},
     {"name": "date_deleted", "datatype": dbt_utils.type_timestamp()},
     {"name": "daysopen", "datatype": dbt_utils.type_int()},
     {"name": "daysoverduesearch", "datatype": dbt_utils.type_int()},
