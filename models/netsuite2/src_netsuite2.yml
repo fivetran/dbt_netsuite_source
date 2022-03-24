@@ -353,6 +353,12 @@ sources:
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
+      - name: job
+        description: Table detailing all jobs.
+        columns:
+          - name: id
+            description: The unique identifier of the location.
+
       - name: location
         description: Table detailing all locations, including store, warehouse and office locations.
         columns:
