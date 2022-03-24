@@ -31,8 +31,6 @@ models:
         description: The year id the accounting period is associated with.
       - name: fiscal_calendar_id
         description: The fiscal calendar id the accounting period is associated with.
-        tests:
-          - not_null
       - name: quarter
         description: The quarter which the accounting period takes place in.
       - name: starting_at
