@@ -33,8 +33,8 @@ final as (
     select
         _fivetran_synced,
         id as subsidiary_id,
-        name as subsidiary_name,
-        fullname as subsidiary_full_name,
+        name,
+        fullname as full_name,
         email as email_address,
         mainaddress as main_address_id,
         country,

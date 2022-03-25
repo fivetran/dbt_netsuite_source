@@ -33,9 +33,9 @@ final as (
     select
         _fivetran_synced,
         id as item_id,
-        fullname as item_full_name,
-        itemtype as item_type,
-        description as item_description,
+        fullname as full_name,
+        itemtype as type_name,
+        description as sales_description,
         department as department_id,
         class as class_id,
         location as location_id,

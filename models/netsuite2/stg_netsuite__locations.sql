@@ -40,8 +40,8 @@ final as (
     select
         _fivetran_synced,
         id as location_id,
-        name as location_name,
-        fullname as location_full_name,
+        name,
+        fullname as full_name,
         mainaddress as main_address_id,
         parent as parent_id,
         subsidiary as subsidiary_id

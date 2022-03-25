@@ -41,7 +41,7 @@ models:
         description: Value indicating whether the accounting period is in it's initial year.
       - name: is_adjustment
         description: Value indicating whether the accounting period is an adjustment (either yes or no).
-      - name: closed
+      - name: is_closed
         description: Value indicating whether the accounting period is closed (either yes or no).
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
@@ -62,6 +62,10 @@ models:
         description: The name of the type of the account (ie. Bank, Equity, Income, Expense).
       - name: account_number
         description: The account number associated with the account.
+      - name: account_type
+        description: The type of the account.
+      - name: account_description
+        description: The description of the account.
       - name: general_rate_type
         description: The general rate type of the account (Current, Historical, Average).
       - name: is_leftside
@@ -79,6 +83,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: class_external_id
+        description: The unique identifier of the external class reference.
       - name: full_name
         description: The full name of the class.
       - name: _fivetran_deleted
@@ -215,6 +221,19 @@ models:
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
+  - name: stg_netsuite__jobs
+    description: Table detailing all jobs.
+    columns:
+      - name: job_id
+        description: The unique identifier of the job.
+        tests:
+          - unique
+          - not_null
+      - name: job_external_id
+        description: The unique identifier of the external job reference.
+      - name: customer_id
+        description: The unique identifier of the customer associated with the job.
+
   - name: stg_netsuite__locations
     description: Table detailing all locations, including store, warehouse and office locations.
     columns:
@@ -289,6 +308,27 @@ models:
         description: The department id of the department linked to the transaction line.
       - name: memo
         description: The memo attached to the transaction line.
+  
+  - name: stg_netsuite__transaction_accounting_lines
+    description: A table detailing all transaction lines for all transactions.
+    tests: 
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: 
+          - transaction_id
+          - transaction_line_id
+    columns:
+      - name: transaction_id
+        description: The transaction id which the transaction line is associated with.
+        tests: 
+          - not_null
+      - name: transaction_line_id
+        description: The unique identifier of the transaction line.
+        tests:
+          - not_null
+      - name: amount
+        description: The amount of the transaction line.
+      - name: net_amount
+        description: The net amount of the transaction line.
 
   - name: stg_netsuite__transactions
     description: A table detailing all transactions.

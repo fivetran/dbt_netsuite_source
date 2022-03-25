@@ -41,8 +41,8 @@ final as (
         _fivetran_synced,
         id as class_id,
         externalid as class_external_id,
-        name as class_name,
-        fullname as class_full_name,
+        name,
+        fullname as full_name,
         isinactive = 'T' as is_inactive
 
         --The below script allows for pass through columns.

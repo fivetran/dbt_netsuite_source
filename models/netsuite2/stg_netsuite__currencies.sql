@@ -33,11 +33,8 @@ final as (
     select
         _fivetran_synced,
         id as currency_id,
-        name as currency_name,
-        displaysymbol as symbol,
-        symbol as iso_code,
-        isbasecurrency = 'T' as is_base_currency,
-        exchangerate as exchange_rate
+        name,
+        displaysymbol as symbol
 
     from fields
 )

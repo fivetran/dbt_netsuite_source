@@ -354,10 +354,22 @@ sources:
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: job
-        description: Table detailing all jobs.
+        description: Table detailing all jobs (projects).
         columns:
           - name: id
-            description: The unique identifier of the location.
+            description: The unique identifier of the job.
+          - name: currency
+            description: The default currency identifier of the job.
+          - name: defaultbillingaddress
+            description: The default billing address identifier of the job.
+          - name: defaultshippingaddress
+            description: The default shipping address identifier of the job.
+          - name: entityid
+            description: The name/number of the job.
+          - name: externalid
+            description: The unique identifier of the external customer reference.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
       - name: location
         description: Table detailing all locations, including store, warehouse and office locations.
