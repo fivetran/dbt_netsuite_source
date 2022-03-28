@@ -40,6 +40,7 @@ final as (
     select
         _fivetran_synced,
         id as transaction_id,
+        transactionnumber as transaction_number,
         type as transaction_type,
         memo,
         trandate as transaction_date,
