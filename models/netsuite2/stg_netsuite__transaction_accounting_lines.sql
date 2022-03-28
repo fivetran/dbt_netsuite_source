@@ -39,7 +39,9 @@ final as (
         credit,
         debit,
         amount,
-        netamount as net_amount
+        netamount as net_amount,
+        amountpaid as paid_amount,
+        amountunpaid as unpaid_amount
 
     from fields
 )
