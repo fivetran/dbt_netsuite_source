@@ -43,7 +43,7 @@ final as (
         parent as parent_id,
         acctnumber as account_number,
         accttype as account_type,
-        fullname as account_full_name,
+        fullname as account_name,
         description as account_description,
         deferralacct as deferral_account_id,
         cashflowrate as cash_flow_rate_type,
