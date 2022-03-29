@@ -36,9 +36,9 @@ final as (
         accountingbook as accounting_book_id,
         account as account_id,
         posting = 'T' as is_posting,
-        credit,
-        debit,
         amount,
+        credit as credit_amount,
+        debit as debit_amount,
         netamount as net_amount,
         amountpaid as paid_amount,
         amountunpaid as unpaid_amount
