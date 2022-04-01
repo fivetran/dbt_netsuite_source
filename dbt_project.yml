@@ -43,6 +43,7 @@ vars:
     currencies_netsuite2: "{{ source('netsuite','currency') }}"
     customers_netsuite2: "{{ source('netsuite','customer') }}"
     departments_netsuite2: "{{ source('netsuite','department') }}"
+    entities_netsuite2: "{{ source('netsuite','entity') }}"
     items_netsuite2: "{{ source('netsuite','item') }}"
     jobs_netsuite2: "{{ source('netsuite','job') }}"
     locations_netsuite2: "{{ source('netsuite','location') }}"

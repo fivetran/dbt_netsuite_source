@@ -227,6 +227,30 @@ sources:
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
+      - name: entity
+        description: Table detailing all entities in Netsuite.
+        columns:
+          - name: contact
+            description: The unique identifier of the contact associated with the entity.
+          - name: customer
+            description: The unique identifier of the customer associated with the entity.
+          - name: employee
+            description: The unique identifier of the employee associated with the entity.
+          - name: entitytitle
+            description: The entity name.
+          - name: id
+            description: The unique identifier of the entity.
+          - name: isperson
+            description: Value indicating whether the entity is a person (either yes or no).
+          - name: parent
+            description: The unique identifier of the parent entity.
+          - name: project
+            description: The unique identifier of the project (job) associated with the entity.
+          - name: type
+            description: The entity type (Contact, CustJob, Job, etc).
+          - name: vendor
+            description: The unique identifier of the vendor associated with the entity.
+
       - name: item
         description: Table detailing information about the items created in Netsuite.
         columns:
