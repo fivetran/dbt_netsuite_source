@@ -13,6 +13,8 @@
     {"name": "zipcode", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('customers_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -108,6 +110,8 @@
     {"name": "url", "datatype": dbt_utils.type_string()},
     {"name": "weblead", "datatype": dbt_utils.type_string()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('customers_pass_through_columns')) }}
 
 {{ return(columns) }}
 

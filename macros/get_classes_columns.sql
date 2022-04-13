@@ -6,6 +6,8 @@
     {"name": "full_name", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('classes_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -26,6 +28,8 @@
     {"name": "parent", "datatype": dbt_utils.type_int()},
     {"name": "subsidiary", "datatype": dbt_utils.type_string()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('classes_pass_through_columns')) }}
 
 {{ return(columns) }}
 

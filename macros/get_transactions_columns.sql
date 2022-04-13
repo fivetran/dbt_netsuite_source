@@ -13,6 +13,8 @@
     {"name": "transaction_type", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('transactions_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -124,6 +126,8 @@
     {"name": "voided", "datatype": dbt_utils.type_string()},
     {"name": "website", "datatype": dbt_utils.type_int()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('transactions_pass_through_columns')) }}
 
 {{ return(columns) }}
 

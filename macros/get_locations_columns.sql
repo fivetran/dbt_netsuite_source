@@ -10,6 +10,8 @@
     {"name": "name", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('locations_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -39,6 +41,8 @@
     {"name": "tranprefix", "datatype": dbt_utils.type_string()},
     {"name": "usebins", "datatype": dbt_utils.type_string()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('locations_pass_through_columns')) }}
 
 {{ return(columns) }}
 

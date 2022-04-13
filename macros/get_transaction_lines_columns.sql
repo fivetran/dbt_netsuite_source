@@ -15,6 +15,8 @@
     {"name": "transaction_line_id", "datatype": dbt_utils.type_float()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('transaction_lines_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -127,6 +129,8 @@
     {"name": "vsoepermitdiscount", "datatype": dbt_utils.type_string()},
     {"name": "vsoesopgroup", "datatype": dbt_utils.type_string()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('transaction_lines_pass_through_columns')) }}
 
 {{ return(columns) }}
 

@@ -12,6 +12,8 @@
     {"name": "type_name", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('accounts_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -54,6 +56,8 @@
     {"name": "unit", "datatype": dbt_utils.type_int()},
     {"name": "unitstype", "datatype": dbt_utils.type_int()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('accounts_pass_through_columns')) }}
 
 {{ return(columns) }}
 
