@@ -25,13 +25,6 @@ fields as (
             )
         }}
         
-        --The below script allows for pass through columns.
-        {% if var('customers_pass_through_columns') %}
-        ,
-        {{ var('customers_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-        
     from base
 ),
 
@@ -54,13 +47,8 @@ final as (
         receivablesaccount as receivables_account_id,
         currency as currency_id
 
-        --The below script allows for pass through columns.
-        {% if var('customers_pass_through_columns') %}
-        ,
-        {{ var('customers_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-
+        --The below macro adds the fields defined within your customers_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('customers_pass_through_columns') }}
 
     from fields
 )

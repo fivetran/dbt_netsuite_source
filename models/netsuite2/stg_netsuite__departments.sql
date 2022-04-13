@@ -23,13 +23,6 @@ fields as (
                 staging_columns=get_netsuite2_departments_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('departments_pass_through_columns') %}
-        ,
-        {{ var('departments_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -46,12 +39,8 @@ final as (
         isinactive as is_inactive,
         _fivetran_deleted
 
-        --The below script allows for pass through columns.
-        {% if var('departments_pass_through_columns') %}
-        ,
-        {{ var('departments_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your departments_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('departments_pass_through_columns') }}
 
     from fields
 )

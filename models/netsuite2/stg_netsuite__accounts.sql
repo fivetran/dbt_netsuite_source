@@ -24,12 +24,6 @@ fields as (
                 staging_columns=get_netsuite2_accounts_columns()
             )
         }}
-        --The below script allows for pass through columns.
-        {% if var('accounts_pass_through_columns') %}
-        ,
-        {{ var('accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -56,12 +50,8 @@ final as (
         isinactive = 'T' as is_inactive,
         issummary = 'T' as is_summary
 
-        --The below script allows for pass through columns.
-        {% if var('accounts_pass_through_columns') %}
-        ,
-        {{ var('accounts_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your accounts_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('accounts_pass_through_columns') }}
         
     from fields
 )

@@ -23,13 +23,6 @@ fields as (
                 staging_columns=get_classes_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('classes_pass_through_columns') %}
-        ,
-        {{ var('classes_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -41,12 +34,8 @@ final as (
         full_name,
         _fivetran_deleted
 
-        --The below script allows for pass through columns.
-        {% if var('classes_pass_through_columns') %}
-        ,
-        {{ var('classes_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your classes_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('classes_pass_through_columns') }}
 
     from fields
 )

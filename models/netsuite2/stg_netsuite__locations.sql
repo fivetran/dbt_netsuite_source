@@ -24,13 +24,6 @@ fields as (
                 staging_columns=get_netsuite2_locations_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('locations_pass_through_columns') %}
-        ,
-        {{ var('locations_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -46,12 +39,8 @@ final as (
         parent as parent_id,
         subsidiary as subsidiary_id
 
-        --The below script allows for pass through columns.
-        {% if var('locations_pass_through_columns') %}
-        ,
-        {{ var('locations_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your locations_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('locations_pass_through_columns') }}
 
     from fields
 )

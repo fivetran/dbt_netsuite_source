@@ -41,12 +41,8 @@ final as (
         averagerate as average_rate,
         historicalrate as historical_rate
 
-        --The below script allows for pass through columns.
-        {% if var('consolidated_exchange_rates_pass_through_columns') %}
-        ,
-        {{ var('consolidated_exchange_rates_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your consolidated_exchange_rates_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('consolidated_exchange_rates_pass_through_columns') }}
 
     from fields
 )

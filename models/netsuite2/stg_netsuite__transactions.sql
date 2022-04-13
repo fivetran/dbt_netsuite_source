@@ -24,13 +24,6 @@ fields as (
                 staging_columns=get_netsuite2_transactions_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('transactions_pass_through_columns') %}
-        ,
-        {{ var('transactions_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -55,12 +48,8 @@ final as (
         intercoadj = 'T' as is_intercompany_adjustment,
         isreversal = 'T' as is_reversal
 
-        --The below script allows for pass through columns.
-        {% if var('transactions_pass_through_columns') %}
-        ,
-        {{ var('transactions_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        --The below macro adds the fields defined within your transactions_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('transactions_pass_through_columns') }}
 
     from fields
 )
