@@ -1,3 +1,11 @@
+# dbt_netsuite_source v0.4.2
+
+## Features
+- Removed the `_fivetran_synced` column definition from the `get_customers_columns` macro, as this is consistent with other macros in the project. Previously, this introduced a bug that caused an ambiguous column name error when passing the `_fivetran_synced` column to the `customers_pass_through_columns` variable since the column is not actually listed in the `stg_netsuite__customers` model field list. Now, when passing the `_fivetran_synced` column to the pass through variable, the ambiguous column error no longer happens. ([#16](https://github.com/fivetran/dbt_netsuite_source/pull/16))
+
+## Contributors
+- [phillem15](https://github.com/phillem15) ([#16](https://github.com/fivetran/dbt_netsuite_source/pull/16))
+
 # dbt_netsuite_source v0.4.1
 
 ## Features
