@@ -31,7 +31,7 @@ A Fivetran NetSuite Analytics connector, with the following tables synced:
 - vendor_types
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [netsuite modeling package](https://github.com/fivetran/dbt_netsuite).  The staging models:
+This package contains staging models, designed to work simultaneously with our [netsuite transformation package](https://github.com/fivetran/dbt_netsuite).  The staging models:
 * Remove any rows that are soft-deleted
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`
