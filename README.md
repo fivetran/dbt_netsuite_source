@@ -1,7 +1,7 @@
 [![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 # Netsuite
 
-This package models Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/netsuite-suiteanalytics#schemainformation).
+This package models Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite). It supports both **Netsuite.com** and **Netsuite2.com** connections and uses data in the format described by [Netsuite ERD](https://docs.google.com/presentation/d/1sgWiu5PMdFdBZgWtQ-aWqrym3dNcZvOtBNKT0q084pI/edit#slide=id.g3cb9b617cd_0_1) and [Netsuite2 ERD](https://docs.google.com/presentation/d/1hugQMD6oExHPsgT_SlI4EtuBwUEXsGv_S4hsuFqsyS4/edit#slide=id.g10c49000264_0_3). To learn how to configure for Netsuite2.com, please see the Configuration section below.
 
 This package enriches your Fivetran data by doing the following:
 * Adds descriptions to tables and columns that are synced using Fivetran
@@ -11,6 +11,9 @@ This package enriches your Fivetran data by doing the following:
 
 ## Requirements 
 A Fivetran NetSuite Analytics connector, with the following tables synced:
+
+
+#### Netsuite.com
 - accounts
 - accounting_periods
 - accounting_books
@@ -29,6 +32,24 @@ A Fivetran NetSuite Analytics connector, with the following tables synced:
 - subsidiaries
 - vendors
 - vendor_types
+
+#### Netsuite2.com
+- account
+- accountingperiod
+- accountingbook
+- consolidatedexchangerate
+- currency
+- customer
+- classification
+- department
+- item
+- location
+- transactionaccountingline
+- transactionline
+- transaction
+- subsidiary
+- vendor
+
 ## Models
 
 This package contains staging models, designed to work simultaneously with our [netsuite transformation package](https://github.com/fivetran/dbt_netsuite).  The staging models:
@@ -62,6 +83,18 @@ vars:
     netsuite_database: your_database_name
     netsuite_schema: your_schema_name
 ```
+
+This package will use the Netsuite.com model by default. If you are using the Netsuite2.com connector, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+vars:
+  netsuite_source:
+    data_model: netsuite2
+```
+
 ### Passthrough Columns
 This package includes all source columns defined in the macros folder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
 
