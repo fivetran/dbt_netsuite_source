@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__items_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,10 +31,10 @@ final as (
     
     select
         _fivetran_synced,
-        id as item_id,
-        fullname as full_name,
-        itemtype as type_name,
-        description as sales_description,
+        id as item_id, --
+        fullname as name, --
+        itemtype as type_name, --
+        description as sales_description, --
         department as department_id,
         class as class_id,
         location as location_id,
@@ -51,6 +50,7 @@ final as (
         parent as parent_item_id
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

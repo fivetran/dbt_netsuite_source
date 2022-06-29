@@ -1,4 +1,4 @@
-{% macro get_netsuite2_entities_columns() %}
+{% macro get_entity_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_deleted", "datatype": "boolean"},
@@ -20,6 +20,7 @@
     {"name": "fax", "datatype": dbt_utils.type_string()},
     {"name": "firstname", "datatype": dbt_utils.type_string()},
     {"name": "genericresource", "datatype": dbt_utils.type_int()},
+    {"name": "group", "datatype": dbt_utils.type_int()},
     {"name": "homephone", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_int()},
     {"name": "isinactive", "datatype": dbt_utils.type_string()},
@@ -31,6 +32,7 @@
     {"name": "mobilephone", "datatype": dbt_utils.type_string()},
     {"name": "othername", "datatype": dbt_utils.type_int()},
     {"name": "parent", "datatype": dbt_utils.type_int()},
+    {"name": "partner", "datatype": dbt_utils.type_int()},
     {"name": "phone", "datatype": dbt_utils.type_string()},
     {"name": "project", "datatype": dbt_utils.type_int()},
     {"name": "projecttemplate", "datatype": dbt_utils.type_int()},

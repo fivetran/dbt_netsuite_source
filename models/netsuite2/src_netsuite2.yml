@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: netsuite
+  - name: netsuite2
     schema: "{{ var('netsuite_schema', 'netsuite') }}" # you will need to customize if your schema name is not netsuite
     database: "{{ var('netsuite_database', target.database) }}"
     loader: fivetran
@@ -554,5 +554,15 @@ sources:
             description: The vendor's company name.
           - name: datecreated
             description: The timestamp of the date the vendor was created.
+          - name: _fivetran_deleted
+            description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      - name: vendor_category
+        description: A table detailing all the various types of vendors.
+        columns:
+          - name: id
+            description: The unique identifier of the vendor type
+          - name: name
+            description: The name of the vendor type.
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.

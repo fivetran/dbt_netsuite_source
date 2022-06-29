@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__classes_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,11 +31,12 @@ final as (
     
     select
         _fivetran_synced,
-        id as class_id,
+        id as class_id, --
         externalid as class_external_id,
         name,
-        fullname as full_name,
-        isinactive = 'T' as is_inactive
+        fullname as full_name, --
+        isinactive = 'T' as is_inactive,
+        _fivetran_deleted
 
         --The below macro adds the fields defined within your classes_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('classes_pass_through_columns') }}

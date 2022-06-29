@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__accounting_periods_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,15 +31,15 @@ final as (
     
     select
         _fivetran_synced,
-        id as accounting_period_id,
-        parent as parent_id,
-        periodname as name,
-        startdate as starting_at,
-        enddate as ending_at,
-        closedondate as closed_at,
-        isquarter = 'T' as is_quarter,
-        isyear = 'T' as is_year,
-        isadjust = 'T' as is_adjustment,
+        id as accounting_period_id, --
+        parent as parent_id, 
+        periodname as name, --
+        startdate as starting_at, --
+        enddate as ending_at, --
+        closedondate as closed_at,--
+        isquarter = 'T' as is_quarter, --
+        isyear = 'T' as is_year, -- this is potentially similar to year_0?
+        isadjust = 'T' as is_adjustment, --
         isposting = 'T' as is_posting,
         closed = 'T' as is_closed,
         alllocked = 'T' as is_all_locked,
@@ -48,6 +47,7 @@ final as (
         aplocked = 'T' as is_ap_locked
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__subsidiaries_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,20 +31,21 @@ final as (
     
     select
         _fivetran_synced,
-        id as subsidiary_id,
-        name,
-        fullname as full_name,
+        id as subsidiary_id, --
+        name, --
+        fullname as full_name, --
         email as email_address,
         mainaddress as main_address_id,
         country,
         state,
-        fiscalcalendar as fiscal_calendar_id,
-        parent as parent_id
+        fiscalcalendar as fiscal_calendar_id, --
+        parent as parent_id --
 
         --The below macro adds the fields defined within your subsidiaries_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('subsidiaries_pass_through_columns') }}
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

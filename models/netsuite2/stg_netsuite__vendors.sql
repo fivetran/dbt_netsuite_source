@@ -31,14 +31,14 @@ final as (
     
     select
         _fivetran_synced,
-        id as vendor_id,
-        companyname as company_name,
-        datecreated as created_at,
-        _fivetran_deleted
+        id as vendor_id, --
+        companyname as company_name, -- 
+        datecreated as create_date_at --
+        -- _fivetran_deleted
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 
 from final
-where not coalesce(_fivetran_deleted, false)

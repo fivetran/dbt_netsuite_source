@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__currencies_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,11 +31,12 @@ final as (
     
     select
         _fivetran_synced,
-        id as currency_id,
-        name,
-        displaysymbol as symbol
+        id as currency_id, --
+        name, --
+        symbol --
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

@@ -31,16 +31,17 @@ final as (
     
     select
         _fivetran_synced,
-        id as transaction_line_id,
-        transaction as transaction_id,
+        id as transaction_line_id, --
+        transaction as transaction_id, --
         linesequencenumber as transaction_line_number,
-        memo,
+        memo, --
         entity as entity_id,
-        item as item_id,
-        class as class_id,
-        location as location_id,
-        subsidiary as subsidiary_id,
-        department as department_id,
+        item as item_id, --
+        class as class_id, --
+        location as location_id, --
+        subsidiary as subsidiary_id, --
+        department as department_id, --
+        posting as non_posting_line, --
         isclosed = 'T' as is_closed,
         isbillable = 'T' as is_billable,
         iscogs = 'T' as is_cogs,

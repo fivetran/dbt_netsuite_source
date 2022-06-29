@@ -1,10 +1,9 @@
-{{ config(enabled=var('data_model') == 'netsuite2') }}
+{{ config(enabled=var('data_model', 'netsuite1') == 'netsuite2') }}
 
 with base as (
 
     select * 
     from {{ ref('stg_netsuite__accounting_books_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,18 +31,19 @@ final as (
     
     select
         _fivetran_synced,
-        id as accounting_book_id,
+        id as accounting_book_id, -- this is in the respective netsuite1 staging model
         name as accounting_book_name,
         basebook as base_book_id,
         effectiveperiod as effective_period_id,
         isadjustmentonly = 'T' as is_adjustment_only,
         isconsolidated = 'T' as is_consolidated,
         contingentrevenuehandling as is_contingent_revenue_handling,
-        isprimary = 'T' as is_primary,
+        isprimary = 'T' as is_primary, --
         twosteprevenueallocation as is_two_step_revenue_allocation,
         unbilledreceivablegrouping as unbilled_receivable_grouping
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

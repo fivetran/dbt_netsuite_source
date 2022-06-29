@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__locations_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -32,9 +31,9 @@ final as (
     
     select
         _fivetran_synced,
-        id as location_id,
-        name,
-        fullname as full_name,
+        id as location_id, --
+        name, --
+        fullname as full_name, --
         mainaddress as main_address_id,
         parent as parent_id,
         subsidiary as subsidiary_id
@@ -43,6 +42,7 @@ final as (
         {{ fivetran_utils.fill_pass_through_columns('locations_pass_through_columns') }}
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

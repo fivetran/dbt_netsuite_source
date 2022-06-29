@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_netsuite__consolidated_exchange_rates_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -31,20 +30,21 @@ fields as (
 final as (
     
     select
-        id as consolidated_exchange_rate_id,
-        postingperiod as accounting_period_id,
+        id as consolidated_exchange_rate_id, -- 
+        postingperiod as accounting_period_id, --
         fromcurrency as from_currency_id,
-        fromsubsidiary as from_subsidiary_id,
+        fromsubsidiary as from_subsidiary_id, --
         tocurrency as to_currency_id,
-        tosubsidiary as to_subsidiary_id,
-        currentrate as current_rate,
-        averagerate as average_rate,
-        historicalrate as historical_rate
+        tosubsidiary as to_subsidiary_id, --
+        currentrate as current_rate, -- 
+        averagerate as average_rate, --
+        historicalrate as historical_rate --
 
         --The below macro adds the fields defined within your consolidated_exchange_rates_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('consolidated_exchange_rates_pass_through_columns') }}
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * 

@@ -31,13 +31,13 @@ final as (
     
     select
         _fivetran_synced,
-        id as department_id,
+        id as department_id, --
         parent as parent_id,
-        name as department_name,
-        fullname as department_full_name,
+        name, --
+        fullname as full_name, --
         subsidiary as subsidiary_id,
         isinactive as is_inactive,
-        _fivetran_deleted
+        _fivetran_deleted --
 
         --The below macro adds the fields defined within your departments_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('departments_pass_through_columns') }}
