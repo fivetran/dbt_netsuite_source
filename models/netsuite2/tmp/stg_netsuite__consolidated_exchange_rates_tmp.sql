@@ -1,4 +1,4 @@
-{{ config(enabled=var('data_model') == 'netsuite2') }}
+{{ config(enabled=var('data_model', 'netsuite') == 'netsuite2') }}
 
 select *
 from {{ var('consolidated_exchange_rates_netsuite2') }}

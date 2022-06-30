@@ -6,6 +6,8 @@ sources:
     database: "{{ var('netsuite_database', target.database) }}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
+    config:
+      enabled: "{{ var('data_model', 'netsuite') == 'netsuite2' }}"
     freshness:
       warn_after: { count: 24, period: hour }
       error_after: { count: 48, period: hour }
