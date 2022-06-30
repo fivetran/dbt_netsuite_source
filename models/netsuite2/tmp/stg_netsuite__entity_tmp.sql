@@ -1,2 +1,4 @@
+{{ config(enabled=var('data_model') == 'netsuite2') }}
+
 select * 
-from {{ var('entity') }}
+from {{ var('entity_netsuite2') }}

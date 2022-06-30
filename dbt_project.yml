@@ -43,9 +43,9 @@ vars:
     currencies_netsuite2: "{{ source('netsuite2','currency') }}"
     customers_netsuite2: "{{ source('netsuite2','customer') }}"
     departments_netsuite2: "{{ source('netsuite2','department') }}"
-    entities_netsuite2: "{{ source('netsuite2','entity') }}"
+    entity_netsuite2: "{{ source('netsuite2','entity') }}"
     items_netsuite2: "{{ source('netsuite2','item') }}"
-    jobs_netsuite2: "{{ source('netsuite2','job') }}"
+    job_netsuite2: "{{ source('netsuite2','job') }}"
     locations_netsuite2: "{{ source('netsuite2','location') }}"
     subsidiaries_netsuite2: "{{ source('netsuite2','subsidiary') }}"
     transaction_accounting_lines_netsuite2: "{{ source('netsuite2','transactionaccountingline') }}"
@@ -53,6 +53,13 @@ vars:
     transactions_netsuite2: "{{ source('netsuite2','transaction') }}"
     vendors_netsuite2: "{{ source('netsuite2','vendor') }}"
     vendor_category_netsuite2: "{{ source('netsuite2', 'vendorcategory') }}"
+
+    # might wanna add *_netsuite2 to be in line with the above
+    accountingbooksubsidiaries: "{{ source('netsuite2', 'accountingbooksubsidiaries') }}"
+    accountingperiodfiscalcalendars: "{{ source('netsuite2', 'accountingperiodfiscalcalendars') }}"
+    accounttype: "{{ source('netsuite2', 'accounttype') }}"
+    entityaddress: "{{ source('netsuite2', 'entityaddress') }}"
+    locationmainaddress: "{{ source('netsuite2', 'locationmainaddress') }}"
 
     accounts_pass_through_columns: []
     classes_pass_through_columns: []

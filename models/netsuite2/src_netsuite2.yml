@@ -557,7 +557,7 @@ sources:
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
-      - name: vendor_category
+      - name: vendorcategory
         description: A table detailing all the various types of vendors.
         columns:
           - name: id
@@ -566,3 +566,19 @@ sources:
             description: The name of the vendor type.
           - name: _fivetran_deleted
             description: Boolean created by Fivetran to indicate whether the record has been deleted.
+
+      
+      - name: entityaddress
+        description: TODO
+      
+      - name: locationmainaddress
+        description: TODO
+
+      - name: accounttype
+        description: TODO
+      
+      - name: accountingperiodfiscalcalendars
+        description: TODO
+      
+      - name: accountingbooksubsidiaries
+        description: TODO
