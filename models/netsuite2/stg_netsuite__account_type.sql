@@ -1,3 +1,4 @@
+{{ config(enabled=var('data_model', 'netsuite') == 'netsuite2') }}
 
 with base as (
 
@@ -24,8 +25,16 @@ final as (
         _fivetran_synced,
         id as account_type_id, -- short name
         balancesheet = 'T' as is_balancesheet,
-        left = 'T' as is_leftside,
-        longname as type_name,
+        {%- if target.type == 'bigquery' -%}
+        `left` 
+        {%- elif target.type == 'snowflake' -%}
+        "LEFT"
+        {%- elif target.type == 'redshift' -%}
+        "left"
+        {%- else -%}
+        left
+        {%- endif -%} = 'T' as is_leftside,
+        longname as type_name
 
     from fields
 )

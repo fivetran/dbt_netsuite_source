@@ -8,8 +8,13 @@ models:
   netsuite_source:
     +materialized: table
     +schema: stg_netsuite
-    tmp:
-      +materialized: view
+
+    netsuite:
+      tmp:
+        +materialized: view
+    netsuite2:
+      tmp:
+        +materialized: view
 
 vars:
   netsuite_source:

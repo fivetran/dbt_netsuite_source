@@ -1,4 +1,4 @@
-{{ config(enabled=var('data_model') == 'netsuite2') }}
+{{ config(enabled=var('data_model', 'netsuite') == 'netsuite2') }}
 
 with base as (
 
@@ -41,7 +41,6 @@ final as (
         location as location_id, --
         subsidiary as subsidiary_id, --
         department as department_id, --
-        posting as non_posting_line, --
         isclosed = 'T' as is_closed,
         isbillable = 'T' as is_billable,
         iscogs = 'T' as is_cogs,

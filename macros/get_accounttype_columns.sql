@@ -11,7 +11,7 @@
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "includeinrevaldefault", "datatype": dbt_utils.type_string()},
     {"name": "internalid", "datatype": dbt_utils.type_int()},
-    {"name": "left", "datatype": dbt_utils.type_string()},
+    {"name": "left", "datatype": dbt_utils.type_string(), "quote": True},
     {"name": "longname", "datatype": dbt_utils.type_string()},
     {"name": "seqnum", "datatype": dbt_utils.type_int()},
     {"name": "usercanchangerevaloption", "datatype": dbt_utils.type_string()}

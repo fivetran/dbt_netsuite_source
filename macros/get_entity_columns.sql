@@ -20,7 +20,6 @@
     {"name": "fax", "datatype": dbt_utils.type_string()},
     {"name": "firstname", "datatype": dbt_utils.type_string()},
     {"name": "genericresource", "datatype": dbt_utils.type_int()},
-    {"name": "group", "datatype": dbt_utils.type_int()},
     {"name": "homephone", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_int()},
     {"name": "isinactive", "datatype": dbt_utils.type_string()},
