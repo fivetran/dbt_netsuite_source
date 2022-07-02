@@ -35,7 +35,7 @@ final as (
         externalid as account_external_id,
         parent as parent_id, --
         acctnumber as account_number, --
-        accttype as type_name, --
+        accttype as account_type_id, -- need this to get type_name
         fullname as name, --
         description as account_description,
         deferralacct as deferral_account_id,
