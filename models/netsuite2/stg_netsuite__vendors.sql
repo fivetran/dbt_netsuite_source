@@ -33,7 +33,8 @@ final as (
         _fivetran_synced,
         id as vendor_id, --
         companyname as company_name, -- 
-        datecreated as create_date_at --
+        datecreated as create_date_at, --
+        category as vendor_category_id
         -- _fivetran_deleted
 
     from fields
