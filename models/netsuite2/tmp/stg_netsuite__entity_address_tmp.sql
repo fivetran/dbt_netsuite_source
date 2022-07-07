@@ -1,4 +1,4 @@
 {{ config(enabled=var('data_model', 'netsuite') == 'netsuite2') }}
 
 select * 
-from {{ var('entity_netsuite2') }}
+from {{ var('entity_address') }}

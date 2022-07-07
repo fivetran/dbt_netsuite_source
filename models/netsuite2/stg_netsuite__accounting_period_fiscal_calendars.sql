@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_netsuite__accountingperiodfiscalcalendars_tmp') }}
+    from {{ ref('stg_netsuite__accounting_period_fiscal_calendars_tmp') }}
 ),
 
 fields as (
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_netsuite__accountingperiodfiscalcalendars_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_netsuite__accounting_period_fiscal_calendars_tmp')),
                 staging_columns=get_accountingperiodfiscalcalendars_columns()
             )
         }}

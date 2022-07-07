@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_netsuite__vendorcategory_tmp') }}
+    from {{ ref('stg_netsuite__vendor_categories_tmp') }}
 ),
 
 fields as (
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_netsuite__vendorcategory_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_netsuite__vendor_categories_tmp')),
                 staging_columns=get_vendorcategory_columns()
             )
         }}
