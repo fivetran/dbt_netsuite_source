@@ -35,7 +35,7 @@ final as (
         entityid as entity_id, -- not in netsuite1 but need to bring this in to join with geo data
         externalid as customer_external_id, --
         parent as parent_id,
-        isperson as is_person,
+        isperson = 'T' as is_person,
         companyname as company_name, --
         firstname as first_name,
         lastname as last_name,

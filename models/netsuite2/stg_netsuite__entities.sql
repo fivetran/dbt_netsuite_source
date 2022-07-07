@@ -35,7 +35,7 @@ final as (
         parent as parent_id,
         entitytitle as entity_name,
         type as entity_type,
-        isperson as is_person,
+        isperson = 'T' as is_person,
         contact as contact_id,
         customer as customer_id,
         employee as employee_id,

@@ -36,7 +36,7 @@ final as (
         name, --
         fullname as full_name, --
         subsidiary as subsidiary_id,
-        isinactive as is_inactive,
+        isinactive = 'T' as is_inactive,
         _fivetran_deleted --
 
         --The below macro adds the fields defined within your departments_pass_through_columns variable into the staging model
