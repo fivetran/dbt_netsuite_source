@@ -1,4 +1,4 @@
 {{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
 
 select * 
-from {{ var('subsidiaries') }}
+from {{ var('netsuite_subsidiaries') }}

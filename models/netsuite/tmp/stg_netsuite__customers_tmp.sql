@@ -1,4 +1,4 @@
 {{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
 
 select * 
-from {{ var('customers') }}
+from {{ var('netsuite_customers') }}

@@ -2,7 +2,7 @@ config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 name: 'netsuite_source'
-version: '0.4.2'
+version: '0.5.0'
 
 models:
   netsuite_source:
@@ -18,53 +18,50 @@ models:
 
 vars:
   netsuite_source:
-    data_model: netsuite2
 
-    # Netsuite.com
-    accounting_books: "{{ source('netsuite','accounting_books') }}"
-    accounting_periods: "{{ source('netsuite','accounting_periods') }}"
-    accounts: "{{ source('netsuite','accounts') }}"
-    classes: "{{ source('netsuite','classes') }}"
-    consolidated_exchange_rates: "{{ source('netsuite','consolidated_exchange_rates') }}"
-    currencies: "{{ source('netsuite','currencies') }}"
-    customers: "{{ source('netsuite','customers') }}"
-    departments: "{{ source('netsuite','departments') }}"
-    expense_accounts: "{{ source('netsuite','expense_accounts') }}"
-    income_accounts: "{{ source('netsuite','income_accounts') }}"
-    items: "{{ source('netsuite','items') }}"
-    locations: "{{ source('netsuite','locations') }}"
-    subsidiaries: "{{ source('netsuite','subsidiaries') }}"
-    transaction_lines: "{{ source('netsuite','transaction_lines') }}"
-    transactions: "{{ source('netsuite','transactions') }}"
-    vendor_types: "{{ source('netsuite','vendor_types') }}"
-    vendors: "{{ source('netsuite','vendors') }}"
+    # Netsuite
+    netsuite_accounting_books: "{{ source('netsuite','accounting_books') }}"
+    netsuite_accounting_periods: "{{ source('netsuite','accounting_periods') }}"
+    netsuite_accounts: "{{ source('netsuite','accounts') }}"
+    netsuite_classes: "{{ source('netsuite','classes') }}"
+    netsuite_consolidated_exchange_rates: "{{ source('netsuite','consolidated_exchange_rates') }}"
+    netsuite_currencies: "{{ source('netsuite','currencies') }}"
+    netsuite_customers: "{{ source('netsuite','customers') }}"
+    netsuite_departments: "{{ source('netsuite','departments') }}"
+    netsuite_expense_accounts: "{{ source('netsuite','expense_accounts') }}"
+    netsuite_income_accounts: "{{ source('netsuite','income_accounts') }}"
+    netsuite_items: "{{ source('netsuite','items') }}"
+    netsuite_locations: "{{ source('netsuite','locations') }}"
+    netsuite_subsidiaries: "{{ source('netsuite','subsidiaries') }}"
+    netsuite_transaction_lines: "{{ source('netsuite','transaction_lines') }}"
+    netsuite_transactions: "{{ source('netsuite','transactions') }}"
+    netsuite_vendor_types: "{{ source('netsuite','vendor_types') }}"
+    netsuite_vendors: "{{ source('netsuite','vendors') }}"
 
-    # Netsuite2.com
-    accounting_books_netsuite2: "{{ source('netsuite2','accountingbook') }}"
-    accounting_periods_netsuite2: "{{ source('netsuite2','accountingperiod') }}"
-    accounts_netsuite2: "{{ source('netsuite2','account') }}"
-    classes_netsuite2: "{{ source('netsuite2','classification') }}"
-    consolidated_exchange_rates_netsuite2: "{{ source('netsuite2','consolidatedexchangerate') }}"
-    currencies_netsuite2: "{{ source('netsuite2','currency') }}"
-    customers_netsuite2: "{{ source('netsuite2','customer') }}"
-    departments_netsuite2: "{{ source('netsuite2','department') }}"
-    entities_netsuite2: "{{ source('netsuite2','entity') }}"
-    items_netsuite2: "{{ source('netsuite2','item') }}"
-    jobs_netsuite2: "{{ source('netsuite2','job') }}"
-    locations_netsuite2: "{{ source('netsuite2','location') }}"
-    subsidiaries_netsuite2: "{{ source('netsuite2','subsidiary') }}"
-    transaction_accounting_lines_netsuite2: "{{ source('netsuite2','transactionaccountingline') }}"
-    transaction_lines_netsuite2: "{{ source('netsuite2','transactionline') }}"
-    transactions_netsuite2: "{{ source('netsuite2','transaction') }}"
-    vendors_netsuite2: "{{ source('netsuite2','vendor') }}"
-    vendor_categories_netsuite2: "{{ source('netsuite2', 'vendorcategory') }}"
-
-    # might wanna add *_netsuite2 to be in line with the above
-    accounting_book_subsidiaries: "{{ source('netsuite2', 'accountingbooksubsidiaries') }}"
-    accounting_period_fiscal_calendars: "{{ source('netsuite2', 'accountingperiodfiscalcalendars') }}"
-    account_types: "{{ source('netsuite2', 'accounttype') }}"
-    entity_address: "{{ source('netsuite2', 'entityaddress') }}"
-    location_main_address: "{{ source('netsuite2', 'locationmainaddress') }}"
+    # Netsuite2
+    netsuite2_accounting_books: "{{ source('netsuite2','accountingbook') }}"
+    netsuite2_accounting_periods: "{{ source('netsuite2','accountingperiod') }}"
+    netsuite2_accounts: "{{ source('netsuite2','account') }}"
+    netsuite2_classes: "{{ source('netsuite2','classification') }}"
+    netsuite2_consolidated_exchange_rates: "{{ source('netsuite2','consolidatedexchangerate') }}"
+    netsuite2_currencies: "{{ source('netsuite2','currency') }}"
+    netsuite2_customers: "{{ source('netsuite2','customer') }}"
+    netsuite2_departments: "{{ source('netsuite2','department') }}"
+    netsuite2_entities: "{{ source('netsuite2','entity') }}"
+    netsuite2_items: "{{ source('netsuite2','item') }}"
+    netsuite2_jobs: "{{ source('netsuite2','job') }}"
+    netsuite2_locations: "{{ source('netsuite2','location') }}"
+    netsuite2_subsidiaries: "{{ source('netsuite2','subsidiary') }}"
+    netsuite2_transaction_accounting_lines: "{{ source('netsuite2','transactionaccountingline') }}"
+    netsuite2_transaction_lines: "{{ source('netsuite2','transactionline') }}"
+    netsuite2_transactions: "{{ source('netsuite2','transaction') }}"
+    netsuite2_vendors: "{{ source('netsuite2','vendor') }}"
+    netsuite2_vendor_categories: "{{ source('netsuite2', 'vendorcategory') }}"
+    netsuite2_accounting_book_subsidiaries: "{{ source('netsuite2', 'accountingbooksubsidiaries') }}"
+    netsuite2_accounting_period_fiscal_calendars: "{{ source('netsuite2', 'accountingperiodfiscalcalendars') }}"
+    netsuite2_account_types: "{{ source('netsuite2', 'accounttype') }}"
+    netsuite2_entity_address: "{{ source('netsuite2', 'entityaddress') }}"
+    netsuite2_location_main_address: "{{ source('netsuite2', 'locationmainaddress') }}"
 
     accounts_pass_through_columns: []
     classes_pass_through_columns: []

@@ -1,4 +1,4 @@
 {{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
 
 select * 
-from {{ var('expense_accounts') }}
+from {{ var('netsuite_expense_accounts') }}

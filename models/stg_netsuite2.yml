@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: stg_netsuite2__account_types
+    description: "{{ doc('account_types_table') }}"
+
+  - name: stg_netsuite2__accounting_book_subsidiaries
+    description: "{{ doc('accounting_book_subsidiaries_table') }}"
+
+  - name: stg_netsuite2__accounting_books
+    description: "{{ doc('accounting_books_table') }}"
+
+  - name: stg_netsuite2__accounting_period_fiscal_calendars
+    description: "{{ doc('accounting_period_fiscal_calendars_table') }}"
+
+  - name: stg_netsuite2__accounting_periods
+    description: "{{ doc('account_periods_table') }}"
+
+  - name: stg_netsuite2__accounts
+    description: "{{ doc('accounts_table') }}"
+
+  - name: stg_netsuite2__classes
+    description: "{{ doc('classes_table') }}"
+
+  - name: stg_netsuite2__consolidated_exchange_rates
+    description: "{{ doc('consolidated_exchange_rates_table') }}"
+
+  - name: stg_netsuite2__currencies
+    description: "{{ doc('currencies_table') }}"
+
+  - name: stg_netsuite2__customers
+    description: "{{ doc('customers_table') }}"
+
+  - name: stg_netsuite2__departments
+    description: "{{ doc('departments_table') }}"
+
+  - name: stg_netsuite2__entities
+    description: "{{ doc('entities_table') }}"
+    columns:
+      - name: entity_id
+        description: The unique identifier of the entity.
+        tests:
+          - unique
+          - not_null
+      - name: contact_id
+        description: The unique identifier of the contact associated with the entity.
+      - name: customer_id
+        description: The unique identifier of the customer associated with the entity.
+      - name: employee_id
+        description: The unique identifier of the employee associated with the entity.
+      - name: entity_name
+        description: The entity name.
+      - name: is_person
+        description: Value indicating whether the entity is a person (either yes or no).
+      - name: parent_id
+        description: The unique identifier of the parent entity.
+      - name: project_id
+        description: The unique identifier of the project (job) associated with the entity.
+      - name: entity_type
+        description: The entity type (Contact, CustJob, Job, etc).
+      - name: vendor_id
+        description: The unique identifier of the vendor associated with the entity.
+
+  - name: stg_netsuite2__entity_address
+    description: "{{ doc('entity_address_table') }}"
+
+  - name: stg_netsuite2__items
+    description: "{{ doc('items_table') }}"
+
+  - name: stg_netsuite2__jobs
+    description: "{{ doc('jobs_table') }}"
+    columns:
+      - name: job_id
+        description: The unique identifier of the job.
+        tests:
+          - unique
+          - not_null
+      - name: job_external_id
+        description: The unique identifier of the external job reference.
+      - name: customer_id
+        description: The unique identifier of the customer associated with the job.
+
+  - name: stg_netsuite2__location_main_address
+    description: "{{ doc('location_main_address_table') }}"
+
+  - name: stg_netsuite2__locations
+    description: "{{ doc('locations_table') }}"
+
+  - name: stg_netsuite2__subsidiaries
+    description: "{{ doc('subsidiaries_table') }}"
+
+  - name: stg_netsuite2__transaction_accounting_lines
+    description: "{{ doc('transaction_accounting_lines_table') }}"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - transaction_id
+            - transaction_line_id
+    columns:
+      - name: transaction_id
+        description: The transaction id which the transaction line is associated with.
+        tests:
+          - not_null
+      - name: transaction_line_id
+        description: The unique identifier of the transaction line.
+        tests:
+          - not_null
+      - name: amount
+        description: The amount of the transaction line.
+      - name: net_amount
+        description: The net amount of the transaction line.
+
+  - name: stg_netsuite2__transaction_lines
+    description: "{{ doc('transaction_lines_table') }}"
+
+  - name: stg_netsuite2__transactions
+    description: "{{ doc('transaction_table') }}"
+
+  - name: stg_netsuite2__vendor_categories
+    description: "{{ doc('vendor_categories_table') }}"
+
+  - name: stg_netsuite2__vendors
+    description: "{{ doc('vendor_table') }}"

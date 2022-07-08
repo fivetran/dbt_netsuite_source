@@ -1,4 +1,4 @@
 {{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
 
 select * 
-from {{ var('accounting_periods') }}
+from {{ var('netsuite_accounting_periods') }}
