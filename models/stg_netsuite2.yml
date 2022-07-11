@@ -66,7 +66,7 @@ models:
       - name: unbilled_receivable_grouping
         description: Boolean indicating if the accounting book is an unbilled receivable grouping.
 
-  - name: stg_netsuite2__accounting_period_fiscal_calendars
+  - name: stg_netsuite2__accounting_period_fiscal_cal
     description: "{{ doc('accounting_period_fiscal_calendars_table') }}"
     columns:
       - name: _fivetran_id
@@ -306,12 +306,14 @@ models:
         description: Value indicating whether the entity is a person (either yes or no).
       - name: parent_id
         description: The unique identifier of the parent entity.
-      - name: project_id
+      - name: job_id
         description: The unique identifier of the project (job) associated with the entity.
       - name: entity_type
         description: The entity type (Contact, CustJob, Job, etc).
       - name: vendor_id
         description: Th "{{ doc('vendor_id') }}"e unique identifier of the vendor associated with the entity.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_netsuite2__entity_address
     description: "{{ doc('entity_address_table') }}"
@@ -511,6 +513,10 @@ models:
         description: Total amount paid.
       - name: unpaid_amount
         description: Total amount unpaid.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: _fivetran_deleted
+        description:  "{{ doc('_fivetran_deleted') }}"
 
   - name: stg_netsuite2__transaction_lines
     description: "{{ doc('transaction_lines_table') }}"

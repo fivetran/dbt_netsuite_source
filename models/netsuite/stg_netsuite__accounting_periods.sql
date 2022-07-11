@@ -1,4 +1,4 @@
-{{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
+{{ config(enabled=var('netsuite_data_model', 'netsuite') == 'netsuite') }}
 
 with base as (
 
@@ -40,7 +40,7 @@ final as (
         quarter,
         year_0,
         is_adjustment,
-        closed,
+        closed as is_closed,
         _fivetran_deleted
 
     from fields

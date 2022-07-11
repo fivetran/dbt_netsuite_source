@@ -12,7 +12,7 @@ vars:
       transform_sql: "cast(field_alias as string)" # Optional: If you wish to define the datatype or apply a light transformation.
 ```
 ## Features
-- Addition of the `data_model` variable. This variable may either be `netsuite` (the original Netsuite connector endpoint) or `netsuite2` (the new Netsuite2 connector endpoint).
+- Addition of the `netsuite_data_model` variable. This variable may either be `netsuite` (the original Netsuite connector endpoint) or `netsuite2` (the new Netsuite2 connector endpoint).
   - The variable is set to `netsuite` by default. If you wish to run the data models for the Netsuite2 connector, you may simply change the variable within your root dbt_project.yml to `netsuite2`.
 # dbt_netsuite_source v0.4.2
 ## Features

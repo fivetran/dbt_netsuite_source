@@ -1,4 +1,4 @@
-{{ config(enabled=var('data_model', 'netsuite') == 'netsuite2') }}
+{{ config(enabled=var('netsuite_data_model', 'netsuite') == var('netsuite2_variable_name','netsuite2')) }}
 
 with base as (
 
@@ -29,8 +29,8 @@ final as (
         `left` 
         {%- elif target.type == 'snowflake' -%}
         "LEFT"
-        {%- elif target.type == 'redshift' -%}
-        "left"
+        {%- elif target.type in ('redshift', 'postgres') -%}
+        "left" 
         {%- else -%}
         left
         {%- endif -%} = 'T' as is_leftside,

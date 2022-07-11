@@ -61,10 +61,6 @@ models:
         description: The name of the type of the account (ie. Bank, Equity, Income, Expense).
       - name: account_number
         description: The account number associated with the account.
-      - name: account_type
-        description: The type of the account.
-      - name: account_description
-        description: The description of the account.
       - name: general_rate_type
         description: The general rate type of the account (Current, Historical, Average).
       - name: is_leftside
@@ -82,8 +78,6 @@ models:
         tests:
           - unique
           - not_null
-      - name: class_external_id
-        description: The unique identifier of the external class reference.
       - name: full_name
         description: The full name of the class.
       - name: _fivetran_deleted

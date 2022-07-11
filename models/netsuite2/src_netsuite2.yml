@@ -7,14 +7,14 @@ sources:
     loader: fivetran
     loaded_at_field: _fivetran_synced
     config:
-      enabled: "{{ var('data_model', 'netsuite') == 'netsuite2' }}"
+      enabled: "{{ var('netsuite_data_model', 'netsuite') == var('netsuite2_variable_name','netsuite2') }}"
     freshness:
       warn_after: { count: 24, period: hour }
       error_after: { count: 48, period: hour }
 
     tables:
       - name: account_type
-        identifier: "{{ var('netsuite_account_type_identifier', 'accounttype') }}"
+        identifier: "{{ var('netsuite2_account_type_identifier', 'accounttype') }}"
         description: "{{ doc('account_types_table') }}"
         columns:
           - name: _fivetran_deleted
@@ -31,7 +31,7 @@ sources:
             description: The name of the account type.
 
       - name: accounting_book_subsidiaries
-        identifier: "{{ var('netsuite_accounting_book_subsidiaries_identifier', 'accountingbooksubsidiaries') }}"
+        identifier: "{{ var('netsuite2_accounting_book_subsidiaries_identifier', 'accountingbooksubsidiaries') }}"
         description: "{{ doc('accounting_book_subsidiaries_table') }}"
         columns:
           - name: _fivetran_id
@@ -46,7 +46,7 @@ sources:
             description: "{{ doc('subsidiary_id') }}"
 
       - name: accounting_book
-        identifier: "{{ var('netsuite_accounting_book_identifier', 'accountingbook') }}"
+        identifier: "{{ var('netsuite2_accounting_book_identifier', 'accountingbook') }}"
         description: "{{ doc('accounting_books_table') }}"
         columns:
           - name: _fivetran_synced
@@ -73,7 +73,7 @@ sources:
             description: Boolean indicating if the accounting book is an unbilled receivable grouping.
 
       - name: accounting_period_fiscal_calendars
-        identifier: "{{ var('netsuite_accounting_period_fiscal_calendars_identifier', 'accountingperiodfiscalcalendars') }}"
+        identifier: "{{ var('netsuite2_accounting_period_fiscal_calendars_identifier', 'accountingperiodfiscalcalendars') }}"
         description: "{{ doc('accounting_period_fiscal_calendars_table') }}"
         columns:
           - name: _fivetran_id
@@ -88,7 +88,7 @@ sources:
             description: Reference to the parent fiscal calendar accounting period.
 
       - name: accounting_period
-        identifier: "{{ var('netsuite_accounting_period_identifier', 'accountingperiod') }}"
+        identifier: "{{ var('netsuite2_accounting_period_identifier', 'accountingperiod') }}"
         description: "{{ doc('account_periods_table') }}"
         columns:
           - name: _fivetran_synced
@@ -123,7 +123,7 @@ sources:
             description: Boolean indicating if the ap accounting period is locked.
 
       - name: account
-        identifier: "{{ var('netsuite_account_identifier', 'account') }}"
+        identifier: "{{ var('netsuite2_account_identifier', 'account') }}"
         description: "{{ doc('accounts_table') }}"
         columns:
           - name: _fivetran_synced
@@ -166,7 +166,7 @@ sources:
             description: "{{ doc('_fivetran_deleted') }}"
 
       - name: classification
-        identifier: "{{ var('netsuite_classification_identifier', 'classification') }}"
+        identifier: "{{ var('netsuite2_classification_identifier', 'classification') }}"
         description: "{{ doc('classes_table') }}"
         columns:
           - name: _fivetran_synced
@@ -185,7 +185,7 @@ sources:
             description: "{{ doc('_fivetran_deleted') }}"
 
       - name: consolidated_exchange_rate
-        identifier: "{{ var('netsuite_consolidated_exchange_rate_identifier', 'consolidatedexchangerate') }}"
+        identifier: "{{ var('netsuite2_consolidated_exchange_rate_identifier', 'consolidatedexchangerate') }}"
         description: "{{ doc('consolidated_exchange_rates_table') }}"
         columns:
           - name: id
@@ -208,7 +208,7 @@ sources:
             description: The historical rate of the exchange rate.
 
       - name: currency
-        identifier: "{{ var('netsuite_currency_identifier', 'currency') }}"
+        identifier: "{{ var('netsuite2_currency_identifier', 'currency') }}"
         description: "{{ doc('currencies_table') }}"
         columns:
           - name: _fivetran_synced
@@ -221,7 +221,7 @@ sources:
             description: Currency symbol.
 
       - name: customer
-        identifier: "{{ var('netsuite_customer_identifier', 'customer') }}"
+        identifier: "{{ var('netsuite2_customer_identifier', 'customer') }}"
         description: "{{ doc('customers_table') }}"
         columns:
           - name: id
@@ -256,7 +256,7 @@ sources:
             description: Timestamp of when the first order was created.
 
       - name: department
-        identifier: "{{ var('netsuite_department_identifier', 'department') }}"
+        identifier: "{{ var('netsuite2_department_identifier', 'department') }}"
         description: "{{ doc('departments_table') }}"
         columns:
           - name: _fivetran_synced
@@ -277,7 +277,7 @@ sources:
             description: "{{ doc('_fivetran_deleted') }}"
 
       - name: entity
-        identifier: "{{ var('netsuite_entity_identifier', 'entity') }}"
+        identifier: "{{ var('netsuite2_entity_identifier', 'entity') }}"
         description: "{{ doc('entities_table') }}"
         columns:
           - name: id
@@ -302,7 +302,7 @@ sources:
             description: Th "{{ doc('vendor_id') }}"e unique identifier of the vendor associated with the entity.
 
       - name: entity_address
-        identifier: "{{ var('netsuite_entity_address_identifier', 'entityaddress') }}"
+        identifier: "{{ var('netsuite2_entity_address_identifier', 'entityaddress') }}"
         description: "{{ doc('entity_address_table') }}"
         columns:
           - name: _fivetran_synced
@@ -329,7 +329,7 @@ sources:
             description: "{{ doc('zipcode') }}" 
 
       - name: item
-        identifier: "{{ var('netsuite_item_identifier', 'item') }}"
+        identifier: "{{ var('netsuite2_item_identifier', 'item') }}"
         description: "{{ doc('items_table') }}"
         columns:
           - name: _fivetran_synced
@@ -370,7 +370,7 @@ sources:
             description: Reference to the parent item.
 
       - name: job
-        identifier: "{{ var('netsuite_job_identifier', 'job') }}"
+        identifier: "{{ var('netsuite2_job_identifier', 'job') }}"
         description: "{{ doc('jobs_table') }}"
         columns:
           - name: id
@@ -389,7 +389,7 @@ sources:
             description: Reference to the parent job.
 
       - name: location_main_address
-        identifier: "{{ var('netsuite_location_main_address_identifier', 'locationmainaddress') }}"
+        identifier: "{{ var('netsuite2_location_main_address_identifier', 'locationmainaddress') }}"
         description: "{{ doc('location_main_address_table') }}"
         columns:
           - name: _fivetran_synced
@@ -416,7 +416,7 @@ sources:
             description: "{{ doc('zipcode') }}" 
 
       - name: location
-        identifier: "{{ var('netsuite_location_identifier', 'location') }}"
+        identifier: "{{ var('netsuite2_location_identifier', 'location') }}"
         description: "{{ doc('locations_table') }}"
         columns:
           - name: _fivetran_synced
@@ -435,7 +435,7 @@ sources:
             description: "{{ doc('subsidiary_id') }}"
 
       - name: subsidiary
-        identifier: "{{ var('netsuite_subsidiary_identifier', 'subsidiary') }}"
+        identifier: "{{ var('netsuite2_subsidiary_identifier', 'subsidiary') }}"
         description: "{{ doc('subsidiaries_table') }}"
         columns:
           - name: _fivetran_synced
@@ -460,7 +460,7 @@ sources:
             description: Reference to the parent subsidiary.
 
       - name: transaction_accounting_line
-        identifier: "{{ var('netsuite_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
+        identifier: "{{ var('netsuite2_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
         description: "{{ doc('transaction_accounting_lines_table') }}"
         columns:
           - name: transaction
@@ -487,7 +487,7 @@ sources:
             description: Total amount unpaid.
 
       - name: transaction_line
-        identifier: "{{ var('netsuite_transaction_line_identifier', 'transactionline') }}"
+        identifier: "{{ var('netsuite2_transaction_line_identifier', 'transactionline') }}"
         description: "{{ doc('transaction_lines_table') }}"
         columns:
           - name: _fivetran_synced
@@ -528,7 +528,7 @@ sources:
             description: Boolean indicating if the transaction line is a tax line.
 
       - name: transaction
-        identifier: "{{ var('netsuite_transaction_identifier', 'transaction') }}"
+        identifier: "{{ var('netsuite2_transaction_identifier', 'transaction') }}"
         description: "{{ doc('transaction_table') }}"
         columns:
           - name: _fivetran_synced
@@ -565,7 +565,7 @@ sources:
             description: Boolean indicating if the transaction is a reversal entry.
 
       - name: vendor_category
-        identifier: "{{ var('netsuite_vendor_category_identifier', 'vendorcategory') }}"
+        identifier: "{{ var('netsuite2_vendor_category_identifier', 'vendorcategory') }}"
         description: "{{ doc('vendor_categories_table') }}"
         columns:
           - name: id
@@ -576,7 +576,7 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
 
       - name: vendor
-        identifier: "{{ var('netsuite_vendor_identifier', 'vendor') }}"
+        identifier: "{{ var('netsuite2_vendor_identifier', 'vendor') }}"
         description: "{{ doc('vendor_table') }}"
         columns:
           - name: _fivetran_synced
