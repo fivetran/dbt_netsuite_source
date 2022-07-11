@@ -65,8 +65,8 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - vendor
 - vendorcategory
 
-- A **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
-
+### Database Compatibility
+This package is compatible with either a **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
 ## Step 2: Install the package
 Include the following netsuite_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
