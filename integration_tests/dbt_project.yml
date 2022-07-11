@@ -28,6 +28,30 @@ vars:
     transactions: "{{ ref('transactions_data') }}"
     vendor_types: "{{ ref('vendor_types_data') }}"
     vendors: "{{ ref('vendors_data') }}"
+
+    netsuite2_accounting_books_identifier: 
+    netsuite2_accounting_periods_identifier: 
+    netsuite2_accounts_identifier: 
+    netsuite2_classes_identifier: 
+    netsuite2_consolidated_exchange_rates_identifier: 
+    netsuite2_currencies_identifier: 
+    netsuite2_customers_identifier: 
+    netsuite2_departments_identifier: 
+    netsuite2_entities_identifier: 
+    netsuite2_items_identifier: 
+    netsuite2_jobs_identifier: 
+    netsuite2_locations_identifier: 
+    netsuite2_subsidiaries_identifier: 
+    netsuite2_transaction_accounting_lines_identifier: 
+    netsuite2_transaction_lines_identifier: 
+    netsuite2_transactions_identifier: 
+    netsuite2_vendors_identifier: 
+    netsuite2_vendor_categories_identifier: 
+    netsuite2_accounting_book_subsidiaries_identifier: 
+    netsuite2_accounting_period_fiscal_calendars_identifier: 
+    netsuite2_account_types_identifier: 
+    netsuite2_entity_address_identifier: 
+    netsuite2_location_main_address_identifier: 
     
 seeds:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
