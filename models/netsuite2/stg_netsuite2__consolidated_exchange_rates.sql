@@ -21,7 +21,7 @@ fields as (
 final as (
     
     select
-        id as consolidated_exchange_rate_id, 
+        id as consolidated_exchange_rate_id,
         postingperiod as accounting_period_id,
         fromcurrency as from_currency_id,
         fromsubsidiary as from_subsidiary_id,
