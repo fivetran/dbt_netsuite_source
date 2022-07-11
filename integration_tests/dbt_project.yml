@@ -36,7 +36,7 @@ vars:
     netsuite2_currency_identifier: "netsuite2_currency_data"  
     netsuite2_customer_identifier: "netsuite2_customer_data"  
     netsuite2_department_identifier: "netsuite2_department_data"  
-    netsuite2_entity_identifier: "netsuite2_entity_data"  
+    netsuite2_entity_identifier: "netsuite2_entities_data"  
     netsuite2_item_identifier: "netsuite2_item_data"  
     netsuite2_job_identifier: "netsuite2_job_data"  
     netsuite2_location_identifier: "netsuite2_location_data"  
