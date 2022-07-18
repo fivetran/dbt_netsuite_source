@@ -63,8 +63,6 @@ models:
         description: Boolean indicating if the accounting book is a primary entry.
       - name: is_two_step_revenue_allocation
         description: Boolean indicating if the accounting book is a two step revenue allocation entry.
-      - name: unbilled_receivable_grouping
-        description: Boolean indicating if the accounting book is an unbilled receivable grouping.
 
   - name: stg_netsuite2__accounting_period_fiscal_cal
     description: "{{ doc('accounting_period_fiscal_calendars_table') }}"
