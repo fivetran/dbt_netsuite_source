@@ -96,19 +96,35 @@ vars:
 
 ## (Optional) Step 5: Additional configurations
 ### Passing Through Additional Fields
-This package includes all source columns defined in the macros folder. To add additional columns to this package, do so by adding our pass-through column variables to your `dbt_project.yml` file:
+This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
 
 ```yml
 vars:
-    accounts_pass_through_columns: ['new_custom_field', 'we_can_account_for_that']
-    classes_pass_through_columns: ['class_is_in_session', 'pass_through_additional_fields_here']
-    departments_pass_through_columns: ['department_custom_fields']
-    transactions_pass_through_columns: ['transactions_can_be_custom','pass_this_transaction_field_on']
-    transaction_lines_pass_through_columns: ['transaction_lines_field']
-    customers_pass_through_columns: ['customers_field']
-    locations_pass_through_columns: ['this_new_location','lets_also_add_this_location_field']
-    subsidiaries_pass_through_columns: ['subsidiaries_field']
-    consolidated_exchange_rates_pass_through_columns: ['this_exchange_rate','that_exchange_rate']
+    accounts_pass_through_columns: 
+        - name: "new_custom_field"
+          alias: "custom_field"
+    classes_pass_through_columns: 
+        - name: "this_field"
+    departments_pass_through_columns: 
+        - name: "unique_string_field"
+          alias: "field_id"
+          transform_sql: "cast(field_id as string)"
+    transactions_pass_through_columns: 
+        - name: "that_field"
+    transaction_lines_pass_through_columns: 
+        - name: "other_id"
+          alias: "another_id"
+          transform_sql: "cast(another_id as int64)"
+    customers_pass_through_columns: 
+        - name: "customer_custom_field"
+          alias: "customer_field"
+    locations_pass_through_columns: 
+        - name: "location_custom_field"
+    subsidiaries_pass_through_columns: 
+        - name: "sub_field"
+          alias: "subsidiary_field"
+    consolidated_exchange_rates_pass_through_columns: 
+        - name: "consolidate_this_field"
 ```
 ### Change the build schema
 By default, this package builds the Netsuite staging models within a schema titled (`<target_schema>` + `_netsuite_source`) in your destination. If this is not where you would like your netsuite staging data to be written to, add the following configuration to your root `dbt_project.yml` file:

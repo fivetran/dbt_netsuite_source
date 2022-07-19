@@ -116,5 +116,3 @@
 {% docs accounting_book_id %} Unique identifier of the accounting book. {% enddocs %}
 
 {% docs account_type_id %} Unique identifier of thea account type. {% enddocs %}
-
-"{{ doc('account_type_id') }}"
