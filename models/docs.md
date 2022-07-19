@@ -6,7 +6,7 @@
 
 {% docs accounts_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
 
-{% docs classes_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
+{% docs classes_table %} Table detailing all classes set up in Netsuite. {% enddocs %}
 
 {% docs consolidated_exchange_rates_table %} Table detailing average, historical and current exchange rates for all accounting periods. {% enddocs %}
 
