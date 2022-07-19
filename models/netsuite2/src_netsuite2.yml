@@ -135,7 +135,7 @@ sources:
           - name: parent
             description: Reference to the parent account.
           - name: acctnumber
-            description: Netsuite generate account number.
+            description: Netsuite generated account number.
           - name: accttype
             description: Reference to the account type.
           - name: fullname
