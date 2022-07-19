@@ -54,6 +54,8 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - customer
 - classification
 - department
+- entity
+- entityaddress
 - item
 - job
 - location
