@@ -147,6 +147,8 @@ vars:
     # For all Netsuite2 source tables
     netsuite2_<default_source_table_name>_identifier: your_table_name 
 ```
+### Override the data models variable
+This package is designed to run **either** the Netsuite.com or Netsuite2 data models. However, for documentation purposes, an additional variable `netsuite_data_model_override` was created to allow for both data model types to be run at the same time by setting the variable value to `netsuite`. This is only to ensure the [dbt docs](https://fivetran.github.io/dbt_netsuite_source/) (which is hosted on this repository) is generated for both model types. While this variable is provided, we recommend you do not adjust the variable and instead change the `netsuite_data_model` variable to fit your configuration needs.
 
 ## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 
