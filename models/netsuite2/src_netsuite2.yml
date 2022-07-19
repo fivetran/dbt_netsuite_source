@@ -299,7 +299,7 @@ sources:
           - name: type
             description: The entity type (Contact, CustJob, Job, etc).
           - name: vendor
-            description: Th "{{ doc('vendor_id') }}"e unique identifier of the vendor associated with the entity.
+            description: The "{{ doc('vendor_id') }}" unique identifier of the vendor associated with the entity.
 
       - name: entity_address
         identifier: "{{ var('netsuite2_entity_address_identifier', 'entityaddress') }}"
