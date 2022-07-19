@@ -24,9 +24,9 @@ sources:
           - name: id
             description: "{{ doc('account_type_id') }}"
           - name: balancesheet
-            description: Boolean indicating if the account type is a balance sheet account.
+            description: Boolean indicating if the account type is a balance sheet account. Represented as "T" or "F" for true and false respectively.
           - name: left
-            description: Boolean indicating if the account type is leftside.
+            description: Boolean indicating if the account type is leftside. Represented as "T" or "F" for true and false respectively.
           - name: longname
             description: The name of the account type.
 
@@ -60,17 +60,17 @@ sources:
           - name: effectiveperiod
             description: Reference to the effective period of the accounting book.
           - name: isadjustmentonly
-            description: Boolean indicating if the accounting book is an adjustment only.
+            description: Boolean indicating if the accounting book is an adjustment only. Represented as "T" or "F" for true and false respectively.
           - name: isconsolidated
-            description: Boolean indicating if the accounting book is a consolidated entry.
+            description: Boolean indicating if the accounting book is a consolidated entry. Represented as "T" or "F" for true and false respectively.
           - name: contingentrevenuehandling
-            description: Boolean indicating if the accounting book is contingent revenue handling.
+            description: Boolean indicating if the accounting book is contingent revenue handling. Represented as "T" or "F" for true and false respectively.
           - name: isprimary
-            description: Boolean indicating if the accounting book is a primary entry.
+            description: Boolean indicating if the accounting book is a primary entry. Represented as "T" or "F" for true and false respectively.
           - name: twosteprevenueallocation
-            description: Boolean indicating if the accounting book is a two step revenue allocation entry.
+            description: Boolean indicating if the accounting book is a two step revenue allocation entry. Represented as "T" or "F" for true and false respectively.
           - name: unbilledreceivablegrouping
-            description: Boolean indicating if the accounting book is an unbilled receivable grouping.
+            description: Boolean indicating if the accounting book is an unbilled receivable grouping. Represented as "T" or "F" for true and false respectively.
 
       - name: accounting_period_fiscal_calendars
         identifier: "{{ var('netsuite2_accounting_period_fiscal_calendars_identifier', 'accountingperiodfiscalcalendars') }}"
@@ -106,21 +106,21 @@ sources:
           - name: closedondate
             description: Timestamp of when the accounting period is closed.
           - name: isquarter
-            description: Boolean indicating if the accounting period is the initial quarter.
+            description: Boolean indicating if the accounting period is the initial quarter. Represented as "T" or "F" for true and false respectively.
           - name: isyear
-            description: Boolean indicating if the accounting period is the initial period.
+            description: Boolean indicating if the accounting period is the initial period. Represented as "T" or "F" for true and false respectively.
           - name: isadjust
-            description: Boolean indicating if the accounting period is an adjustment.
+            description: Boolean indicating if the accounting period is an adjustment. Represented as "T" or "F" for true and false respectively.
           - name: isposting
-            description: Boolean indicating if the accounting period is posting.
+            description: Boolean indicating if the accounting period is posting. Represented as "T" or "F" for true and false respectively.
           - name: closed
-            description: Boolean indicating if the accounting period is closed.
+            description: Boolean indicating if the accounting period is closed. Represented as "T" or "F" for true and false respectively.
           - name: alllocked
-            description: Boolean indicating if all the accounting periods are locked.
+            description: Boolean indicating if all the accounting periods are locked. Represented as "T" or "F" for true and false respectively.
           - name: arlocked
-            description: Boolean indicating if the ar accounting period is locked.
+            description: Boolean indicating if the ar accounting period is locked. Represented as "T" or "F" for true and false respectively.
           - name: aplocked
-            description: Boolean indicating if the ap accounting period is locked.
+            description: Boolean indicating if the ap accounting period is locked. Represented as "T" or "F" for true and false respectively.
 
       - name: account
         identifier: "{{ var('netsuite2_account_identifier', 'account') }}"
@@ -135,7 +135,7 @@ sources:
           - name: parent
             description: Reference to the parent account.
           - name: acctnumber
-            description: Netsuite generate account number.
+            description: Netsuite generated account number.
           - name: accttype
             description: Reference to the account type.
           - name: fullname
@@ -157,11 +157,11 @@ sources:
           - name: location
             description: "{{ doc('location_id') }}"
           - name: includechildren
-            description: Boolean indicating if the account includes sub accounts.
+            description: Boolean indicating if the account includes sub accounts. Represented as "T" or "F" for true and false respectively.
           - name: isinactive
-            description: Boolean indicating if the account is inactive.
+            description: Boolean indicating if the account is inactive. Represented as "T" or "F" for true and false respectively.
           - name: issummary
-            description: Boolean indicating if the account is a summary account.
+            description: Boolean indicating if the account is a summary account. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
 
@@ -180,7 +180,7 @@ sources:
           - name: fullname
             description: Full name of the class.
           - name: isinactive
-            description: Boolean indicating if the class is active.
+            description: Boolean indicating if the class is active. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
 
@@ -233,7 +233,7 @@ sources:
           - name: parent
             description: Reference to the parent customer.
           - name: isperson
-            description: Boolean indicating if the customer is an individual person.
+            description: Boolean indicating if the customer is an individual person. Represented as "T" or "F" for true and false respectively.
           - name: companyname
             description: "{{ doc('company_name') }}"
           - name: firstname
@@ -272,7 +272,7 @@ sources:
           - name: subsidiary
             description: "{{ doc('subsidiary_id') }}"
           - name: isinactive
-            description: Boolean indicating if the department is active.
+            description: Boolean indicating if the department is active. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
 
@@ -285,7 +285,7 @@ sources:
           - name: contact
             description: The unique identifier of the contact associated with the entity.
           - name: customer
-            description: The  "{{ doc('customer_id') }}"unique identifier of the customer associated with the entity.
+            description: The unique identifier of the customer associated with the entity.
           - name: employee
             description: The unique identifier of the employee associated with the entity.
           - name: entitytitle
@@ -299,7 +299,7 @@ sources:
           - name: type
             description: The entity type (Contact, CustJob, Job, etc).
           - name: vendor
-            description: Th "{{ doc('vendor_id') }}"e unique identifier of the vendor associated with the entity.
+            description: The unique identifier of the vendor associated with the entity.
 
       - name: entity_address
         identifier: "{{ var('netsuite2_entity_address_identifier', 'entityaddress') }}"
@@ -476,7 +476,7 @@ sources:
           - name: account
             description: Reference to the account associated with the entry.
           - name: posting
-            description: Boolean indicating if the entry is posting.
+            description: Boolean indicating if the entry is posting. Represented as "T" or "F" for true and false respectively.
           - name: credit
             description: Amount associated as a credit.
           - name: debit
@@ -513,19 +513,19 @@ sources:
           - name: department
             description: "{{ doc('department_id') }}"
           - name: isclosed
-            description: Boolean indicating if the transaction line is closed.
+            description: Boolean indicating if the transaction line is closed. Represented as "T" or "F" for true and false respectively.
           - name: isbillable
-            description: Boolean indicating if the transaction line is billable.
+            description: Boolean indicating if the transaction line is billable. Represented as "T" or "F" for true and false respectively.
           - name: iscogs
-            description: Boolean indicating if the transaction line is a cost of goods sold entry.
+            description: Boolean indicating if the transaction line is a cost of goods sold entry. Represented as "T" or "F" for true and false respectively.
           - name: cleared
-            description: Boolean indicating if the transaction line is cleared.
+            description: Boolean indicating if the transaction line is cleared. Represented as "T" or "F" for true and false respectively.
           - name: commitmentfirm
-            description: Boolean indicating if the transaction line is a commitment firm.
+            description: Boolean indicating if the transaction line is a commitment firm. Represented as "T" or "F" for true and false respectively.
           - name: mainline
-            description: Boolean indicating if the transaction line is a main line entry.
+            description: Boolean indicating if the transaction line is a main line entry. Represented as "T" or "F" for true and false respectively.
           - name: taxline
-            description: Boolean indicating if the transaction line is a tax line.
+            description: Boolean indicating if the transaction line is a tax line. Represented as "T" or "F" for true and false respectively.
 
       - name: transaction
         identifier: "{{ var('netsuite2_transaction_identifier', 'transaction') }}"
@@ -558,11 +558,11 @@ sources:
           - name: postingperiod
             description: "{{ doc('accounting_period_id') }}"
           - name: posting
-            description: Boolean indicating if the transaction is a posting event.
+            description: Boolean indicating if the transaction is a posting event. Represented as "T" or "F" for true and false respectively.
           - name: intercoadj
-            description: Boolean indicating if the transaction is an intercompany adjustment.
+            description: Boolean indicating if the transaction is an intercompany adjustment. Represented as "T" or "F" for true and false respectively.
           - name: isreversal
-            description: Boolean indicating if the transaction is a reversal entry.
+            description: Boolean indicating if the transaction is a reversal entry. Represented as "T" or "F" for true and false respectively.
 
       - name: vendor_category
         identifier: "{{ var('netsuite2_vendor_category_identifier', 'vendorcategory') }}"

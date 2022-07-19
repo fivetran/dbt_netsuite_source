@@ -4,9 +4,9 @@
 
 {% docs accounting_books_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
 
-{% docs accounts_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
+{% docs accounts_table %} Table detailing all accounts set up in Netsuite. {% enddocs %}
 
-{% docs classes_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
+{% docs classes_table %} Table detailing all classes set up in Netsuite. {% enddocs %}
 
 {% docs consolidated_exchange_rates_table %} Table detailing average, historical and current exchange rates for all accounting periods. {% enddocs %}
 
@@ -116,5 +116,3 @@
 {% docs accounting_book_id %} Unique identifier of the accounting book. {% enddocs %}
 
 {% docs account_type_id %} Unique identifier of thea account type. {% enddocs %}
-
-"{{ doc('account_type_id') }}"

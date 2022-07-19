@@ -301,7 +301,7 @@ models:
       - name: entity_name
         description: The entity name.
       - name: is_person
-        description: Value indicating whether the entity is a person (either yes or no).
+        description: Boolean indicating whether the entity is a person.
       - name: parent_id
         description: The unique identifier of the parent entity.
       - name: job_id
