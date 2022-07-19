@@ -4,7 +4,7 @@
 
 {% docs accounting_books_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
 
-{% docs accounts_table %} Table detailing all accounting books set up in Netsuite. {% enddocs %}
+{% docs accounts_table %} Table detailing all accounts set up in Netsuite. {% enddocs %}
 
 {% docs classes_table %} Table detailing all classes set up in Netsuite. {% enddocs %}
 
