@@ -7,7 +7,7 @@ version: '0.5.0'
 models:
   netsuite_source:
     +materialized: table
-    +schema: stg_netsuite
+    +schema: netsuite_source
 
     netsuite:
       tmp:
