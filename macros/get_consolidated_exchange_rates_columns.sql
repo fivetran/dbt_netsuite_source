@@ -30,8 +30,6 @@
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "averagerate", "datatype": dbt_utils.type_float()},
     {"name": "currentrate", "datatype": dbt_utils.type_float()},
-    {"name": "date_deleted", "datatype": dbt_utils.type_timestamp()},
-    {"name": "externalid", "datatype": dbt_utils.type_string()},
     {"name": "fromcurrency", "datatype": dbt_utils.type_int()},
     {"name": "fromsubsidiary", "datatype": dbt_utils.type_int()},
     {"name": "historicalrate", "datatype": dbt_utils.type_float()},

@@ -1,4 +1,4 @@
-{{ config(enabled=var('data_model', 'netsuite') == 'netsuite') }}
+{{ config(enabled=var('netsuite_data_model', 'netsuite') == 'netsuite') }}
 
 select * 
-from {{ var('accounting_books') }}
+from {{ var('netsuite_accounting_books') }}
