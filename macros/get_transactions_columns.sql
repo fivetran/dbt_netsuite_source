@@ -13,6 +13,36 @@
     {"name": "transaction_type", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('transactions_pass_through_columns')) }}
+
+{{ return(columns) }}
+
+{% endmacro %}
+
+{% macro get_netsuite2_transactions_columns() %}
+
+{% set columns = [
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "id", "datatype": dbt_utils.type_int()},
+    {"name": "transactionnumber", "datatype": dbt_utils.type_string()},
+    {"name": "type", "datatype": dbt_utils.type_string()},
+    {"name": "memo", "datatype": dbt_utils.type_string()},
+    {"name": "trandate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "status", "datatype": dbt_utils.type_string()},
+    {"name": "createddate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "duedate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "closedate", "datatype": dbt_utils.type_timestamp()},
+    {"name": "currency", "datatype": dbt_utils.type_int()},
+    {"name": "entity", "datatype": dbt_utils.type_int()},
+    {"name": "postingperiod", "datatype": dbt_utils.type_int()},
+    {"name": "posting", "datatype": dbt_utils.type_string()},
+    {"name": "intercoadj", "datatype": dbt_utils.type_string()},
+    {"name": "isreversal", "datatype": dbt_utils.type_string()},
+    {"name": "_fivetran_deleted", "datatype": "boolean"}
+] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('transactions_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

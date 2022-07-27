@@ -1,13 +1,12 @@
-
 version: 2
 
 models:
   - name: stg_netsuite__accounting_books
-    description: Table detailing all accounting books set up in Netsuite.
+    description: "{{ doc('accounting_books_table') }}"
     columns:
       - name: accounting_book_id
         description: The unique identifier of the accounting book.
-        tests: 
+        tests:
           - unique
           - not_null
       - name: is_primary
@@ -16,7 +15,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__accounting_periods
-    description: Table detailing all accounting periods, including monthly, quarterly and yearly.
+    description: "{{ doc('account_periods_table') }}"
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: 
@@ -25,7 +24,7 @@ models:
     columns:
       - name: accounting_period_id
         description: The unique identifier of the accounting period.
-        tests: 
+        tests:
           - not_null
       - name: name
         description: The name of the accounting period.
@@ -47,13 +46,13 @@ models:
         description: Value indicating whether the accounting period is in it's initial year.
       - name: is_adjustment
         description: Value indicating whether the accounting period is an adjustment (either yes or no).
-      - name: closed
+      - name: is_closed
         description: Value indicating whether the accounting period is closed (either yes or no).
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__accounts
-    description: Table that provides a complete listing of every account in the accounting system.
+    description: "{{ doc('accounts_table') }}"
     columns:
       - name: account_id
         description: The unique identifier associated with the account.
@@ -78,7 +77,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__classes
-    description: Table detailing all classes set up in Netsuite.
+    description: "{{ doc('classes_table') }}"
     columns:
       - name: class_id
         description: The unique identifier of the class.
@@ -91,7 +90,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__consolidated_exchange_rates
-    description: Table detailing average, historical and current exchange rates for all accounting periods.
+    description: "{{ doc('consolidated_exchange_rates_table') }}"
     columns:
       - name: consolidated_exchange_rate_id
         description: The unique identifier for the consolidated exchange rate.
@@ -111,12 +110,12 @@ models:
       - name: from_subsidiary_id
         description: The subsidiary id which the consolidated exchange rate is from.
       - name: to_subsidiary_id
-        description: THe subsidiary id which the consolidated exchange rate is for.
+        description: The subsidiary id which the consolidated exchange rate is for.
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
-  
+
   - name: stg_netsuite__currencies
-    description: The names and symbols for all currencies set up in Netsuite.
+    description: "{{ doc('currencies_table') }}"
     columns:
       - name: currency_id
         description: The unique identifier of the currency.
@@ -131,11 +130,11 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__customers
-    description: Table detailing all customer information.
+    description: "{{ doc('customers_table') }}"
     columns:
       - name: customer_id
         description: The unique identifier of the customer.
-        tests: 
+        tests:
           - unique
           - not_null
       - name: company_name
@@ -156,11 +155,11 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__departments
-    description: Table detailing all departments set up in Netsuite.
+    description: "{{ doc('departments_table') }}"
     columns:
       - name: department_id
         description: The unique identifier of the department.
-        tests: 
+        tests:
           - unique
           - not_null
       - name: name
@@ -171,7 +170,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__expense_accounts
-    description: Table detailing all expense accounts.
+    description: "{{ doc('expense_accounts_table') }}"
     columns:
       - name: expense_account_id
         description: The unique identifier of the expense account.
@@ -188,7 +187,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__income_accounts
-    description: Table detailing all income accounts.
+    description: "{{ doc('income_accounts_table') }}"
     columns:
       - name: income_account_id
         description: The unique identifier of the income account.
@@ -205,7 +204,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__items
-    description: Table detailing information about the items created in Netsuite.
+    description: "{{ doc('items_table') }}"
     columns:
       - name: item_id
         description: The unique identifier of the item.
@@ -222,11 +221,11 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__locations
-    description: Table detailing all locations, including store, warehouse and office locations.
+    description: "{{ doc('locations_table') }}"
     columns:
       - name: location_id
         description: The unique identifier of the location.
-        tests: 
+        tests:
           - unique
           - not_null
       - name: name
@@ -241,7 +240,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__subsidiaries
-    description: Table detailing all subsidiaries.
+    description: "{{ doc('subsidiaries_table') }}"
     columns:
       - name: subsidiary_id
         description: The unique identifier of the subsidiary.
@@ -254,22 +253,22 @@ models:
         description: The full name of the subsidiary.
       - name: name
         description: The name of the subsidiary.
-      - name: parent_id 
+      - name: parent_id
         description: The parent subsidiary id which the subsidiary is under.
       - name: _fivetran_deleted
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__transaction_lines
-    description: A table detailing all transaction lines for all transactions.
-    tests: 
+    description: "{{ doc('transaction_lines_table') }}"
+    tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns: 
-          - transaction_id
-          - transaction_line_id
+          combination_of_columns:
+            - transaction_id
+            - transaction_line_id
     columns:
       - name: transaction_id
         description: The transaction id which the transaction line is associated with.
-        tests: 
+        tests:
           - not_null
       - name: transaction_line_id
         description: The unique identifier of the transaction line.
@@ -297,7 +296,7 @@ models:
         description: The memo attached to the transaction line.
 
   - name: stg_netsuite__transactions
-    description: A table detailing all transactions.
+    description: "{{ doc('transaction_table') }}"
     columns:
       - name: transaction_id
         description: The unique identifier of the transaction.
@@ -324,7 +323,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__vendor_types
-    description: A table detailing all the various types of vendors.
+    description: "{{ doc('vendor_types_table') }}"
     columns:
       - name: vendor_type_id
         description: The unique identifier of the vendor type
@@ -337,7 +336,7 @@ models:
         description: Boolean created by Fivetran to indicate whether the record has been deleted.
 
   - name: stg_netsuite__vendors
-    description: A table detailing all vendor information.
+    description: "{{ doc('vendor_table') }}"
     columns:
       - name: vendor_id
         description: The unique identifier of the vendor.
