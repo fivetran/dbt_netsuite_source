@@ -94,7 +94,16 @@ vars:
     netsuite_schema: your_schema_name 
 ```
 
-## (Optional) Step 5: Additional configurations
+## Step 5: Disable models for non-existent sources (Netsuite2 only)
+It's possible that your Netsuite connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Netsuite or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be true. Add variables for only the tables you would like to disable:
+```yml
+vars:
+    netsuite2__using_accounting_book_subsidiaries: false # True by default
+    netsuite2__using_vendor_categories: false # True by default 
+```
+> **Note**: The Netsuite dbt package currently only supports disabling transforms of the `accountingbooksubsidiary` and `vendorcategory` source tables. Please create an issue to request additional tables to exclude. 
+
+## (Optional) Step 6: Additional configurations
 ### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
 
@@ -150,7 +159,7 @@ vars:
 ### Override the data models variable
 This package is designed to run **either** the Netsuite.com or Netsuite2 data models. However, for documentation purposes, an additional variable `netsuite_data_model_override` was created to allow for both data model types to be run at the same time by setting the variable value to `netsuite`. This is only to ensure the [dbt docs](https://fivetran.github.io/dbt_netsuite_source/) (which is hosted on this repository) is generated for both model types. While this variable is provided, we recommend you do not adjust the variable and instead change the `netsuite_data_model` variable to fit your configuration needs.
 
-## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
     
