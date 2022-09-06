@@ -1,7 +1,7 @@
 # dbt_netsuite_source v0.5.1
 
 ## Features 🎉
-- Introduces the `netsuite2__using_accounting_book_subsidiaries` and `netsuite2__using_vendor_categories` variables to disable the `accountingbooksubsidiaries` and `vendorcategory` source tables and their downstream staging models and transforms (affects Netsuite2 users only). These variables are `True` by default ([#19](https://github.com/fivetran/dbt_netsuite_source/pull/19)).
+- Introduces the `netsuite2__using_accounting_book_subsidiaries` and `netsuite2__using_vendor_categories` variables to disable the `accountingbooksubsidiaries` and `vendorcategory` source tables and their downstream staging models and transforms (affects Netsuite2 users only). These variables are `True` by default ([#21](https://github.com/fivetran/dbt_netsuite_source/pull/21)).
 
 # dbt_netsuite_source v0.5.0
 🎉 [Netsuite2](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_163465025391.html) Compatibility 🎉
