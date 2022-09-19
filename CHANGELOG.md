@@ -2,7 +2,7 @@
 
 ## Features 🎉 (affects Netsuite2 users only)
 - Introduces the `netsuite2__multibook_accounting` and `netsuite2__using_vendor_categories` variables to disable their related source tables and downstream models ([#21](https://github.com/fivetran/dbt_netsuite_source/pull/21)).
-  - `netsuite2__multibook_accounting` is `True` by default. Set it to `False` if you do not use te [Multi-Book Accounting](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/book_3831565332.html) feature in Netsuite and/or do not have the `accountingbook` and `accountingbooksubsidiaries` source tables.
+  - `netsuite2__multibook_accounting` is `True` by default. Set it to `False` if you do not use the [Multi-Book Accounting](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/book_3831565332.html) feature in Netsuite and/or do not have the `accountingbook` and `accountingbooksubsidiaries` source tables.
   - `netsuite2__using_vendor_categories` is `True` by default. Set it to `False` if you do not categorize vendors in Netsuite and/or do not have the `vendorcategory` source table.
 
 # dbt_netsuite_source v0.5.0

@@ -50,6 +50,8 @@ sources:
       - name: accounting_book
         identifier: "{{ var('netsuite2_accounting_book_identifier', 'accountingbook') }}"
         description: "{{ doc('accounting_books_table') }}"
+        config:
+          enabled: "{{ var('netsuite2__multibook_accounting', true) }}"
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
