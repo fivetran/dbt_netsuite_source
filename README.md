@@ -138,6 +138,12 @@ vars:
           alias: "subsidiary_field"
     consolidated_exchange_rates_pass_through_columns: 
         - name: "consolidate_this_field"
+    vendors_pass_through_columns: 
+        - name: "vendors_custom_field"
+          alias: "vendors_field"
+    items_pass_through_columns: 
+        - name: "items_custom_field"
+          alias: "items_field"
 ```
 ### Change the build schema
 By default, this package builds the Netsuite staging models within a schema titled (`<target_schema>` + `_netsuite_source`) in your destination. If this is not where you would like your netsuite staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
