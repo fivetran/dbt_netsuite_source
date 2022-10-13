@@ -1,21 +1,17 @@
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 name: 'netsuite_source'
-version: '0.5.1'
-
+version: '0.6.0'
 models:
   netsuite_source:
     +materialized: table
     +schema: netsuite_source
-
     netsuite:
       tmp:
         +materialized: view
     netsuite2:
       tmp:
         +materialized: view
-
 vars:
   netsuite_source:
 
@@ -37,8 +33,6 @@ vars:
     netsuite_transactions: "{{ source('netsuite','transactions') }}"
     netsuite_vendor_types: "{{ source('netsuite','vendor_types') }}"
     netsuite_vendors: "{{ source('netsuite','vendors') }}"
-
-    # Netsuite2
     netsuite2_accounting_books: "{{ source('netsuite2','accounting_book') }}"
     netsuite2_accounting_periods: "{{ source('netsuite2','accounting_period') }}"
     netsuite2_accounts: "{{ source('netsuite2','account') }}"
@@ -62,7 +56,6 @@ vars:
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
-
     accounts_pass_through_columns: []
     classes_pass_through_columns: []
     departments_pass_through_columns: []
@@ -72,8 +65,7 @@ vars:
     locations_pass_through_columns: []
     subsidiaries_pass_through_columns: []
     consolidated_exchange_rates_pass_through_columns: []
-
 clean-targets:
-  - target
-  - dbt_modules
-  - dbt_packages
+- target
+- dbt_modules
+- dbt_packages
