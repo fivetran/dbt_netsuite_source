@@ -105,6 +105,8 @@
     {"name": "zipcode", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('vendors_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -180,6 +182,8 @@
     {"name": "url", "datatype": dbt_utils.type_string()},
     {"name": "workcalendar", "datatype": dbt_utils.type_int()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('vendors_pass_through_columns')) }}
 
 {{ return(columns) }}
 
