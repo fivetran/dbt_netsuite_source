@@ -183,6 +183,8 @@
     {"name": "work_order_lead_time", "datatype": dbt.type_float()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('items_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
