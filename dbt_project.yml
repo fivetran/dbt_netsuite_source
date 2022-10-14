@@ -1,7 +1,9 @@
 config-version: 2
 require-dbt-version: [">=1.2.0", "<2.0.0"]
 name: 'netsuite_source'
+
 version: '0.6.0'
+
 models:
   netsuite_source:
     +materialized: table
@@ -65,6 +67,9 @@ vars:
     locations_pass_through_columns: []
     subsidiaries_pass_through_columns: []
     consolidated_exchange_rates_pass_through_columns: []
+    vendors_pass_through_columns: []
+    items_pass_through_columns: []
+
 clean-targets:
 - target
 - dbt_modules
