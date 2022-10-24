@@ -14,10 +14,9 @@ models:
     netsuite2:
       tmp:
         +materialized: view
+
 vars:
   netsuite_source:
-
-    # Netsuite
     netsuite_accounting_books: "{{ source('netsuite','accounting_books') }}"
     netsuite_accounting_periods: "{{ source('netsuite','accounting_periods') }}"
     netsuite_accounts: "{{ source('netsuite','accounts') }}"
