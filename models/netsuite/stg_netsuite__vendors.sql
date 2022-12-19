@@ -36,6 +36,9 @@ final as (
         vendor_type_id,
         _fivetran_deleted
 
+        --The below macro adds the fields defined within your vendors_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('vendors_pass_through_columns') }}
+
     from fields
 )
 
