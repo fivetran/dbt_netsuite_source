@@ -1,3 +1,7 @@
+# dbt_netsuite_source v0.6.1
+
+Now introducing...Databricks compatibility 🧱 ([PR #36](https://github.com/fivetran/dbt_netsuite_source/pull/26))
+
 # dbt_netsuite_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:
