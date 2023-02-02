@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: netsuite2
     schema: "{{ var('netsuite_schema', 'netsuite') }}"
-    database: "{{ var('netsuite_database', target.database) }}"
+    database: "{% if target.type != 'spark'%}{{ var('netsuite_database', target.database) }}{% endif %}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
     config:
