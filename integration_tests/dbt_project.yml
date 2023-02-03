@@ -1,6 +1,6 @@
 name: 'netsuite_source_integration_tests'
 
-version: '0.6.0'
+version: '0.6.1'
 
 profile: 'integration_tests'
 config-version: 2
@@ -54,3 +54,7 @@ seeds:
     +column_types:
       ending: timestamp
       due_date: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
