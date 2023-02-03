@@ -1,3 +1,8 @@
+# dbt_netsuite_source v0.6.1
+
+## Bug Fixes
+- In [v0.6.0](https://github.com/fivetran/dbt_netsuite_source/blob/main/CHANGELOG.md#dbt_netsuite_source-v060), we introduced pass through columns for the `vendors` and `items` tables. However, this update was only applied to the original `Netsuite` version of this package, and not `Netsuite2` as well. These pass through columns are accessible in Netsuite2 data models (add PR)
+
 # dbt_netsuite_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:
