@@ -48,6 +48,16 @@ vars:
     netsuite2_account_type_identifier: "netsuite2_account_type_data"
     netsuite2_entity_address_identifier: "netsuite2_entity_address_data"
     netsuite2_location_main_address_identifier: "netsuite2_location_main_address_data"
+
+  vendors_pass_through_columns: 
+    - name: "custom_field_1"
+      alias: "custom_string_field"
+      transform_sql: "cast(custom_field_1 as timestamp)"
+    - name: "custom_field_2"
+      alias: "custom_bool_field"
+      transform_sql: "cast(custom_field_2 as timestamp)"
+  items_pass_through_columns: ['custom_field_3', 'custom_field_4']
+
 seeds:
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   netsuite_source_integration_tests:
