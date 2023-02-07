@@ -52,10 +52,10 @@ vars:
   vendors_pass_through_columns: 
     - name: "custom_field_1"
       alias: "custom_string_field"
-      transform_sql: "cast(custom_field_1 as timestamp)"
+      transform_sql: "cast(custom_string_field as string)"
     - name: "custom_field_2"
-      alias: "custom_bool_field"
-      transform_sql: "cast(custom_field_2 as timestamp)"
+      alias: "custom_timestamp_field"
+      transform_sql: "cast(custom_timestamp_field as timestamp)"
   items_pass_through_columns: ['custom_field_3', 'custom_field_4']
 
 seeds:
