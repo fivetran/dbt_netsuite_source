@@ -40,6 +40,10 @@ final as (
         deferralaccount as deferred_expense_account_id,
         deferredrevenueaccount as deferred_revenue_account_id,
         parent as parent_item_id
+
+        --The below macro adds the fields defined within your items_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('items_pass_through_columns') }}
+        
     from fields
     where not coalesce(_fivetran_deleted, false)
 )

@@ -1,12 +1,12 @@
 name: 'netsuite_source_integration_tests'
 
-version: '0.6.0'
+version: '0.6.1'
 
 profile: 'integration_tests'
 config-version: 2
 vars:
   netsuite_source:
-    netsuite_schema: netsuite_source_integration_tests
+    netsuite_schema: netsuite_source_integration_tests_1
     netsuite_data_model_override: netsuite
     netsuite_accounting_books_identifier: "netsuite_accounting_books_data"
     netsuite_accounting_periods_identifier: "netsuite_accounting_periods_data"
@@ -54,3 +54,7 @@ seeds:
     +column_types:
       ending: timestamp
       due_date: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
