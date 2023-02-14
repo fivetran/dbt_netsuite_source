@@ -20,6 +20,6 @@ dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 ## UPDATE FOR VARS HERE, IF NO VARS, PLEASE REMOVE
-dbt run --vars '{netsuite2__multibook_accounting_enabled: false, netsuite2__using_vendor_categories: false}' --target "$db" --full-refresh
+dbt run --vars '{netsuite2__multibook_accounting_enabled: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false}' --target "$db" --full-refresh
 dbt test --target "$db"
 ### END VARS CHUNK, REMOVE IF NOT USING
