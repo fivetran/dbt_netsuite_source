@@ -1,7 +1,7 @@
 # dbt_netsuite_source v0.6.2
 
 ## 🎉 Feature Updates 🎉
-- Introduces the `netsuite2__using_jobs` variable in order to disable the `stg_netsuite2__jobs` model. Set `netsuite2__using_jobs` to `False` if you do not have the `job` table in your Netsuite2 schema.
+- Introduces the `netsuite2__using_jobs` variable in order to disable the `stg_netsuite2__jobs` model. Set `netsuite2__using_jobs` to `False` if you do not have the `job` table in your Netsuite2 schema ([PR #30](https://github.com/fivetran/dbt_netsuite_source/pull/30)).
 
 # dbt_netsuite_source v0.6.1
 

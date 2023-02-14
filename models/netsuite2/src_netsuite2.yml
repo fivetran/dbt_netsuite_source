@@ -376,6 +376,8 @@ sources:
       - name: job
         identifier: "{{ var('netsuite2_job_identifier', 'job') }}"
         description: "{{ doc('jobs_table') }}"
+        config:
+          enabled: "{{ var('netsuite2__using_jobs', true) }}"
         columns:
           - name: id
             description: The unique identifier of the job.
