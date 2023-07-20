@@ -206,6 +206,8 @@ models:
         description: The current rate associated with the exchange rate.
       - name: average_rate
         description: The consolidated exchange rates average rate.
+      - name: accounting_book
+        description: Reference to the accounting book of the entry.
       - name: historical_rate
         description: The historical rate of the exchange rate.
 

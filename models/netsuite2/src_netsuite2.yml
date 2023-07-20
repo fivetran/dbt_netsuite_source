@@ -208,6 +208,8 @@ sources:
             description: The current rate associated with the exchange rate.
           - name: averagerate
             description: The consolidated exchange rates average rate.
+          - name: accountingbook
+            description: Reference to the accounting book of the entry.
           - name: historicalrate
             description: The historical rate of the exchange rate.
 
