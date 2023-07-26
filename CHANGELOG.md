@@ -2,8 +2,12 @@
 [PR #35](https://github.com/fivetran/dbt_netsuite_source/pull/35) applies the following changes:
 
 ## 🎉 Feature Updates 🎉
-- Introduces variable `netsuite2__using_exchange_rate` to allow users who don't utilize exchange rates in Netsuite2 the ability to disable that functionality within your `dbt_project.yml`, and return only the unconverted amount as the final converted amount.
-- **Note**: If you are using the `dbt_netsuite` package, you will also want to set `netsuite2__using_exchange_rate` to false there as well to avoid compilation errors.
+- Introduces variable `netsuite2__using_exchange_rate` to allow users who don't utilize exchange rates in Netsuite2 the ability to disable that functionality within your `dbt_project.yml`, since these models aren't being used.
+- **Note**: If you are using the `dbt_netsuite` package, be sure to set it globally by inserting this code into your `dbt_project.yml`:
+```yml
+vars:
+  netsuite2__using_exchange_rate: false
+```
 
 ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
