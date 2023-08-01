@@ -199,14 +199,14 @@ models:
       - name: from_subsidiary_id
         description: The subsidiary id which the consolidated exchange rate is from.
       - name: to_currency_id
-        description: The subsidiary id which the consolidated exchange rate is for.
+        description: The currency id which the consolidated exchange rate is for.
       - name: to_subsidiary_id
         description: The subsidiary id which the consolidated exchange rate is for.
       - name: current_rate
         description: The current rate associated with the exchange rate.
       - name: average_rate
         description: The consolidated exchange rates average rate.
-      - name: accounting_book
+      - name: accounting_book_id
         description: Reference to the accounting book of the entry.
       - name: historical_rate
         description: The historical rate of the exchange rate.
