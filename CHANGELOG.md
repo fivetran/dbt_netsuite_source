@@ -1,10 +1,25 @@
+# dbt_netsuite_source v0.6.4
+
+
+## 🎉 Feature Updates 🎉
+- Brought in `accounting_book_id` (accountingbook) to the `stg_netsuite2__consolidated_exchange_rates` model. ([PR #36](https://github.com/fivetran/dbt_netsuite_source/pull/36))
+
 # dbt_netsuite_source v0.6.3
 
-- Brought in `accounting_book_id` (accountingbook) to the `stg_netsuite2__consolidated_exchange_rates` model. ([PR #36](https://github.com/fivetran/dbt_netsuite_source/pull/36))
- ## Under the Hood:
+## Under the Hood:
+[PR #35](https://github.com/fivetran/dbt_netsuite_source/pull/35) applies the following changes:
 
+## 🎉 Feature Updates 🎉
+- Introduces variable `netsuite2__using_exchange_rate` to allow users who don't utilize exchange rates in Netsuite2 the ability to disable that functionality within your `dbt_project.yml`, since these models aren't being used.
+- **Note**: If you are using the `dbt_netsuite` package, be sure to set it globally by inserting this code into your `dbt_project.yml`:
+```yml
+vars:
+  netsuite2__using_exchange_rate: false
+```
+## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
+
 # dbt_netsuite_source v0.6.2
 
 ## 🎉 Feature Updates 🎉
