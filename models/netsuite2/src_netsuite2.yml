@@ -209,7 +209,7 @@ sources:
           - name: averagerate
             description: The consolidated exchange rates average rate.
           - name: accountingbook
-            description: Reference to the accounting book of the entry.
+            description: "{{ doc('accounting_book_id') }}"
           - name: historicalrate
             description: The historical rate of the exchange rate.
 
@@ -480,7 +480,7 @@ sources:
           - name: netamount
             description: The net amount of the transaction line.
           - name: accountingbook
-            description: Reference to the accounting book of the entry.
+            description: "{{ doc('accounting_book_id') }}"
           - name: account
             description: Reference to the account associated with the entry.
           - name: posting

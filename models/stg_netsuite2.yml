@@ -207,7 +207,7 @@ models:
       - name: average_rate
         description: The consolidated exchange rates average rate.
       - name: accounting_book_id
-        description: Reference to the accounting book of the entry.
+        description: "{{ doc('accounting_book_id') }}"
       - name: historical_rate
         description: The historical rate of the exchange rate.
 
@@ -500,7 +500,7 @@ models:
       - name: net_amount
         description: The net amount of the transaction line.
       - name: accounting_book_id
-        description: Reference to the accounting book of the entry.
+        description: "{{ doc('accounting_book_id') }}"
       - name: account_id
         description: Reference to the account associated with the entry.
       - name: is_posting
