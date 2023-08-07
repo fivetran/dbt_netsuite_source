@@ -49,10 +49,6 @@ integration_tests:
       host: "{{ env_var('CI_DATABRICKS_DBT_HOST') }}"
       http_path: "{{ env_var('CI_DATABRICKS_DBT_HTTP_PATH') }}"
       schema: netsuite_source_integration_tests_2
-<<<<<<< HEAD
-      threads: 2
-=======
       threads: 8
->>>>>>> main
       token: "{{ env_var('CI_DATABRICKS_DBT_TOKEN') }}"
       type: databricks
