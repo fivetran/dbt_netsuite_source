@@ -1,7 +1,8 @@
 # dbt_netsuite_source v0.7.0
 ## 🚨 Breaking Changes 🚨:
 
-- Brought in `accounting_book_id` (accountingbook) to the `stg_netsuite2__consolidated_exchange_rates` model. This will cause v0.8.1 of the [dbt_netsuite package](https://github.com/fivetran/dbt_netsuite) to fail, so make sure to update to v0.9.0. ([PR #36](https://github.com/fivetran/dbt_netsuite_source/pull/36)) 
+- Brought in `accounting_book_id` (accountingbook) to the `stg_netsuite2__consolidated_exchange_rates` model. ([PR #36](https://github.com/fivetran/dbt_netsuite_source/pull/36)) 
+   - Due to logic within the dbt_netsuite v0.8.1 package version, this update will result in an ambiguous columns error. Therefore, this update is treated as a breaking change.
 
 # dbt_netsuite_source v0.6.3
 
