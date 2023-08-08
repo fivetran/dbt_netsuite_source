@@ -5,7 +5,6 @@
 
 # dbt_netsuite_source v0.6.3
 
-## Under the Hood:
 [PR #35](https://github.com/fivetran/dbt_netsuite_source/pull/35) applies the following changes:
 
 ## 🎉 Feature Updates 🎉
