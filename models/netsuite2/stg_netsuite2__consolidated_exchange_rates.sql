@@ -27,6 +27,7 @@ final as (
         fromsubsidiary as from_subsidiary_id,
         tocurrency as to_currency_id,
         tosubsidiary as to_subsidiary_id,
+        accountingbook as accounting_book_id,
         currentrate as current_rate, 
         averagerate as average_rate,
         historicalrate as historical_rate

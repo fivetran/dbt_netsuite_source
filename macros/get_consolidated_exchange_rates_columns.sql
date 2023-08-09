@@ -34,6 +34,7 @@
     {"name": "fromsubsidiary", "datatype": dbt.type_int()},
     {"name": "historicalrate", "datatype": dbt.type_float()},
     {"name": "id", "datatype": dbt.type_int()},
+    {"name": "accountingbook", "datatype": dbt.type_int()},
     {"name": "postingperiod", "datatype": dbt.type_int()},
     {"name": "tocurrency", "datatype": dbt.type_int()},
     {"name": "tosubsidiary", "datatype": dbt.type_int()}
