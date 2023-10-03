@@ -56,7 +56,9 @@ vars:
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
-    accounts_pass_through_columns: []
+    accounts_pass_through_columns:
+      - name: "sspecacct"
+        alias: "special_account_type_id"
     classes_pass_through_columns: []
     departments_pass_through_columns: []
     transactions_pass_through_columns: []
