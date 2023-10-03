@@ -27,6 +27,7 @@ final as (
         parent as parent_id,
         acctnumber as account_number,
         accttype as account_type_id,
+        sspecacct as special_account_type_id,
         fullname as name,
         description as account_description,
         deferralacct as deferral_account_id,
