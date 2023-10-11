@@ -1,3 +1,8 @@
+# dbt_netsuite_source v0.8.0
+## 🚨 Breaking Changes 🚨:
+- Addition of the `eliminate` field within the `stg_netsuite2__accounts` model.
+  - This addition likely won't be breaking for a large number of users. However, if you are leveraging the `accounts_pass_through_columns` variable and have included `eliminate` as a pass through column then you will experience a duplicate column error. We advise you remove the `eliminate` field as a pass through column to avoid runtime errors following this upgrade.
+
 # dbt_netsuite_source v0.7.0
 ## 🚨 Breaking Changes 🚨:
 

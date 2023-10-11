@@ -40,7 +40,8 @@
     {"name": "location", "datatype": dbt.type_int()},
     {"name": "includechildren", "datatype": dbt.type_string()},
     {"name": "isinactive", "datatype": dbt.type_string()},
-    {"name": "issummary", "datatype": dbt.type_string()}
+    {"name": "issummary", "datatype": dbt.type_string()},
+    {"name": "eliminate", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('accounts_pass_through_columns')) }}
