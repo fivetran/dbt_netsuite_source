@@ -160,6 +160,8 @@ models:
         description: Boolean indicating if the account is inactive.
       - name: is_summary
         description: Boolean indicating if the account is a summary account.
+      - name: is_eliminate
+        description: Indicates this is an intercompany account used only to record transactions between subsidiaries. Amounts posted to intercompany accounts are eliminated when you run the intercompany elimination process at the end of an accounting period. Represented as "T" or "F" for true and false respectively.
       - name: _fivetran_deleted
         description: "{{ doc('_fivetran_deleted') }}"
 
