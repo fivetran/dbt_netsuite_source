@@ -29,6 +29,7 @@
     {"name": "parent", "datatype": dbt.type_int()},
     {"name": "acctnumber", "datatype": dbt.type_string()},
     {"name": "accttype", "datatype": dbt.type_string()},
+    {"name": "sspecacct", "datatype": dbt.type_string()},
     {"name": "fullname", "datatype": dbt.type_string()},
     {"name": "description", "datatype": dbt.type_string()},
     {"name": "deferralacct", "datatype": dbt.type_int()},
