@@ -142,6 +142,8 @@ sources:
             description: Netsuite generated account number.
           - name: accttype
             description: Reference to the account type.
+          - name: sspecacct
+            description: Special account type.
           - name: fullname
             description: Name of the account.
           - name: description

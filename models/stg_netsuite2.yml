@@ -136,6 +136,8 @@ models:
         description: Netsuite generate account number.
       - name: account_type_id
         description: Reference to the account type.
+      - name: special_account_type_id
+        description: Special account type.
       - name: name
         description: Name of the account.
       - name: account_description

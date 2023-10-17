@@ -1,7 +1,10 @@
 # dbt_netsuite_source v0.8.0
 ## 🚨 Breaking Changes 🚨:
-- Addition of the `eliminate` field within the `stg_netsuite2__accounts` model. ([PR #39](https://github.com/fivetran/dbt_netsuite_source/pull/39))
-  - This addition likely won't be breaking for a large number of users. However, if you are leveraging the `accounts_pass_through_columns` variable and have included `eliminate` as a pass through column then you will experience a duplicate column error. We advise you remove the `eliminate` field as a pass through column to avoid runtime errors following this upgrade.
+- Addition of the `is_eliminate` and `special_account_type_id` fields within the `stg_netsuite2__accounts` model. ([PR #39](https://github.com/fivetran/dbt_netsuite_source/pull/39) and [PR #40](https://github.com/fivetran/dbt_netsuite_source/pull/40))
+  - This addition likely won't be breaking for a large number of users. However, if you are leveraging the `accounts_pass_through_columns` variable and have included either `eliminate` or `sspecacct` as a pass through columns then you will experience a duplicate column error. We advise you remove the `eliminate` and `sspecacct` fields as a pass through columns to avoid runtime errors following this upgrade.
+
+## Contributors:
+- [@jmongerlyra](https://github.com/jmongerlyra) ([PR #40](https://github.com/fivetran/dbt_netsuite_source/pull/40))
 
 # dbt_netsuite_source v0.7.0
 ## 🚨 Breaking Changes 🚨:
