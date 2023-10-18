@@ -29,6 +29,7 @@
     {"name": "parent", "datatype": dbt.type_int()},
     {"name": "acctnumber", "datatype": dbt.type_string()},
     {"name": "accttype", "datatype": dbt.type_string()},
+    {"name": "sspecacct", "datatype": dbt.type_string()},
     {"name": "fullname", "datatype": dbt.type_string()},
     {"name": "description", "datatype": dbt.type_string()},
     {"name": "deferralacct", "datatype": dbt.type_int()},
@@ -40,7 +41,8 @@
     {"name": "location", "datatype": dbt.type_int()},
     {"name": "includechildren", "datatype": dbt.type_string()},
     {"name": "isinactive", "datatype": dbt.type_string()},
-    {"name": "issummary", "datatype": dbt.type_string()}
+    {"name": "issummary", "datatype": dbt.type_string()},
+    {"name": "eliminate", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('accounts_pass_through_columns')) }}

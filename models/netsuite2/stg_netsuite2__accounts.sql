@@ -27,6 +27,7 @@ final as (
         parent as parent_id,
         acctnumber as account_number,
         accttype as account_type_id,
+        sspecacct as special_account_type_id,
         fullname as name,
         description as account_description,
         deferralacct as deferral_account_id,
@@ -39,6 +40,7 @@ final as (
         includechildren = 'T' as is_including_child_subs,
         isinactive = 'T' as is_inactive,
         issummary = 'T' as is_summary,
+        eliminate = 'T' as is_eliminate,
         _fivetran_deleted
 
         --The below macro adds the fields defined within your accounts_pass_through_columns variable into the staging model
