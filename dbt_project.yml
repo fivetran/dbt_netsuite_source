@@ -61,7 +61,11 @@ vars:
         alias: "special_account_type_id"
     classes_pass_through_columns: []
     departments_pass_through_columns: []
-    transactions_pass_through_columns: []
+    transactions_pass_through_columns:
+      - name: "custbody_subledger"
+        alias: "lyra_subledger"
+      - name: "custbody_subledger_id"
+        alias: "lyra_subledger_id"
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
