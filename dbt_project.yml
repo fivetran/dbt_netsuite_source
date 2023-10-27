@@ -1,7 +1,7 @@
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 name: 'netsuite_source'
-version: '0.8.0'
+version: '0.9.0'
 
 models:
   netsuite_source:
@@ -63,7 +63,7 @@ vars:
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
-    subsidiaries_pass_through_columns: [currency]
+    subsidiaries_pass_through_columns: []
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
