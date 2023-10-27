@@ -470,6 +470,8 @@ sources:
             description: "{{ doc('fiscal_calendar_id') }}"
           - name: parent
             description: Reference to the parent subsidiary.
+          - name: currency
+            description:  "{{ doc('currency_id') }}"
 
       - name: transaction_accounting_line
         identifier: "{{ var('netsuite2_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
