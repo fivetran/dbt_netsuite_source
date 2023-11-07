@@ -30,7 +30,8 @@ final as (
         country,
         state,
         fiscalcalendar as fiscal_calendar_id,
-        parent as parent_id
+        parent as parent_id,
+        iselimination = 'T' as is_elimination
 
         --The below macro adds the fields defined within your subsidiaries_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('subsidiaries_pass_through_columns') }}

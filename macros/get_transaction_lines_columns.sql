@@ -42,7 +42,9 @@
     {"name": "cleared", "datatype": dbt.type_string()},
     {"name": "commitmentfirm", "datatype": dbt.type_string()},
     {"name": "mainline", "datatype": dbt.type_string()},
-    {"name": "taxline", "datatype": dbt.type_string()}
+    {"name": "taxline", "datatype": dbt.type_string()},
+    {"name": "eliminate", "datatype": dbt.type_string()},
+    {"name": "netamount", "datatype": dbt.type_float()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('transaction_lines_pass_through_columns')) }}

@@ -482,6 +482,8 @@ models:
         description: "{{ doc('fiscal_calendar_id') }}"
       - name: parent_id
         description: Reference to the parent subsidiary.
+      - name: is_elimination
+        description: Boolean indicating if the subsidiary is an elimination subsidiary.
 
   - name: stg_netsuite2__transaction_accounting_lines
     description: "{{ doc('transaction_accounting_lines_table') }}"
@@ -570,6 +572,10 @@ models:
         description: Boolean indicating if the transaction line is a main line entry.
       - name: is_tax_line
         description: Boolean indicating if the transaction line is a tax line.
+      - name: is_eliminate
+        description: Boolean indicating if the transaction line is eliminated.
+      - name: netamount
+        description: Net amount of transaction line.
 
   - name: stg_netsuite2__transactions
     description: "{{ doc('transaction_table') }}"

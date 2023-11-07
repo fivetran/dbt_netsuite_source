@@ -76,7 +76,8 @@
     {"name": "country", "datatype": dbt.type_string()},
     {"name": "state", "datatype": dbt.type_string()},
     {"name": "fiscalcalendar", "datatype": dbt.type_int()},
-    {"name": "parent", "datatype": dbt.type_int()}
+    {"name": "parent", "datatype": dbt.type_int()},
+    {"name": "iselimination", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('subsidiaries_pass_through_columns')) }}

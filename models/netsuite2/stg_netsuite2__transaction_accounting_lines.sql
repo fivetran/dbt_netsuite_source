@@ -28,6 +28,7 @@ final as (
         accountingbook as accounting_book_id,
         account as account_id,
         posting = 'T' as is_posting,
+        exchangerate as exchange_rate,
         amount,
         credit as credit_amount,
         debit as debit_amount,
