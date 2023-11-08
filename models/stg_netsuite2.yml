@@ -484,6 +484,8 @@ models:
         description: Reference to the parent subsidiary.
       - name: is_elimination
         description: Boolean indicating if the subsidiary is an elimination subsidiary.
+      - name: currency_id
+        description: "{{ doc('currency_id') }}"
 
   - name: stg_netsuite2__transaction_accounting_lines
     description: "{{ doc('transaction_accounting_lines_table') }}"

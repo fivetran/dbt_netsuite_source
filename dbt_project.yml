@@ -56,9 +56,7 @@ vars:
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
-    accounts_pass_through_columns:
-      - name: "sspecacct"
-        alias: "special_account_type_id"
+    accounts_pass_through_columns: []
     classes_pass_through_columns: []
     departments_pass_through_columns: []
     transactions_pass_through_columns:
@@ -66,10 +64,12 @@ vars:
         alias: "lyra_subledger"
       - name: "custbody_subledger_id"
         alias: "lyra_subledger_id"
+      - name: "typebaseddocumentnumber"
+        alias: "type_based_document_number"
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
-    subsidiaries_pass_through_columns: [currency]
+    subsidiaries_pass_through_columns: []
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
