@@ -492,6 +492,7 @@ models:
           combination_of_columns:
             - transaction_id
             - transaction_line_id
+            - accounting_book_id
     columns:
       - name: transaction_id
         description: The tra "{{ doc('transaction_id') }}"nsaction id which the transaction line is associated with.
