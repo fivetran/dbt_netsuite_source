@@ -89,7 +89,7 @@ If you  are **not** using the [Netsuite transformation package](https://github.c
 ```yaml
 packages:
   - package: fivetran/netsuite_source
-    version: [">=0.8.0", "<0.9.0"]
+    version: [">=0.9.0", "<0.10.0"]
 ```
 
 ## Step 3: Define Netsuite.com or Netsuite2 Source

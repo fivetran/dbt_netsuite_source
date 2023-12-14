@@ -482,6 +482,8 @@ models:
         description: "{{ doc('fiscal_calendar_id') }}"
       - name: parent_id
         description: Reference to the parent subsidiary.
+      - name: currency_id
+        description: "{{ doc('currency_id') }}"
 
   - name: stg_netsuite2__transaction_accounting_lines
     description: "{{ doc('transaction_accounting_lines_table') }}"
@@ -490,6 +492,7 @@ models:
           combination_of_columns:
             - transaction_id
             - transaction_line_id
+            - accounting_book_id
     columns:
       - name: transaction_id
         description: The tra "{{ doc('transaction_id') }}"nsaction id which the transaction line is associated with.

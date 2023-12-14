@@ -1,3 +1,12 @@
+# dbt_netsuite_source v0.9.0
+[PR #42](https://github.com/fivetran/dbt_netsuite_source/pull/42) includes the following update:
+## 🚨 Breaking Changes 🚨:
+- Addition of the `currency` field as `currency_id` within the `stg_netsuite2__subsidiaries` model.
+  - This addition likely won't be breaking for a large number of users. However, if you are leveraging the `subsidiaries_pass_through_columns` variable and have included `currency` as a pass through column, you will experience a duplicate column error. We advise you remove the `currency` field as a pass through column to avoid runtime errors following this upgrade.
+
+## Contributors:
+- [@jmongerlyra](https://github.com/jmongerlyra) ([PR #41](https://github.com/fivetran/dbt_netsuite_source/pull/41))
+
 # dbt_netsuite_source v0.8.0
 ## 🚨 Breaking Changes 🚨:
 - Addition of the `is_eliminate` and `special_account_type_id` fields within the `stg_netsuite2__accounts` model. ([PR #39](https://github.com/fivetran/dbt_netsuite_source/pull/39) and [PR #40](https://github.com/fivetran/dbt_netsuite_source/pull/40))
