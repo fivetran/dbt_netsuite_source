@@ -56,10 +56,18 @@ vars:
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
-    accounts_pass_through_columns: []
+    accounts_pass_through_columns:
+      - name: "custrecord_cash_flow_category"
+        alias: "lyra_cash_flow_category"
     classes_pass_through_columns: []
     departments_pass_through_columns: []
-    transactions_pass_through_columns: []
+    transactions_pass_through_columns:
+      - name: "custbody_subledger"
+        alias: "lyra_subledger"
+      - name: "custbody_subledger_id"
+        alias: "lyra_subledger_id"
+      - name: "typebaseddocumentnumber"
+        alias: "type_based_document_number"
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []

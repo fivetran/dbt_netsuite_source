@@ -31,6 +31,7 @@
     {"name": "accttype", "datatype": dbt.type_string()},
     {"name": "sspecacct", "datatype": dbt.type_string()},
     {"name": "fullname", "datatype": dbt.type_string()},
+    {"name": "accountsearchdisplaynamecopy", "datatype": dbt.type_string()},
     {"name": "description", "datatype": dbt.type_string()},
     {"name": "deferralacct", "datatype": dbt.type_int()},
     {"name": "cashflowrate", "datatype": dbt.type_string()},

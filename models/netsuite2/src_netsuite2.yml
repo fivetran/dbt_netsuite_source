@@ -472,6 +472,8 @@ sources:
             description: Reference to the parent subsidiary.
           - name: currency
             description:  "{{ doc('currency_id') }}"
+          - name: iselimination
+            description: Boolean indicating if the subsidiary is an elimination subsidiary. Represented as "T" or "F" for true and false respectively.
 
       - name: transaction_accounting_line
         identifier: "{{ var('netsuite2_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
@@ -540,6 +542,10 @@ sources:
             description: Boolean indicating if the transaction line is a main line entry. Represented as "T" or "F" for true and false respectively.
           - name: taxline
             description: Boolean indicating if the transaction line is a tax line. Represented as "T" or "F" for true and false respectively.
+          - name: eliminate
+            description: Boolean indicating if the transaction line is eliminated. Represented as "T" or "F" for true and false respectively.
+          - name: netamount
+            description: Net amount of transaction line.
 
       - name: transaction
         identifier: "{{ var('netsuite2_transaction_identifier', 'transaction') }}"
