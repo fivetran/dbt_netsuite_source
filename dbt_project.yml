@@ -68,6 +68,10 @@ vars:
         alias: "lyra_subledger_id"
       - name: "typebaseddocumentnumber"
         alias: "type_based_document_number"
+      - name: "createddate"
+        alias: "created_date"
+      - name: "lastmodifieddate"
+        alias: "last_modified_date"
     transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
