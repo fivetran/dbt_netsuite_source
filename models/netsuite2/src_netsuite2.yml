@@ -470,6 +470,8 @@ sources:
             description: "{{ doc('fiscal_calendar_id') }}"
           - name: parent
             description: Reference to the parent subsidiary.
+          - name: currency
+            description:  "{{ doc('currency_id') }}"
           - name: iselimination
             description: Boolean indicating if the subsidiary is an elimination subsidiary. Represented as "T" or "F" for true and false respectively.
 
