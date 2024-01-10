@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_netsuite2_departments_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -28,7 +34,8 @@ final as (
         fullname as full_name,
         subsidiary as subsidiary_id,
         isinactive = 'T' as is_inactive,
-        _fivetran_deleted
+        _fivetran_deleted,
+        source_relation
 
         --The below macro adds the fields defined within your departments_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('departments_pass_through_columns') }}

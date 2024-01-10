@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_netsuite2_accounting_books_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -30,7 +36,8 @@ final as (
         isconsolidated = 'T' as is_consolidated,
         contingentrevenuehandling as is_contingent_revenue_handling,
         isprimary = 'T' as is_primary,
-        twosteprevenueallocation as is_two_step_revenue_allocation
+        twosteprevenueallocation as is_two_step_revenue_allocation,
+        source_relation
     from fields
     where not coalesce(_fivetran_deleted, false)
 )

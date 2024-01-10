@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_job_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -28,7 +34,8 @@ final as (
         entityid as entity_id,
         defaultbillingaddress as billing_address_id,
         defaultshippingaddress as shipping_address_id,
-        parent as parent_id
+        parent as parent_id,
+        source_relation
     from fields
 )
 
