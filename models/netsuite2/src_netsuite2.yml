@@ -7,7 +7,7 @@ sources:
     loader: fivetran
     loaded_at_field: _fivetran_synced
     config:
-      enabled: "{{ var('netsuite2_union_schemas', []) == [] and var('netsuite2_union_databases', []) == [] }}"
+      enabled: "{{ var('netsuite_data_model', 'netsuite') == var('netsuite_data_model_override','netsuite2') and var('netsuite2_union_schemas', []) == [] and var('netsuite2_union_databases', []) == [] }}"
     freshness:
       warn_after: { count: 24, period: hour }
       error_after: { count: 48, period: hour }
