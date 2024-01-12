@@ -1,7 +1,10 @@
 # dbt_netsuite_source v0.10.0
 
 ## 🎉 Feature Update 🎉 
-- This release supports running the package on multiple Netsuite sources at once! See the [README](https://github.com/fivetran/dbt_netsuite_source?tab=readme-ov-file#step-4-define-database-and-schema-variables) for details on how to leverage this feature ([PR #xx](https://github.com/fivetran/dbt_netsuite_source/pull/xx)). # update
+- This release supports running the package on multiple Netsuite sources at once! See the [README](https://github.com/fivetran/dbt_netsuite_source?tab=readme-ov-file#step-4-define-database-and-schema-variables) for details on how to leverage this feature ([PR #43](https://github.com/fivetran/dbt_netsuite_source/pull/43)).
+
+## Contributors:
+- [@fivetran-poonamagate](https://github.com/fivetran-poonamagate) ([PR #43](https://github.com/fivetran/dbt_netsuite_source/pull/43))
 
 # dbt_netsuite_source v0.9.0
 [PR #42](https://github.com/fivetran/dbt_netsuite_source/pull/42) includes the following update:
