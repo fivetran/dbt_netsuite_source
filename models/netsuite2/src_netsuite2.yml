@@ -197,7 +197,7 @@ sources:
         description: "{{ doc('consolidated_exchange_rates_table') }}"
         columns:
           - name: id
-            description:  unique identifier for the consolidated exchange rate.
+            description: Unique identifier for the consolidated exchange rate.
           - name: postingperiod
             description: "{{ doc('accounting_period_id') }}"
           - name: fromcurrency
@@ -291,7 +291,7 @@ sources:
         description: "{{ doc('entities_table') }}"
         columns:
           - name: id
-            description: Th "{{ doc('entity_id') }}"e unique identifier of the entity.
+            description: "{{ doc('entity_id') }}"
           - name: contact
             description: The unique identifier of the contact associated with the entity.
           - name: customer
