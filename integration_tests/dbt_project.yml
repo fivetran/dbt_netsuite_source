@@ -5,6 +5,7 @@ version: '0.9.0'
 profile: 'integration_tests'
 config-version: 2
 vars:
+  integration_tests_seed_identifer_override: true # to use seed identifiers in integration tests
   netsuite_source:
     netsuite_schema: netsuite_source_integration_tests_3
     netsuite_data_model_override: netsuite
