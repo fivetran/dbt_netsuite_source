@@ -6,7 +6,7 @@ profile: 'integration_tests'
 config-version: 2
 vars:
   netsuite_source:
-    integration_tests_seed_identifer_override: true # to use seed identifiers in integration tests
+    use_table_name_identifer_override: true # to use seed identifiers in integration tests
     netsuite_schema: netsuite_source_integration_tests_3
     netsuite_data_model_override: netsuite
     netsuite_accounting_books_identifier: "netsuite_accounting_books_data"

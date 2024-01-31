@@ -129,7 +129,7 @@ To properly incorporate all of your Netsuite2 connectors into your project's DAG
 
   <details><summary><i>Expand for source configuration template</i></summary><p>
 
-> **Note**: If there are source tables you do not have (see [Step 4](https://github.com/fivetran/dbt_netsuite_source?tab=readme-ov-file#step-5-disable-models-for-non-existent-sources-netsuite2-only)), you may still include them, as long as you have set the right variables to `False`. Otherwise, you may remove them from your source definitions.
+> **Note**: If there are source tables you do not have (see [Step 4](https://github.com/fivetran/dbt_netsuite_source?tab=readme-ov-file#step-5-disable-models-for-non-existent-sources-netsuite2-only)), you may still include them, as long as you have set the right [variables](https://github.com/fivetran/dbt_netsuite_source?tab=readme-ov-file#step-5-disable-models-for-non-existent-sources-netsuite2-only) to `False`. Otherwise, you may remove them from your source definitions.
 
 ```yml
 sources:
@@ -764,7 +764,7 @@ vars:
 > To determine if a table or field is activated by a feature, access the [Records Catalog](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_159367781370.html).
 
 ## (Optional) Step 6: Additional configurations
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand for configurations</summary>
 
 ### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
@@ -811,13 +811,14 @@ models:
     netsuite_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
-    
-### Change the source table references
-If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+### Change the source table references (only if using a single connector)
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable (and set `use_table_name_identifer_override` if using Netsuite2):
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_netsuite_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
 ```yml
 vars:
+    use_table_name_identifer_override: true # Netsuite2 users must set this to TRUE. default = false
+
     # For all Netsuite source tables
     netsuite_<default_source_table_name>_identifier: your_table_name 
 
