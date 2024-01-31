@@ -89,7 +89,7 @@ If you  are **not** using the [Netsuite transformation package](https://github.c
 ```yaml
 packages:
   - package: fivetran/netsuite_source
-    version: [">=0.9.0", "<0.10.0"]
+    version: [">=0.10.0", "<0.11.0"]
 ```
 
 ## Step 3: Define Netsuite.com or Netsuite2 Source
@@ -100,7 +100,7 @@ vars:
 ```
 
 ## Step 4: Define database and schema variables
-### Option 1: Single connector
+### Option 1: Single connector 💃
 By default, this package runs using your destination and the `netsuite` schema. If this is not where your Netsuite data is (for example, if your netsuite schema is named `netsuite_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
@@ -110,7 +110,7 @@ vars:
 ```
 > **Note**: If you are running the package on one source connector, each model will have a `source_relation` column that is just an empty string.
 
-### Option 2: Union multiple connectors (Netsuite2 only)
+### Option 2: Union multiple connectors (Netsuite2 only) 👯
 If you have multiple Netsuite2 connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `netsuite2_union_schemas` OR `netsuite2_union_databases` variables (cannot do both, though a more flexible approach is in the works...) in your root `dbt_project.yml` file:
 
 ```yml
@@ -764,7 +764,7 @@ vars:
 > To determine if a table or field is activated by a feature, access the [Records Catalog](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_159367781370.html).
 
 ## (Optional) Step 6: Additional configurations
-<details open><summary>Expand for configurations</summary>
+<details open><summary>Expand/collapse configurations</summary>
 
 ### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
