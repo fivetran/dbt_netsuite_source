@@ -16,6 +16,12 @@ fields as (
                 staging_columns=get_netsuite2_items_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -39,7 +45,8 @@ final as (
         intercoincomeaccount as interco_income_account_id,
         deferralaccount as deferred_expense_account_id,
         deferredrevenueaccount as deferred_revenue_account_id,
-        parent as parent_item_id
+        parent as parent_item_id,
+        source_relation
 
         --The below macro adds the fields defined within your items_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('items_pass_through_columns') }}

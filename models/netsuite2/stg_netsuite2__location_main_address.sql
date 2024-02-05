@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_locationmainaddress_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -31,7 +37,8 @@ final as (
         country,
         coalesce(state, dropdownstate) as state,
         nkey,
-        zip as zipcode
+        zip as zipcode,
+        source_relation
     from fields
     where not coalesce(_fivetran_deleted, false)
 )

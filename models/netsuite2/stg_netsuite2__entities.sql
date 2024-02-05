@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_entity_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -31,7 +37,8 @@ final as (
         customer as customer_id,
         employee as employee_id,
         project as job_id,
-        vendor as vendor_id
+        vendor as vendor_id,
+        source_relation
     from fields
 )
 

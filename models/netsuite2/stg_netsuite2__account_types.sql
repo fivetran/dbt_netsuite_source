@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_accounttype_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -34,7 +40,8 @@ final as (
         {%- else -%}
         left
         {%- endif -%} = 'T' as is_leftside,
-        longname as type_name
+        longname as type_name,
+        source_relation
 
     from fields
 )

@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_netsuite2_accounts_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -41,7 +47,8 @@ final as (
         isinactive = 'T' as is_inactive,
         issummary = 'T' as is_summary,
         eliminate = 'T' as is_eliminate,
-        _fivetran_deleted
+        _fivetran_deleted,
+        source_relation
 
         --The below macro adds the fields defined within your accounts_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('accounts_pass_through_columns') }}
