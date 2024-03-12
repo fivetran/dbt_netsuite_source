@@ -61,6 +61,8 @@
 
 {% docs vendor_id %} The unique identifier of the vendor. {% enddocs %}
 
+{% docs alt_name %} Name of the person or company. {% enddocs %}
+
 {% docs company_name %} Name of the company. {% enddocs %}
 
 {% docs create_date_at %} Timestamp of the record creation. {% enddocs %}

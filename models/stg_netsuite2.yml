@@ -246,6 +246,8 @@ models:
         description: Reference to the parent customer.
       - name: is_person
         description: Boolean indicating if the customer is an individual person.
+      - name: alt_name
+        description: "{{ doc('alt_name') }}"
       - name: company_name
         description: "{{ doc('company_name') }}"
       - name: first_name
@@ -642,6 +644,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: alt_name
+        description: "{{ doc('alt_name') }}"
       - name: company_name
         description: "{{ doc('company_name') }}"
       - name: create_date_at
