@@ -60,7 +60,9 @@ vars:
       - name: "custrecord_cash_flow_category"
         alias: "lyra_cash_flow_category"
     classes_pass_through_columns: []
-    departments_pass_through_columns: []
+    departments_pass_through_columns:
+      - name: "custrecord_sec_opex_category"
+        alias: "lyra_sec_opex_category"
     transactions_pass_through_columns:
       - name: "custbody_subledger"
         alias: "lyra_subledger"
