@@ -38,7 +38,9 @@ final as (
         cleared = 'T' as is_cleared,
         commitmentfirm = 'T' as is_commitment_firm,
         mainline = 'T' as is_main_line,
-        taxline = 'T' as is_tax_line
+        taxline = 'T' as is_tax_line,
+        eliminate = 'T' as is_eliminate,
+        netamount
 
         --The below macro adds the fields defined within your transaction_lines_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('transaction_lines_pass_through_columns') }}

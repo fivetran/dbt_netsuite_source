@@ -1,3 +1,16 @@
+# dbt_netsuite_source v0.10.0
+
+## 🎉 Feature Updates 🎉
+- Fields added to support account hierarchies in the `dbt_netsuite` Netsuite2 end model. ([PR #45](https://github.com/fivetran/dbt_netsuite_source/pull/45))
+  - Added `is_elimination` in `stg_netsuite2__subsidiaries`.
+  - Added `is_eliminate` and `net_amount` in `stg_netsuite2__transaction_lines`.
+  - Added `display_name` in `stg_netsuite__accounts`.
+  - Added `exchange_rate` in `stg_netsuite2__transaction_accounting_lines`.
+> Please note: This addition likely won't be breaking for a large number of users. However, if you are leveraging [the pass-through columns variables](https://github.com/fivetran/dbt_netsuite_source/blob/main/README.md#optional-step-6-additional-configurations) (Ex: `accounts_pass_through_columns`, `transaction_lines_pass_through_columns`, `subsidiaries_pass_through_columns`), and have included one or more of these fields as a pass-through column, you will experience a duplicate column error. We advise you remove the above fields as pass through columns to avoid runtime errors following this upgrade.
+
+## Contributors
+- [@jmongerlyra](https://github.com/jmongerlyra) ([PR #44](https://github.com/fivetran/dbt_netsuite_source/pull/44))
+
 # dbt_netsuite_source v0.9.0
 [PR #42](https://github.com/fivetran/dbt_netsuite_source/pull/42) includes the following update:
 ## 🚨 Breaking Changes 🚨:

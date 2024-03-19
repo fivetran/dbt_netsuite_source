@@ -172,6 +172,8 @@ sources:
             description: Indicates this is an intercompany account used only to record transactions between subsidiaries. Amounts posted to intercompany accounts are eliminated when you run the intercompany elimination process at the end of an accounting period. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
+          - name: accountsearchdisplaynamecopy
+            description: Display name of the account.
 
       - name: classification
         identifier: "{{ var('netsuite2_classification_identifier', 'classification') }}"
@@ -472,6 +474,8 @@ sources:
             description: Reference to the parent subsidiary.
           - name: currency
             description:  "{{ doc('currency_id') }}"
+          - name: iselimination
+            description: Boolean indicating if the subsidiary is an elimination subsidiary. Represented as "T" or "F" for true and false respectively.
 
       - name: transaction_accounting_line
         identifier: "{{ var('netsuite2_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
@@ -499,6 +503,8 @@ sources:
             description: Total amount paid.
           - name: amountunpaid
             description: Total amount unpaid.
+          - name: exchangerate
+            description: The exchange rate of the transaction line.
 
       - name: transaction_line
         identifier: "{{ var('netsuite2_transaction_line_identifier', 'transactionline') }}"
@@ -540,6 +546,10 @@ sources:
             description: Boolean indicating if the transaction line is a main line entry. Represented as "T" or "F" for true and false respectively.
           - name: taxline
             description: Boolean indicating if the transaction line is a tax line. Represented as "T" or "F" for true and false respectively.
+          - name: eliminate
+            description: Boolean indicating if the transaction line is eliminated. Represented as "T" or "F" for true and false respectively.
+          - name: netamount
+            description: Net amount of transaction line.
 
       - name: transaction
         identifier: "{{ var('netsuite2_transaction_identifier', 'transaction') }}"
