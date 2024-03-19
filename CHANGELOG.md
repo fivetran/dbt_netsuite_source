@@ -1,4 +1,4 @@
-# dbt_netsuite_source v0.RELEASE.RELEASE
+# dbt_netsuite_source v0.10.0
 
 This is part of a batch release. 
 
@@ -9,6 +9,9 @@ This is part of a batch release.
 
 ## Documentation Updates
 - Added `display_name` in `stg_netsuite2__accounts`; added `exchange_rate` in `stg_netsuite2__transaction_accounting_lines`. [PR #45](https://github.com/fivetran/dbt_netsuite_source/pull/45)
+
+## Contributors
+- [@jmongerlyra](https://github.com/jmongerlyra) ([PR #44](https://github.com/fivetran/dbt_netsuite_source/pull/44))
 
 # dbt_netsuite_source v0.9.0
 [PR #42](https://github.com/fivetran/dbt_netsuite_source/pull/42) includes the following update:
