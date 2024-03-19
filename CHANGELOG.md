@@ -1,3 +1,15 @@
+# dbt_netsuite_source v0.RELEASE.RELEASE
+
+This is part of a batch release. 
+
+## 🎉 Feature Updates 🎉
+- Fields added to support account hierarchies in the `dbt_netsuite` end model. [PR #45](https://github.com/fivetran/dbt_netsuite_source/pull/45)
+  - Added `is_elimination` in `stg_netsuite2__subsidiaries`.
+  - Added `is_eliminate` and `net_amount` in `stg_netsuite2__transaction_lines`.
+
+## Documentation Updates
+- Added `display_name` in `stg_netsuite2__accounts`; added `exchange_rate` in `stg_netsuite2__transaction_accounting_lines`. [PR #45](https://github.com/fivetran/dbt_netsuite_source/pull/45)
+
 # dbt_netsuite_source v0.9.0
 [PR #42](https://github.com/fivetran/dbt_netsuite_source/pull/42) includes the following update:
 ## 🚨 Breaking Changes 🚨:
