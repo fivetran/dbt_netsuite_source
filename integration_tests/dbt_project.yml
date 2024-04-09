@@ -1,9 +1,13 @@
 name: 'netsuite_source_integration_tests'
 
-version: '0.9.0'
+version: '0.10.0'
 
 profile: 'integration_tests'
 config-version: 2
+
+models:
+  +schema: "{{ 'netsuite_source_integrations_tests_sqlw' if target.name == 'databricks-sql' else 'netsuite' }}"
+
 vars:
   netsuite_source:
     netsuite_schema: netsuite_source_integration_tests_3
@@ -56,7 +60,7 @@ seeds:
       due_date: timestamp
     netsuite2_account_data:
       +column_types:
-        eliminate: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        eliminate: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks', 'databricks-sql') else 'varchar' }}"
 
 dispatch:
   - macro_namespace: dbt_utils
