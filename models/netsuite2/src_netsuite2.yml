@@ -7,7 +7,7 @@ sources:
     loader: fivetran
     loaded_at_field: _fivetran_synced
     config:
-      enabled: "{{ var('netsuite_data_model', 'netsuite') == var('netsuite_data_model_override','netsuite2') }}"
+      enabled: "{{ var('netsuite_data_model', 'netsuite') == var('netsuite_data_model_override','netsuite2') and var('netsuite2_union_schemas', []) == [] and var('netsuite2_union_databases', []) == [] }}"
     freshness:
       warn_after: { count: 24, period: hour }
       error_after: { count: 48, period: hour }
@@ -197,7 +197,7 @@ sources:
         description: "{{ doc('consolidated_exchange_rates_table') }}"
         columns:
           - name: id
-            description:  unique identifier for the consolidated exchange rate.
+            description: Unique identifier for the consolidated exchange rate.
           - name: postingperiod
             description: "{{ doc('accounting_period_id') }}"
           - name: fromcurrency
@@ -291,7 +291,7 @@ sources:
         description: "{{ doc('entities_table') }}"
         columns:
           - name: id
-            description: Th "{{ doc('entity_id') }}"e unique identifier of the entity.
+            description: "{{ doc('entity_id') }}"
           - name: contact
             description: The unique identifier of the contact associated with the entity.
           - name: customer

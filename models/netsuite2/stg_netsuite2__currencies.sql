@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_netsuite2_currencies_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -24,11 +30,11 @@ final as (
         _fivetran_synced,
         id as currency_id,
         name,
-        symbol
+        symbol,
+        source_relation
     from fields
     where not coalesce(_fivetran_deleted, false)
 )
 
 select * 
 from final
-

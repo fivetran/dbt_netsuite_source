@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_transactionaccountingline_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -33,7 +39,8 @@ final as (
         debit as debit_amount,
         netamount as net_amount,
         amountpaid as paid_amount,
-        amountunpaid as unpaid_amount
+        amountunpaid as unpaid_amount,
+        source_relation
     from fields
 )
 

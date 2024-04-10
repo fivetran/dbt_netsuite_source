@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_accountingbooksubsidiaries_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -25,7 +31,8 @@ final as (
         _fivetran_synced,
         accountingbook as accounting_book_id,
         status,
-        subsidiary as subsidiary_id
+        subsidiary as subsidiary_id,
+        source_relation
 
     from fields
     where not coalesce(_fivetran_deleted, false)

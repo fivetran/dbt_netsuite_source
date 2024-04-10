@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_accountingperiodfiscalcalendars_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -25,7 +31,8 @@ final as (
         _fivetran_synced,
         accountingperiod as accounting_period_id,
         fiscalcalendar as fiscal_calendar_id,
-        parent as parent_id
+        parent as parent_id,
+        source_relation
     from fields
     where not coalesce(_fivetran_deleted, false)
 )

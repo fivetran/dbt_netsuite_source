@@ -16,6 +16,12 @@ fields as (
                 staging_columns=get_netsuite2_accounting_periods_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -36,7 +42,8 @@ final as (
         closed = 'T' as is_closed,
         alllocked = 'T' as is_all_locked,
         arlocked = 'T' as is_ar_locked,
-        aplocked = 'T' as is_ap_locked
+        aplocked = 'T' as is_ap_locked,
+        source_relation
     from fields
     where not coalesce(_fivetran_deleted, false)
 )

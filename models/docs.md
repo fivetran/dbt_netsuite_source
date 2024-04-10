@@ -97,7 +97,7 @@
 
 {% docs addr3 %} The associated address 3. {% enddocs %}
 
-{% docs addressee %} The individual associated with the address {% enddocs %}
+{% docs addressee %} The individual associated with the address. {% enddocs %}
 
 {% docs full_address %} The full address associated. {% enddocs %}
 

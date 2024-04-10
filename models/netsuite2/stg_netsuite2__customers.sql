@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_netsuite2_customers_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='netsuite2_union_schemas', 
+            union_database_variable='netsuite2_union_databases')
+        }}
+
     from base
 ),
 
@@ -35,7 +41,8 @@ final as (
         defaultshippingaddress as default_shipping_address_id,
         receivablesaccount as receivables_account_id,
         currency as currency_id,
-        firstorderdate as date_first_order_at
+        firstorderdate as date_first_order_at,
+        source_relation
 
         --The below macro adds the fields defined within your customers_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('customers_pass_through_columns') }}
