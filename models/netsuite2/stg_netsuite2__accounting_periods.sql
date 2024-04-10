@@ -27,7 +27,7 @@ final as (
         parent as parent_id, 
         periodname as name,
         startdate as starting_at,
-        cast(enddate as date) as ending_at,
+        enddate as ending_at,
         closedondate as closed_at,
         isquarter = 'T' as is_quarter,
         isyear = 'T' as is_year,
