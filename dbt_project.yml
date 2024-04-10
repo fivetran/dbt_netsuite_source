@@ -41,6 +41,7 @@ vars:
     netsuite2_currencies: "{{ source('netsuite2','currency') }}"
     netsuite2_customers: "{{ source('netsuite2','customer') }}"
     netsuite2_departments: "{{ source('netsuite2','department') }}"
+    netsuite2_employees: "{{ source('netsuite2','employee') }}"
     netsuite2_entities: "{{ source('netsuite2','entity') }}"
     netsuite2_items: "{{ source('netsuite2','item') }}"
     netsuite2_jobs: "{{ source('netsuite2','job') }}"
@@ -59,6 +60,8 @@ vars:
     accounts_pass_through_columns:
       - name: "custrecord_cash_flow_category"
         alias: "lyra_cash_flow_category"
+      - name: "custrecord_ebitda_category"
+        alias: "lyra_ebitda_category"
     classes_pass_through_columns: []
     departments_pass_through_columns:
       - name: "custrecord_sec_opex_category"
@@ -70,8 +73,12 @@ vars:
         alias: "lyra_subledger_id"
       - name: "typebaseddocumentnumber"
         alias: "type_based_document_number"
+      - name: "createdby"
+        alias: "created_by_id"
       - name: "createddate"
         alias: "created_date"
+      - name: "lastmodifiedby"
+        alias: "last_modified_by_id"
       - name: "lastmodifieddate"
         alias: "last_modified_date"
     transaction_lines_pass_through_columns: []

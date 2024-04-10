@@ -36,6 +36,8 @@
 
 {% docs entities_table %} Table detailing all entities in Netsuite. {% enddocs %}
 
+{% docs employee_table %} Table detailing all employees in Netsuite. {% enddocs %}
+
 {% docs jobs_table %} Table detailing all jobs. {% enddocs %}
 
 {% docs transaction_accounting_lines_table %} A table detailing all transaction lines for all transactions. {% enddocs %}
@@ -76,6 +78,10 @@
 {% docs currency_id %} The currency id of the currency used within the record. {% enddocs %}
 
 {% docs entity_id %} The entity id of the entity used for the record. {% enddocs %}
+
+{% docs employee_id %} The employee id of the employee used for the record. {% enddocs %}
+
+{% docs supervisor_id %} The employee id of the employee's supervisor used for the record. {% enddocs %}
 
 {% docs transaction_id %} The transaction id of referenced for the record. {% enddocs %}
 

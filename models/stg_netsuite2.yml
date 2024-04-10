@@ -292,6 +292,43 @@ models:
       - name: _fivetran_deleted
         description: "{{ doc('_fivetran_deleted') }}"
 
+  - name: stg_netsuite2__employees
+    description: "{{ doc('employee_table') }}"
+    columns:
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: employee_id
+        description: "{{ doc('employee_id') }}"
+        tests:
+          - unique
+          - not_null
+      - name: entity_id
+        description: "{{ doc('entity_id') }}"
+      - name: first_name
+        description: First name of the employee.
+      - name: last_name
+        description: Last name of the employee.
+      - name: department_id
+        description: "{{ doc('department_id') }}"
+      - name: subsidiary_id
+        description: "{{ doc('subsidiary_id') }}"
+      - name: email
+        description: Email address of the employee.
+      - name: supervisor_id
+        description: "{{ doc('supervisor_id') }}"
+      - name: approval_limit
+        description: The largest expense report this supervisor can approve.
+      - name: expense_limit
+        description: Amount this employee can expense without approval from a supervisor or approver.
+      - name: purchase_order_approval_limit
+        description: Amount an employee is allowed to approve on a purchase request when specified as an approver.
+      - name: purchase_order_limit
+        description: Amount this employee can purchase without approval from a supervisor or approver.
+      - name: currency_id
+        description: "{{ doc('currency_id') }}"
+      - name: is_inactive
+        description: Boolean indicating this employee is active.
+
   - name: stg_netsuite2__entities
     description: "{{ doc('entities_table') }}"
     columns:
