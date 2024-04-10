@@ -29,7 +29,7 @@ final as (
         trandate as transaction_date,
         status,
         createddate as created_at,
-        cast(createddate as date) as transaction_created_date,
+        cast(createddate as date) as transaction_record_created_date,
         duedate as due_date_at,
         closedate as closed_at,
         currency as currency_id,
