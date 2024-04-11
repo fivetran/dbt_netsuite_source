@@ -22,6 +22,7 @@ final as (
     
     select
         _fivetran_synced,
+        cast(_fivetran_synced as date) as _fivetran_synced_date,
         id as transaction_id,
         transactionnumber as transaction_number,
         type as transaction_type,
@@ -29,7 +30,6 @@ final as (
         trandate as transaction_date,
         status,
         createddate as created_at,
-        cast(createddate as date) as transaction_record_created_date,
         duedate as due_date_at,
         closedate as closed_at,
         currency as currency_id,
