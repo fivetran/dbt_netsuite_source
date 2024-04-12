@@ -1,6 +1,7 @@
 # dbt_netsuite_source v0.10.0
 [PR #47](https://github.com/fivetran/dbt_netsuite_source/pull/47) includes the following update:
 ## 🚨 Breaking Changes 🚨
+- Added column `_fivetran_synced_date` to model `stg_netsuite2__transactions` for use in downstream models.
 - To reduce storage, updated default materialization of staging models to views. 
 >  ⚠️ Running a `--full-refresh` will be required if you have previously run these staging models as tables and get the following error: 
 > ```
