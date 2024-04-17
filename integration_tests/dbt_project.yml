@@ -60,7 +60,7 @@ seeds:
       due_date: timestamp
     netsuite2_account_data:
       +column_types:
-        eliminate: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks', 'databricks-sql') else 'varchar' }}"
+        eliminate: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
 
 dispatch:
   - macro_namespace: dbt_utils
