@@ -23,7 +23,7 @@ dbt compile --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' 
 dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" --full-refresh
 dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
 dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw, netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false}' --target "$db" --full-refresh
-dbt test --target "$db"
+dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
 
 else
 
