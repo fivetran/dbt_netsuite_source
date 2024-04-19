@@ -5,9 +5,6 @@ version: '0.10.0'
 profile: 'integration_tests'
 config-version: 2
 
-models:
-  +schema: "{{ 'netsuite_source_integrations_tests_sqlw' if target.name == 'databricks-sql' else 'netsuite' }}"
-
 vars:
   netsuite_source:
     netsuite_schema: netsuite_source_integration_tests_3
@@ -52,6 +49,10 @@ vars:
     netsuite2_account_type_identifier: "netsuite2_account_type_data"
     netsuite2_entity_address_identifier: "netsuite2_entity_address_data"
     netsuite2_location_main_address_identifier: "netsuite2_location_main_address_data"
+
+models:
+  +schema: "{{ 'netsuite_source_integrations_tests_sqlw' if target.name == 'databricks-sql' else 'netsuite_source' }}"
+
 seeds:
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   netsuite_source_integration_tests:
