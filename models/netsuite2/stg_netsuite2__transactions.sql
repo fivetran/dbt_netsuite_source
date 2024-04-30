@@ -22,6 +22,7 @@ final as (
     
     select
         _fivetran_synced,
+        cast(_fivetran_synced as date) as _fivetran_synced_date,
         id as transaction_id,
         transactionnumber as transaction_number,
         type as transaction_type,
