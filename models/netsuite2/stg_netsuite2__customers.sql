@@ -26,6 +26,7 @@ final as (
         externalid as customer_external_id,
         parent as parent_id,
         isperson = 'T' as is_person,
+        altname as alt_name,
         companyname as company_name,
         firstname as first_name,
         lastname as last_name,

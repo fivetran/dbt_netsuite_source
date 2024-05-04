@@ -29,6 +29,7 @@ final as (
         accttype as account_type_id,
         sspecacct as special_account_type_id,
         fullname as name,
+        accountsearchdisplaynamecopy as display_name,
         description as account_description,
         deferralacct as deferral_account_id,
         cashflowrate as cash_flow_rate_type,
