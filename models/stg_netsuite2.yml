@@ -624,6 +624,8 @@ models:
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
+      - name: _fivetran_synced_date
+        description: _fivetran_synced formatted as a date for incremental logic use.
       - name: transaction_id
         description: "{{ doc('transaction_id') }}"
         tests:
