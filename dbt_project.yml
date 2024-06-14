@@ -62,6 +62,8 @@ vars:
         alias: "lyra_cash_flow_category"
       - name: "custrecord_ebitda_category"
         alias: "lyra_ebitda_category"
+      - name: "custrecord_transfer_pricing_method"
+        alias: "lyra_transfer_pricing_method"
     classes_pass_through_columns: []
     departments_pass_through_columns:
       - name: "custrecord_sec_opex_category"
@@ -81,10 +83,20 @@ vars:
         alias: "last_modified_by_id"
       - name: "lastmodifieddate"
         alias: "last_modified_date"
-    transaction_lines_pass_through_columns: []
+    transaction_lines_pass_through_columns:
+      - name: "amortizstartdate"
+        alias: "amortization_start_date"
+      - name: "amortizationenddate"
+        alias: "amortization_end_date"
+      - name: "custcol_inv_start_date"
+        alias: "lyra_inv_start_date"
+      - name: "custcol_inv_end_date"
+        alias: "lyra_inv_end_date"
     customers_pass_through_columns: []
     locations_pass_through_columns: []
-    subsidiaries_pass_through_columns: []
+    subsidiaries_pass_through_columns:
+      - name: "custrecord_transfer_pricing_markup"
+        alias: "lyra_transfer_pricing_markup"
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
