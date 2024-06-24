@@ -37,7 +37,10 @@ final as (
         postingperiod as accounting_period_id,
         posting = 'T' as is_posting,
         intercoadj = 'T' as is_intercompany_adjustment,
-        isreversal = 'T' as is_reversal
+        isreversal = 'T' as is_reversal,
+        reversal as reversal_transaction_id,
+        reversaldate as reversal_date,
+        reversaldefer = 'T' as is_reversal_defer
 
         --The below macro adds the fields defined within your transactions_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('transactions_pass_through_columns') }}

@@ -75,6 +75,8 @@ vars:
         alias: "lyra_subledger_id"
       - name: "typebaseddocumentnumber"
         alias: "type_based_document_number"
+      - name: "tranid"
+        alias: "tran_id"
       - name: "createdby"
         alias: "created_by_id"
       - name: "createddate"

@@ -40,6 +40,9 @@
     {"name": "posting", "datatype": dbt.type_string()},
     {"name": "intercoadj", "datatype": dbt.type_string()},
     {"name": "isreversal", "datatype": dbt.type_string()},
+    {"name": "reversal", "datatype": dbt.type_int()},
+    {"name": "reversaldate", "datatype": dbt.type_timestamp()},
+    {"name": "reversaldefer", "datatype": dbt.type_string()}, 
     {"name": "_fivetran_deleted", "datatype": "boolean"}
 ] %}
 
