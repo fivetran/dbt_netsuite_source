@@ -148,6 +148,9 @@ vars:
     customers_pass_through_columns: 
         - name: "customer_custom_field"
           alias: "customer_field"
+    entities_pass_through_columns:
+        - name: "entity_custom_field"
+          alias: "entity_field"
     locations_pass_through_columns: 
         - name: "location_custom_field"
     subsidiaries_pass_through_columns: 

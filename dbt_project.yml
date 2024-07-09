@@ -67,6 +67,7 @@ vars:
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
+    entities_pass_through_columns: []
 
 clean-targets:
 - target
