@@ -99,6 +99,8 @@ vars:
     subsidiaries_pass_through_columns:
       - name: "custrecord_transfer_pricing_markup"
         alias: "lyra_transfer_pricing_markup"
+      - name: "custrecord_transfer_pricing_coa_method"
+        alias: "lyra_transfer_pricing_coa_method"
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
