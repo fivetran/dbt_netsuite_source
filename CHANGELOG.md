@@ -1,5 +1,5 @@
 # dbt_netsuite_source v0.10.1
-[PR #51](https://github.com/fivetran/dbt_netsuite_source/pull/51) includes the following update:
+[PR #51](https://github.com/fivetran/dbt_netsuite_source/pull/51) includes the following update: 
 
 ## Feature Update
 - Added the `entities_pass_through_columns` variable to be leveraged within the `stg_netsuite2__entities` model. This variable will allow users to pass through fields which are not natively included to the package staging model.
