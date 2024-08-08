@@ -27,17 +27,20 @@ final as (
         transactionnumber as transaction_number,
         type as transaction_type,
         memo,
-        trandate as transaction_date,
+        cast(trandate as date) as transaction_date,
         status,
         createddate as created_at,
-        duedate as due_date_at,
+        cast(duedate as date) as due_date_at,
         closedate as closed_at,
         currency as currency_id,
         entity as entity_id,
         postingperiod as accounting_period_id,
         posting = 'T' as is_posting,
         intercoadj = 'T' as is_intercompany_adjustment,
-        isreversal = 'T' as is_reversal
+        isreversal = 'T' as is_reversal,
+        reversal as reversal_transaction_id,
+        cast(reversaldate as date) as reversal_date,
+        reversaldefer = 'T' as is_reversal_defer
 
         --The below macro adds the fields defined within your transactions_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('transactions_pass_through_columns') }}

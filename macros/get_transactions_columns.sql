@@ -29,15 +29,20 @@
     {"name": "memo", "datatype": dbt.type_string()},
     {"name": "trandate", "datatype": dbt.type_timestamp()},
     {"name": "status", "datatype": dbt.type_string()},
+    {"name": "createdby", "datatype": dbt.type_int()},
     {"name": "createddate", "datatype": dbt.type_timestamp()},
     {"name": "duedate", "datatype": dbt.type_timestamp()},
     {"name": "closedate", "datatype": dbt.type_timestamp()},
     {"name": "currency", "datatype": dbt.type_int()},
     {"name": "entity", "datatype": dbt.type_int()},
+    {"name": "lastmodifiedby", "datatype": dbt.type_int()},
     {"name": "postingperiod", "datatype": dbt.type_int()},
     {"name": "posting", "datatype": dbt.type_string()},
     {"name": "intercoadj", "datatype": dbt.type_string()},
     {"name": "isreversal", "datatype": dbt.type_string()},
+    {"name": "reversal", "datatype": dbt.type_int()},
+    {"name": "reversaldate", "datatype": dbt.type_timestamp()},
+    {"name": "reversaldefer", "datatype": dbt.type_string()}, 
     {"name": "_fivetran_deleted", "datatype": "boolean"}
 ] %}
 
