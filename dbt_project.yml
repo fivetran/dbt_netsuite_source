@@ -88,12 +88,16 @@ vars:
     transaction_lines_pass_through_columns:
       - name: "amortizstartdate"
         alias: "amortization_start_date"
+        transform_sql: "cast(amortization_start_date as date)"
       - name: "amortizationenddate"
         alias: "amortization_end_date"
+        transform_sql: "cast(amortization_end_date as date)"
       - name: "custcol_inv_start_date"
         alias: "lyra_inv_start_date"
+        transform_sql: "cast(lyra_inv_start_date as date)"
       - name: "custcol_inv_end_date"
         alias: "lyra_inv_end_date"
+        transform_sql: "cast(lyra_inv_end_date as date)"
     customers_pass_through_columns: []
     locations_pass_through_columns: []
     subsidiaries_pass_through_columns:
