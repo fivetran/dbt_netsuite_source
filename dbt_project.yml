@@ -57,54 +57,14 @@ vars:
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
-    accounts_pass_through_columns:
-      - name: "custrecord_cash_flow_category"
-        alias: "lyra_cash_flow_category"
-      - name: "custrecord_ebitda_category"
-        alias: "lyra_ebitda_category"
-      - name: "custrecord_transfer_pricing_method"
-        alias: "lyra_transfer_pricing_method"
+    accounts_pass_through_columns: []
     classes_pass_through_columns: []
-    departments_pass_through_columns:
-      - name: "custrecord_sec_opex_category"
-        alias: "lyra_sec_opex_category"
-    transactions_pass_through_columns:
-      - name: "custbody_subledger"
-        alias: "lyra_subledger"
-      - name: "custbody_subledger_id"
-        alias: "lyra_subledger_id"
-      - name: "typebaseddocumentnumber"
-        alias: "type_based_document_number"
-      - name: "tranid"
-        alias: "tran_id"
-      - name: "createdby"
-        alias: "created_by_id"
-      - name: "createddate"
-        alias: "created_date"
-      - name: "lastmodifiedby"
-        alias: "last_modified_by_id"
-      - name: "lastmodifieddate"
-        alias: "last_modified_date"
-    transaction_lines_pass_through_columns:
-      - name: "amortizstartdate"
-        alias: "amortization_start_date"
-        transform_sql: "cast(amortization_start_date as date)"
-      - name: "amortizationenddate"
-        alias: "amortization_end_date"
-        transform_sql: "cast(amortization_end_date as date)"
-      - name: "custcol_inv_start_date"
-        alias: "lyra_inv_start_date"
-        transform_sql: "cast(lyra_inv_start_date as date)"
-      - name: "custcol_inv_end_date"
-        alias: "lyra_inv_end_date"
-        transform_sql: "cast(lyra_inv_end_date as date)"
+    departments_pass_through_columns: []
+    transactions_pass_through_columns: []
+    transaction_lines_pass_through_columns: []
     customers_pass_through_columns: []
     locations_pass_through_columns: []
-    subsidiaries_pass_through_columns:
-      - name: "custrecord_transfer_pricing_markup"
-        alias: "lyra_transfer_pricing_markup"
-      - name: "custrecord_transfer_pricing_coa_method"
-        alias: "lyra_transfer_pricing_coa_method"
+    subsidiaries_pass_through_columns: []
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
