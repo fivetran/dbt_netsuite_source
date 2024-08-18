@@ -27,6 +27,7 @@
     {"name": "externalid", "datatype": dbt.type_string()},
     {"name": "parent", "datatype": dbt.type_int()},
     {"name": "isperson", "datatype": dbt.type_string()},
+    {"name": "altname", "datatype": dbt.type_string()},
     {"name": "companyname", "datatype": dbt.type_string()},
     {"name": "firstname", "datatype": dbt.type_string()},
     {"name": "lastname", "datatype": dbt.type_string()},
