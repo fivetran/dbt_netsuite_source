@@ -14,7 +14,7 @@
 </p>
 
 # Netsuite Source dbt Package ([Docs](https://fivetran.github.io/dbt_netsuite_source/))
-# 📣 What does this dbt package do?
+## What does this dbt package do?
 <!--section="netsuite_source_model"-->
 - Materializes [Netsuite staging tables](https://fivetran.github.io/dbt_netsuite_source/#!/overview/netsuite_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/netsuite#schemainformation). These staging tables clean, test, and prepare your Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
@@ -24,10 +24,10 @@
 - These tables are designed to work simultaneously with our [Netsuite transformation package](https://github.com/fivetran/dbt_netsuite).
 <!--section-end-->
 
-# 🎯 How do I use the dbt package?
-## Step 1: Prerequisites
+## How do I use the dbt package?
+### Step 1: Prerequisites
 To use this dbt package, you must have At least either one Fivetran **Netsuite** (netsuite.com) or **Netsuite2** (netsuite2) connector syncing the respective tables to your destination:
-### Netsuite.com
+#### Netsuite.com
 - accounts
 - accounting_periods
 - accounting_books
@@ -47,7 +47,7 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - vendors
 - vendor_types
 
-### Netsuite2
+#### Netsuite2
 - account
 - accounttype
 - accountingbooksubsidiary
@@ -72,10 +72,10 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - vendor
 - vendorcategory
 
-### Database Compatibility
+#### Database Compatibility
 This package is compatible with either a **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
-### Databricks dispatch configuration
+#### Databricks dispatch configuration
 If you are using a Databricks destination with this package, you must add the following (or a variation of the following) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
 ```yml
 dispatch:
@@ -83,7 +83,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Install the package (skip if also using the `Netsuite` transformation package)
+### Step 2: Install the package (skip if also using the `Netsuite` transformation package)
 If you  are **not** using the [Netsuite transformation package](https://github.com/fivetran/dbt_netsuite), include the following package version in your `packages.yml` file. If you are installing the transform package, the source package is automatically installed as a dependency.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
@@ -92,14 +92,14 @@ packages:
     version: [">=0.10.0", "<0.11.0"]
 ```
 
-## Step 3: Define Netsuite.com or Netsuite2 Source
+### Step 3: Define Netsuite.com or Netsuite2 Source
 As of April 2022 Fivetran made available a new Netsuite connector which leverages the Netsuite2 endpoint opposed to the original Netsuite.com endpoint. This package is designed to run for either or, not both. By default the `netsuite_data_model` variable for this package is set to the original `netsuite` value which runs the netsuite.com version of the package. If you would like to run the package on Netsuite2 data, you may adjust the `netsuite_data_model` variable to run the `netsuite2` version of the package.
 ```yml
 vars:
     netsuite_data_model: netsuite2 #netsuite by default
 ```
 
-## Step 4: Define database and schema variables
+### Step 4: Define database and schema variables
 By default, this package runs using your destination and the `netsuite` schema. If this is not where your Netsuite data is (for example, if your netsuite schema is named `netsuite_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
@@ -108,7 +108,7 @@ vars:
     netsuite_schema: your_schema_name 
 ```
 
-## Step 5: Disable models for non-existent sources (Netsuite2 only)
+### Step 5: Disable models for non-existent sources (Netsuite2 only)
 It's possible that your Netsuite connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that feature in Netsuite or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be true. Add variables for only the tables you would like to disable:
 ```yml
 vars:
@@ -118,14 +118,14 @@ vars:
     netsuite2__using_jobs: false # True by default. Disable `job` if you don't use jobs
 
 ```
-> **Note**: The Netsuite dbt package currently only supports disabling transforms of [Multi-Book Accounting](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/book_3831565332.html) related tables (`accountingbooksubsidiary` and `accountingbook`), the `vendorcategory` source table, and the `job` source table. Please create an issue to request additional tables and/or [features](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/bridgehead_N233872.html) to exclude. 
-> 
+> **Note**: The Netsuite dbt package currently only supports disabling transforms of [Multi-Book Accounting](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/book_3831565332.html) related tables (`accountingbooksubsidiary` and `accountingbook`), the `vendorcategory` source table, and the `job` source table. Please create an issue to request additional tables and/or [features](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/bridgehead_N233872.html) to exclude.
+>
 > To determine if a table or field is activated by a feature, access the [Records Catalog](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_159367781370.html).
 
-## (Optional) Step 6: Additional configurations
+### (Optional) Step 6: Additional configurations
 <details><summary>Expand for configurations</summary>
 
-### Passing Through Additional Fields
+#### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
 
 ```yml
@@ -165,7 +165,7 @@ vars:
         - name: "items_custom_field"
           alias: "items_field"
 ```
-### Change the build schema
+#### Change the build schema
 By default, this package builds the Netsuite staging models within a schema titled (`<target_schema>` + `_netsuite_source`) in your destination. If this is not where you would like your netsuite staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
@@ -174,7 +174,7 @@ models:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
     
-### Change the source table references
+#### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_netsuite_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
@@ -186,12 +186,12 @@ vars:
     # For all Netsuite2 source tables
     netsuite2_<default_source_table_name>_identifier: your_table_name 
 ```
-### Override the data models variable
+#### Override the data models variable
 This package is designed to run **either** the Netsuite.com or Netsuite2 data models. However, for documentation purposes, an additional variable `netsuite_data_model_override` was created to allow for both data model types to be run at the same time by setting the variable value to `netsuite`. This is only to ensure the [dbt docs](https://fivetran.github.io/dbt_netsuite_source/) (which is hosted on this repository) is generated for both model types. While this variable is provided, we recommend you do not adjust the variable and instead change the `netsuite_data_model` variable to fit your configuration needs.
 
 </details>
 
-## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
+### (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for details</summary>
 <br>
 
@@ -199,8 +199,8 @@ Fivetran offers the ability for you to orchestrate your dbt project through [Fiv
 
 </details>
 
-# 🔍 Does this package have dependencies?
-This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+## Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
 ```yml
 packages:
@@ -214,15 +214,15 @@ packages:
       version: [">=0.3.0", "<0.4.0"]
 ```
           
-# 🙌 How is this package maintained and can I contribute?
-## Package Maintenance
+## How is this package maintained and can I contribute?
+### Package Maintenance
 The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/netsuite_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_netsuite_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
-## Contributions
-A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 
+### Contributions
+A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) to learn how to contribute to a dbt package!
+We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) to learn how to contribute to a dbt package.
 
-# 🏪 Are there any resources available?
-- If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_netsuite_source/issues/new/choose) section to find the right avenue of support for you.
+## Are there any resources available?
+- If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_netsuite_source/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
