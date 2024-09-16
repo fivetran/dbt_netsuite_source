@@ -59,6 +59,7 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - customer
 - classification
 - department
+- employee
 - entity
 - entityaddress
 - item
@@ -89,7 +90,7 @@ If you  are **not** using the [Netsuite transformation package](https://github.c
 ```yaml
 packages:
   - package: fivetran/netsuite_source
-    version: [">=0.10.0", "<0.11.0"]
+    version: [">=0.11.0", "<0.12.0"]
 ```
 
 ### Step 3: Define Netsuite.com or Netsuite2 Source
