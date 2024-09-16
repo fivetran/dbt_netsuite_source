@@ -1,3 +1,14 @@
+# dbt_netsuite_source v0.11.0
+
+## Feature Updates
+- We introduced the `stg_netsuite2__employees` model to bring in `employee` source data. This was brought in to leverage fields like `first_name`, `last_name` and `supervisor` in downstream models in the `dbt_netsuite` transformation package. 
+- Casted timestamp fields in as dates to prevent timezone conversion issues.
+- Adds additional commonly used fields to `accounts`, `subsidiaries`, `transaction_lines`, `transactions`, `transaction_accounting_lines`, `customers`, and `vendors` models.
+
+
+## Contributors
+- [@jmongerlyra](https://github.com/jmongerlyra) [PR #54](https://github.com/fivetran/dbt_netsuite_source/pull/54))
+
 # dbt_netsuite_source v0.10.1
 [PR #51](https://github.com/fivetran/dbt_netsuite_source/pull/51) includes the following update: 
 

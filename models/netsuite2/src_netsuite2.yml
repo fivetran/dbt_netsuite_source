@@ -287,7 +287,7 @@ sources:
             description: "{{ doc('_fivetran_deleted') }}"
 
       - name: employee
-        identified: "{{ var('netsuite2_employee_identifier', 'employee') }}"
+        identifier: "{{ var('netsuite2_employee_identifier', 'employee') }}"
         description: "{{ doc('employee_table') }}"
         columns:
           - name: _fivetran_synced
