@@ -6,7 +6,8 @@
   - As this will change the datatype of the underlying fields, this will require a  `--full-refresh`.
 - Existing fields that were converted from timestamp to date in the following `stg_netsuite2__*` models:
   - `accounting_periods`: `starting_at` and `ending_at`
-  - `transactions`: `transaction_date` and `due_date_at`
+  - `customers`: `date_first_order_at`
+  - `transactions`: `transaction_date`, `closed_at` and `due_date_at`
 - Adds additional commonly used fields within the `stg_netsuite2__*` models.
   - `accounts`: `display_name`
   - `customers` and `vendors`: `alt_name` 

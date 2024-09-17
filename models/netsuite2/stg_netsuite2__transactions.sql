@@ -31,7 +31,7 @@ final as (
         status,
         createddate as created_at,
         cast(duedate as date) as due_date_at,
-        closedate as closed_at,
+        cast(closedate as date) as closed_at,
         currency as currency_id,
         entity as entity_id,
         postingperiod as accounting_period_id,
