@@ -96,9 +96,9 @@ models:
       - name: name
         description: Name of the accounting period.
       - name: starting_at
-        description: Timestamp of when the accounting period starts.
+        description: Date for when the accounting period starts.
       - name: ending_at
-        description: Timestamp if when the accounting period ends.
+        description: Date for when the accounting period ends.
       - name: closed_at
         description: Timestamp of when the accounting period is closed.
       - name: is_quarter
@@ -638,13 +638,13 @@ models:
       - name: memo
         description: Memo attached to the transaction.
       - name: transaction_date
-        description: The timestamp of the transaction date.
+        description: The date of the transaction.
       - name: status
         description: Status of the transaction.
       - name: created_at
         description: "{{ doc('created_at') }}"
       - name: due_date_at
-        description: Timestamp of the transactions due date.
+        description: The due date of the transaction.
       - name: closed_at
         description: Timestamp of when the transaction was closed.
       - name: currency_id
