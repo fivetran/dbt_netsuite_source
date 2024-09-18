@@ -293,6 +293,8 @@ sources:
       - name: employee
         identifier: "{{ var('netsuite2_employee_identifier', 'employee') }}"
         description: "{{ doc('employee_table') }}"
+        config:
+          enabled: "{{ var('netsuite2__using_employees', true) }}"
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
