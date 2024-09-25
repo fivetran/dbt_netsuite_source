@@ -1,13 +1,13 @@
 name: 'netsuite_source_integration_tests'
 
-version: '0.10.1'
+version: '0.11.0'
 
 profile: 'integration_tests'
 config-version: 2
 
 vars:
   netsuite_source:
-    netsuite_schema: netsuite_source_integration_tests_3
+    netsuite_schema: netsuite_source_integration_tests_6
     netsuite_data_model_override: netsuite
     netsuite_accounting_books_identifier: "netsuite_accounting_books_data"
     netsuite_accounting_periods_identifier: "netsuite_accounting_periods_data"
@@ -34,6 +34,7 @@ vars:
     netsuite2_currency_identifier: "netsuite2_currency_data"
     netsuite2_customer_identifier: "netsuite2_customer_data"
     netsuite2_department_identifier: "netsuite2_department_data"
+    netsuite2_employee_identifier: "netsuite2_employee_data"
     netsuite2_entity_identifier: "netsuite2_entities_data"
     netsuite2_item_identifier: "netsuite2_item_data"
     netsuite2_job_identifier: "netsuite2_job_data"

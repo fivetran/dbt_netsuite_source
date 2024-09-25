@@ -31,6 +31,7 @@ final as (
         state,
         fiscalcalendar as fiscal_calendar_id,
         parent as parent_id,
+        iselimination = 'T' as is_elimination,
         currency as currency_id
 
         --The below macro adds the fields defined within your subsidiaries_pass_through_columns variable into the staging model

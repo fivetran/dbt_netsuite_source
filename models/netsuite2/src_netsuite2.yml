@@ -172,6 +172,8 @@ sources:
             description: Indicates this is an intercompany account used only to record transactions between subsidiaries. Amounts posted to intercompany accounts are eliminated when you run the intercompany elimination process at the end of an accounting period. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
+          - name: accountsearchdisplaynamecopy
+            description: Display name of the account.
 
       - name: classification
         identifier: "{{ var('netsuite2_classification_identifier', 'classification') }}"
@@ -264,6 +266,8 @@ sources:
             description: "{{ doc('currency_id') }}"
           - name: firstorderdate
             description: Timestamp of when the first order was created.
+          - name: altname
+            description: "{{ doc('alt_name') }}"
 
       - name: department
         identifier: "{{ var('netsuite2_department_identifier', 'department') }}"
@@ -285,6 +289,43 @@ sources:
             description: Boolean indicating if the department is active. Represented as "T" or "F" for true and false respectively.
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
+
+      - name: employee
+        identifier: "{{ var('netsuite2_employee_identifier', 'employee') }}"
+        description: "{{ doc('employee_table') }}"
+        config:
+          enabled: "{{ var('netsuite2__using_employees', true) }}"
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: id
+            description: "{{ doc('employee_id') }}"
+          - name: entityid
+            description: "{{ doc('entity_id') }}"
+          - name: firstname
+            description: First name of the employee.
+          - name: lastname
+            description: Last name of the employee.
+          - name: department
+            description: "{{ doc('department_id') }}"
+          - name: subsidiary
+            description: "{{ doc('subsidiary_id') }}"
+          - name: email
+            description: Email address of the employee.
+          - name: supervisor
+            description: "{{ doc('supervisor_id') }}"
+          - name: approvallimit
+            description: The largest expense report this supervisor can approve.
+          - name: expenselimit
+            description: Amount this employee can expense without approval from a supervisor or approver.
+          - name: purchaseorderapprovallimit
+            description: Amount an employee is allowed to approve on a purchase request when specified as an approver.
+          - name: purchaseorderlimit
+            description: Amount this employee can purchase without approval from a supervisor or approver.
+          - name: currency
+            description: "{{ doc('currency_id') }}"
+          - name: isinactive
+            description: Boolean indicating this employee is active.
 
       - name: entity
         identifier: "{{ var('netsuite2_entity_identifier', 'entity') }}"
@@ -472,6 +513,8 @@ sources:
             description: Reference to the parent subsidiary.
           - name: currency
             description:  "{{ doc('currency_id') }}"
+          - name: iselimination
+            description: Boolean indicating if the subsidiary is an elimination subsidiary. Represented as "T" or "F" for true and false respectively.
 
       - name: transaction_accounting_line
         identifier: "{{ var('netsuite2_transaction_accounting_line_identifier', 'transactionaccountingline') }}"
@@ -540,6 +583,10 @@ sources:
             description: Boolean indicating if the transaction line is a main line entry. Represented as "T" or "F" for true and false respectively.
           - name: taxline
             description: Boolean indicating if the transaction line is a tax line. Represented as "T" or "F" for true and false respectively.
+          - name: eliminate
+            description: Boolean indicating if the transaction line is eliminated. Represented as "T" or "F" for true and false respectively.
+          - name: netamount
+            description: Net amount of transaction line.
 
       - name: transaction
         identifier: "{{ var('netsuite2_transaction_identifier', 'transaction') }}"
@@ -577,6 +624,12 @@ sources:
             description: Boolean indicating if the transaction is an intercompany adjustment. Represented as "T" or "F" for true and false respectively.
           - name: isreversal
             description: Boolean indicating if the transaction is a reversal entry. Represented as "T" or "F" for true and false respectively.
+          - name: reversal
+            description: Transaction id of the reversal.
+          - name: reversaldate
+            description: If the transaction is a reversal, date of the reversal entry.
+          - name: reversaldefer
+            description: Boolean indicating if the transaction is a reversal and if it's been deferred.
 
       - name: vendor_category
         identifier: "{{ var('netsuite2_vendor_category_identifier', 'vendorcategory') }}"
@@ -605,3 +658,5 @@ sources:
             description: "{{ doc('create_date_at') }}"
           - name: category
             description: "{{ doc('vendor_category_id') }}"
+          - name: altname
+            description: "{{ doc('alt_name') }}"

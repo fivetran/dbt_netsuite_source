@@ -1,3 +1,46 @@
+# dbt_netsuite_source v0.11.0
+[PR #57](https://github.com/fivetran/dbt_netsuite_source/pull/57) includes the following update: 
+
+## Breaking Changes 
+- Casted specific timestamp fields across all staging models as dates where the Netsuite UI does not perform timezone conversion. Keeping these fields as type timestamp causes issues in reporting tools that perform automatic timezone conversion. 
+  - As this will change the datatype of the underlying fields, this will require a  `--full-refresh` for downstream incremental models.
+- Existing fields that were converted from timestamp to date in the following `stg_netsuite2__*` models:
+
+| **Table**   | **Source Field Name** | **Field Alias** | 
+| -------- | ------- | ------- | 
+| accounting_periods | startdate | starting_at | 
+| accounting_periods | enddate | ending_at |
+| customers | firstorderdate | date_first_order_at |
+| transactions | closedate | closed_at |
+| transactions | duedate | due_date_at |
+| transactions | trandate | transaction_date |
+  
+- Adds additional commonly used fields within the `stg_netsuite2__*` models.
+
+| **Table**  | **Source Field Name** | **Field Alias** | 
+| -------- | ------- | ------- | 
+| accounts | accountsearchdisplaynamecopy | display_name | 
+| customers | altname | alt_name |
+| subsidiaries | iselimination | is_elimination |
+| transaction_accounting_lines | exchangerate | exchange_rate |
+| transaction_lines | eliminate | is_eliminate |
+| transaction_lines | netamount | netamount |
+| transactions | reversal | reversal_transaction_id |
+| transactions | reversaldate | reversal_date |
+| transactions | reversaldefer | is_reversal_defer | 
+
+> **IMPORTANT**: Nearly all of the affected models have pass-through functionality. If you have already been using passthrough column variables to include the above newly added fields (without aliases), you **MUST** remove the fields from your passthrough variable configuration in order to avoid duplicate column errors.
+
+## Feature Updates
+- Introduced the `stg_netsuite2__employees` model to bring in data from the `employee` source table. 
+  - Since this model is only used by a subset of customers, we've introduced the variable `netsuite2__using_employees` to allow users who don't utilize the `employee` table in Netsuite2 the ability to disable that functionality within your `dbt_project.yml`. This value is set to true by default. [Instructions are available in the README for how to disable this variable](https://github.com/fivetran/dbt_netsuite_source/?tab=readme-ov-file#step-5-disable-models-for-non-existent-sources-netsuite2-only). 
+
+## Under the Hood
+- Created new seed data in `integration_tests` to support the new `stg_netsuite2__employees` model, as well as the new fields introduced into the new Netsuite2 staging models.
+
+## Contributors
+- [@jmongerlyra](https://github.com/jmongerlyra) ([PR #54](https://github.com/fivetran/dbt_netsuite_source/pull/54))
+
 # dbt_netsuite_source v0.10.1
 [PR #51](https://github.com/fivetran/dbt_netsuite_source/pull/51) includes the following update: 
 

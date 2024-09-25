@@ -1,7 +1,7 @@
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 name: 'netsuite_source'
-version: '0.10.1'
+version: '0.11.0'
 
 models:
   netsuite_source:
@@ -41,6 +41,7 @@ vars:
     netsuite2_currencies: "{{ source('netsuite2','currency') }}"
     netsuite2_customers: "{{ source('netsuite2','customer') }}"
     netsuite2_departments: "{{ source('netsuite2','department') }}"
+    netsuite2_employees: "{{ source('netsuite2','employee') }}"
     netsuite2_entities: "{{ source('netsuite2','entity') }}"
     netsuite2_items: "{{ source('netsuite2','item') }}"
     netsuite2_jobs: "{{ source('netsuite2','job') }}"
