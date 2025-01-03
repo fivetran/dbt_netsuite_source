@@ -1,5 +1,11 @@
 {% macro fill_pass_through_columns(pass_through_variable) %}
 
+{{ adapter.dispatch('fill_pass_through_columns', 'netsuite') (pass_through_variable) }}
+
+{%- endmacro %}
+
+{% macro default__fill_pass_through_columns(pass_through_variable) %}
+
 {% if pass_through_variable %}
     {% for field in pass_through_variable %}
         {% if field is mapping %}
