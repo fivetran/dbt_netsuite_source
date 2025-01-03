@@ -30,7 +30,7 @@ final as (
         subsidiary as subsidiary_id
 
         --The below macro adds the fields defined within your locations_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('locations_pass_through_columns') }}
+        {{ netsuite.fill_pass_through_columns(var('locations_pass_through_columns')) }}
 
     from fields
     where not coalesce(_fivetran_deleted, false)

@@ -35,7 +35,7 @@ final as (
         currency as currency_id
 
         --The below macro adds the fields defined within your subsidiaries_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('subsidiaries_pass_through_columns') }}
+        {{ netsuite.fill_pass_through_columns(var('subsidiaries_pass_through_columns')) }}
 
     from fields
     where not coalesce(_fivetran_deleted, false)

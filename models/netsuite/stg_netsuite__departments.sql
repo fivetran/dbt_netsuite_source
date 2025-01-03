@@ -36,7 +36,7 @@ final as (
         _fivetran_deleted
 
         --The below macro adds the fields defined within your departments_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('departments_pass_through_columns') }}
+        {{ netsuite.fill_pass_through_columns(var('departments_pass_through_columns')) }}
 
     from fields
 )

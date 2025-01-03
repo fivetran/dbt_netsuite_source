@@ -30,7 +30,7 @@ final as (
         category as vendor_category_id
 
         --The below macro adds the fields defined within your vendors_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('vendors_pass_through_columns') }}
+        {{ netsuite.fill_pass_through_columns(var('vendors_pass_through_columns')) }}
         
     from fields
     where not coalesce(_fivetran_deleted, false)

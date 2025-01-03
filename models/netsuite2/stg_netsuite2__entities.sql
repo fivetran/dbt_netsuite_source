@@ -34,7 +34,7 @@ final as (
         vendor as vendor_id
 
         --The below macro adds the fields defined within your entities_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('entities_pass_through_columns') }}
+        {{ netsuite.fill_pass_through_columns(var('entities_pass_through_columns')) }}
 
     from fields
 )
