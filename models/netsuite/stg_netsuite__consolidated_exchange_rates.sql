@@ -41,7 +41,7 @@ final as (
         _fivetran_deleted
 
         --The below macro adds the fields defined within your consolidated_exchange_rates_pass_through_columns variable into the staging model
-        {{ netsuite.fill_pass_through_columns(var('consolidated_exchange_rates_pass_through_columns')) }}
+        {{ netsuite_source.fill_pass_through_columns(var('consolidated_exchange_rates_pass_through_columns')) }}
 
     from fields
 )
