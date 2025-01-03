@@ -1,6 +1,6 @@
 {% macro fill_pass_through_columns(pass_through_variable) %}
 
-{{ adapter.dispatch('fill_pass_through_columns', 'netsuite') (pass_through_variable) }}
+{{ adapter.dispatch('fill_pass_through_columns', 'netsuite_source') (pass_through_variable) }}
 
 {%- endmacro %}
 
