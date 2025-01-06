@@ -1,3 +1,16 @@
+# dbt_netsuite_source v0.11.1
+[PR #59](https://github.com/fivetran/dbt_netsuite_source/pull/59) includes the following updates:
+
+## Macro Updates
+- Introduced a local version of the `fill_pass_through_columns` macro that directly calls the variables within our staging models. This removes the existing string-to-variable conversion and leads to cleaner parsing.
+- This new macro is applied to all staging models with passthrough column functionality, and replaces the existing `fill_pass_through_columns` macro.
+  - `stg_netsuite` and `stg_netsuite2` models impacted include: `accounts`, `classes`, `consolidated_exchange_rates`, `customers`, `departments`, `items`, `locations`, `subsidiaries`, `transaction_lines`, `transactions`, and `vendors`.
+- Similar changes are being made on a simultaneous release to the `persist_pass_through_columns` macro in the `dbt_netsuite` package. [See the release notes](https://github.com/fivetran/dbt_netsuite/releases/tag/v0.17.1) for more details.
+- The process for adding passthrough columns remains unchanged. [Consult the README](https://github.com/fivetran/dbt_netsuite?tab=readme-ov-file#passing-through-additional-fields) for more details.
+
+## Documentation Update
+- Moved badges at top of the README below the H1 header to be consistent with popular README formats.
+
 # dbt_netsuite_source v0.11.0
 [PR #57](https://github.com/fivetran/dbt_netsuite_source/pull/57) includes the following update: 
 

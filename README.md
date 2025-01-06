@@ -1,4 +1,6 @@
-<p align="center">
+# Netsuite Source dbt Package ([Docs](https://fivetran.github.io/dbt_netsuite_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_netsuite_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -13,7 +15,6 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Netsuite Source dbt Package ([Docs](https://fivetran.github.io/dbt_netsuite_source/))
 ## What does this dbt package do?
 <!--section="netsuite_source_model"-->
 - Materializes [Netsuite staging tables](https://fivetran.github.io/dbt_netsuite_source/#!/overview/netsuite_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/netsuite#schemainformation). These staging tables clean, test, and prepare your Netsuite data from [Fivetran's connector](https://fivetran.com/docs/applications/netsuite) for analysis by doing the following:
