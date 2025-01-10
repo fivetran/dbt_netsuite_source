@@ -33,7 +33,7 @@ final as (
         historicalrate as historical_rate
 
         --The below macro adds the fields defined within your consolidated_exchange_rates_pass_through_columns variable into the staging model
-        {{ netsuite_source.fill_pass_through_columns(var('consolidated_exchange_rates_pass_through_columns')) }}
+        {{ netsuite_source.fill_pass_through_columns(var('consolidated_exchange_rates_pass_through_columns'), []) }}
 
     from fields
     where not coalesce(_fivetran_deleted, false)

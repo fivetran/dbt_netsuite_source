@@ -3,6 +3,7 @@
 
 ## Macro Updates
 - Introduced a local version of the `fill_pass_through_columns` macro that directly calls the variables within our staging models. This removes the existing string-to-variable conversion and leads to cleaner parsing.
+  - This new macro has no functional changes from the previous macro and will not require customers to make any changes on their end.
 - This new macro is applied to all staging models with passthrough column functionality, and replaces the existing `fill_pass_through_columns` macro.
   - `stg_netsuite` and `stg_netsuite2` models impacted include: `accounts`, `classes`, `consolidated_exchange_rates`, `customers`, `departments`, `items`, `locations`, `subsidiaries`, `transaction_lines`, `transactions`, and `vendors`.
 - Similar changes are being made on a simultaneous release to the `persist_pass_through_columns` macro in the `dbt_netsuite` package. [See the release notes](https://github.com/fivetran/dbt_netsuite/releases/tag/v0.17.1) for more details.
