@@ -1,3 +1,8 @@
+# dbt_netsuite_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#60](https://github.com/fivetran/dbt_netsuite_source/pull/60))
+
 # dbt_netsuite_source v0.11.0
 [PR #57](https://github.com/fivetran/dbt_netsuite_source/pull/57) includes the following update: 
 
