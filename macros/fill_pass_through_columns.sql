@@ -1,5 +1,8 @@
 {% macro fill_pass_through_columns(pass_through_variable) %}
-
+    {% if pass_through_variable is none or pass_through_variable|length == 0 %}
+        {# Handle default passthrough logic, e.g., use an empty list or a predefined set of columns #}
+        {% set pass_through_variable = [] %}
+    {% endif %}
 {{ adapter.dispatch('fill_pass_through_columns', 'netsuite_source') (pass_through_variable) }}
 
 {%- endmacro %}
