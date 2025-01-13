@@ -38,7 +38,7 @@ final as (
         _fivetran_deleted
 
         --The below macro adds the fields defined within your locations_pass_through_columns variable into the staging model
-        {{ netsuite_source.fill_pass_through_columns(var('locations_pass_through_columns')) }}
+        {{ netsuite_source.fill_pass_through_columns(var('locations_pass_through_columns'), []) }}
 
     from fields
 )
