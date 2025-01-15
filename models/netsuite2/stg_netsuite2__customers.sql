@@ -39,7 +39,7 @@ final as (
         cast(firstorderdate as date) as date_first_order_at
 
         --The below macro adds the fields defined within your customers_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('customers_pass_through_columns') }}
+        {{ netsuite_source.fill_pass_through_columns(var('customers_pass_through_columns', [])) }}
 
     from fields
     where not coalesce(_fivetran_deleted, false)

@@ -38,7 +38,7 @@ final as (
         _fivetran_deleted
 
         --The below macro adds the fields defined within your subsidiaries_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('subsidiaries_pass_through_columns') }}
+        {{ netsuite_source.fill_pass_through_columns(var('subsidiaries_pass_through_columns', [])) }}
 
     from fields
 )
