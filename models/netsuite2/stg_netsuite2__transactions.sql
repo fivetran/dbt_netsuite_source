@@ -43,7 +43,7 @@ final as (
         reversaldefer = 'T' as is_reversal_defer
 
         --The below macro adds the fields defined within your transactions_pass_through_columns variable into the staging model
-        {{ fivetran_utils.fill_pass_through_columns('transactions_pass_through_columns') }}
+        {{ netsuite_source.fill_pass_through_columns(var('transactions_pass_through_columns', [])) }}
 
     from fields
     where not coalesce(_fivetran_deleted, false)
