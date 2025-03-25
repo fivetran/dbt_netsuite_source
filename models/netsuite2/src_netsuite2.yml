@@ -91,6 +91,27 @@ sources:
           - name: parent
             description: Reference to the parent fiscal calendar accounting period.
 
+      - name: fiscal_calendar
+        identifier: "{{ var('netsuite2_fiscal_calendar_identifier', 'fiscalcalendar') }}"
+        description: "Table containing a list of fiscal calendars and their starting months"
+        columns:
+          - name: id
+            description: tbd
+          - name: externalid
+            description: tbd
+          - name: fiscalmonth
+            description: tbd
+          - name: isdefault
+            description: tbd
+          - name: name
+            description: tbd
+          - name: _fivetran_deleted
+            description: "{{ doc('_fivetran_deleted') }}"
+          - name: date_deleted
+            description: tbd
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+
       - name: accounting_period
         identifier: "{{ var('netsuite2_accounting_period_identifier', 'accountingperiod') }}"
         description: "{{ doc('account_periods_table') }}"

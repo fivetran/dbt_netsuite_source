@@ -81,6 +81,29 @@ models:
       - name: parent_id
         description: Reference to the parent fiscal calendar accounting period.
 
+  - name: stg_netsuite2__fiscal_calendar
+    description: tbd
+    columns:
+      - name: fiscal_calendar_id
+        description: "{{ doc('_fivetran_id') }}"
+        tests: 
+          - unique
+          - not_null
+      - name: external_id
+        description: tbd
+      - name: fiscal_month
+        description: tbd
+      - name: is_default
+        description: tbd
+      - name: name
+        description: tbd
+      - name: date_deleted
+        description: tbd
+      - name: _fivetran_deleted
+        description: tbd
+      - name: _fivetran_synced
+        description: tbd
+
   - name: stg_netsuite2__accounting_periods
     description: "{{ doc('account_periods_table') }}"
     columns:

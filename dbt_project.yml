@@ -54,6 +54,7 @@ vars:
     netsuite2_vendor_categories: "{{ source('netsuite2', 'vendor_category') }}"
     netsuite2_accounting_book_subsidiaries: "{{ source('netsuite2', 'accounting_book_subsidiaries') }}"
     netsuite2_accounting_period_fiscal_calendars: "{{ source('netsuite2', 'accounting_period_fiscal_calendars') }}"
+    netsuite2_fiscal_calendar: "{{ source('netsuite2', 'fiscal_calendar') }}"
     netsuite2_account_types: "{{ source('netsuite2', 'account_type') }}"
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
