@@ -22,7 +22,7 @@ dbt seed --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --t
 dbt compile --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
 dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" --full-refresh
 dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
-dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw, netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false, netsuite2__using_employees: false}' --target "$db" --full-refresh
+dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw, netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false, netsuite2__using_employees: false, netsuite2__fiscal_calendar_enabled: true}' --target "$db" --full-refresh
 dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
 
 else
@@ -30,7 +30,7 @@ else
 dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
-dbt run --vars '{netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false, netsuite2__using_employees: false}' --target "$db" --full-refresh
+dbt run --vars '{netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false, netsuite2__using_employees: false, netsuite2__fiscal_calendar_enabled: true}' --target "$db" --full-refresh
 dbt test --target "$db"
 fi
 
