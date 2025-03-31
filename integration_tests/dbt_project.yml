@@ -1,6 +1,6 @@
 name: 'netsuite_source_integration_tests'
 
-version: '0.11.1'
+version: '0.12.0'
 
 profile: 'integration_tests'
 config-version: 2
@@ -47,6 +47,7 @@ vars:
     netsuite2_vendor_category_identifier: "netsuite2_vendor_category_data"
     netsuite2_accounting_book_subsidiaries_identifier: "netsuite2_accounting_book_sub_data"
     netsuite2_accounting_period_fiscal_calendars_identifier: "netsuite2_accounting_period_fiscal_cal_data"
+    netsuite2_fiscal_calendars_identifier: "netsuite2_fiscal_calendar_data"
     netsuite2_account_type_identifier: "netsuite2_account_type_data"
     netsuite2_entity_address_identifier: "netsuite2_entity_address_data"
     netsuite2_location_main_address_identifier: "netsuite2_location_main_address_data"

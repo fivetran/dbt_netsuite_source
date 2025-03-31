@@ -85,24 +85,24 @@ models:
     description: tbd
     columns:
       - name: fiscal_calendar_id
-        description: "{{ doc('_fivetran_id') }}"
+        description: "Internal identifier for the fiscal calendar record."
         tests: 
           - unique
           - not_null
       - name: external_id
-        description: tbd
+        description: "Custom or system-defined external identifier for the fiscal calendar."
       - name: fiscal_month
-        description: tbd
+        description: "The starting month of the fiscal calendar (e.g., JAN for January, APR for April)."
       - name: is_default
-        description: tbd
+        description: "Boolean flag indicating whether this is the default fiscal calendar."
       - name: name
-        description: tbd
-      - name: date_deleted
-        description: tbd
+        description: "Name of the fiscal calendar (e.g., 'Standard Fiscal Year')."
       - name: _fivetran_deleted
-        description: tbd
+        description: "{{ doc('_fivetran_deleted') }}"
+      - name: date_deleted
+        description: "Timestamp when the record was deleted in the source system, if applicable."
       - name: _fivetran_synced
-        description: tbd
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_netsuite2__accounting_periods
     description: "{{ doc('account_periods_table') }}"

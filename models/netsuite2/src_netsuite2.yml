@@ -93,22 +93,24 @@ sources:
 
       - name: fiscal_calendar
         identifier: "{{ var('netsuite2_fiscal_calendar_identifier', 'fiscalcalendar') }}"
-        description: "Table containing a list of fiscal calendars and their starting months"
+        description: Table containing a list of fiscal calendars, their names, and starting fiscal months. Used to determine fiscal year boundaries."
+        config:
+          enabled: "{{ var('netsuite2__fiscal_calendar_enabled', false) }}"
         columns:
           - name: id
-            description: tbd
+            description: "Internal identifier for the fiscal calendar record."
           - name: externalid
-            description: tbd
+            description: "Custom or system-defined external identifier for the fiscal calendar."
           - name: fiscalmonth
-            description: tbd
+            description: "The starting month of the fiscal calendar (e.g., JAN for January, APR for April)."
           - name: isdefault
-            description: tbd
+            description: "Boolean flag indicating whether this is the default fiscal calendar."
           - name: name
-            description: tbd
+            description: "Name of the fiscal calendar (e.g., 'Standard Fiscal Year')."
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
           - name: date_deleted
-            description: tbd
+            description: "Timestamp when the record was deleted in the source system, if applicable."
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 

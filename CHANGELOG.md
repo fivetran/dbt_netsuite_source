@@ -1,4 +1,9 @@
-# dbt_netsuite_source version.version
+# dbt_netsuite_source v0.12.0
+
+## Breaking Schema Changes
+- Added optional `fiscalcalendar` source table to support accurate fiscal year start dates (currently defaulted to calendar year). This table and related models (`stg_netsuite2__fiscal_calendar_tmp` and `stg_netsuite2__fiscal_calendar`) are disabled by default.
+  - To enable: turn on the fiscalcalendar table in the connection schema tab.
+  - For dbt Core, also set the `netsuite2__fiscal_calendar_enabled` variable to true (default is false).
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#60](https://github.com/fivetran/dbt_netsuite_source/pull/60))

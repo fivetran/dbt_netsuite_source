@@ -63,6 +63,7 @@ To use this dbt package, you must have At least either one Fivetran **Netsuite**
 - employee
 - entity
 - entityaddress
+- fiscalcalendar (required for non–January 1 fiscal year start)
 - item
 - job
 - location
@@ -91,7 +92,7 @@ If you  are **not** using the [Netsuite transformation package](https://github.c
 ```yaml
 packages:
   - package: fivetran/netsuite_source
-    version: [">=0.11.0", "<0.12.0"]
+    version: [">=0.12.0", "<0.13.0"]
 ```
 
 ### Step 3: Define Netsuite.com or Netsuite2 Source
@@ -111,7 +112,7 @@ vars:
 ```
 
 ### Step 5: Disable models for non-existent sources (Netsuite2 only)
-It's possible that your Netsuite connection does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that feature in Netsuite or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be true. Add variables for only the tables you would like to disable:
+It's possible that your Netsuite connection does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that feature in Netsuite or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, most variables are assumed to be true with the exception of `netsuite2__fiscal_calendar_enabled`. Add variables for only the tables you would like to disable/enable respectively:
 ```yml
 vars:
     netsuite2__multibook_accounting_enabled: false # True by default. Disable `accountingbooksubsidiary` and `accountingbook` if you are not using the Multi-Book Accounting feature
@@ -119,6 +120,7 @@ vars:
     netsuite2__using_vendor_categories: false # True by default. Disable `vendorcategory` if you don't categorize your vendors
     netsuite2__using_jobs: false # True by default. Disable `job` if you don't use jobs
     netsuite2__using_employees: false # True by default. Disable `employee` if you don't use employees.
+    netsuite2__fiscal_calendar_enabled: true # False by default. Enable `fiscalcalendar` if you have a fiscal year starting on a month different than January.
 
 ```
 
