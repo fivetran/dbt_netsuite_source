@@ -1,4 +1,4 @@
-# dbt_netsuite_source v0.12.0
+# dbt_netsuite_source v0.12.0-a1
 
 ## Breaking Schema Changes
 - Added optional `fiscalcalendar` source table to support accurate fiscal year start dates (currently defaulted to calendar year). This table and related models (`stg_netsuite2__fiscal_calendar_tmp` and `stg_netsuite2__fiscal_calendar`) are disabled by default.
