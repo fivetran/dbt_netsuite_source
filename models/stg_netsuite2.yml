@@ -94,7 +94,7 @@ models:
       - name: fiscal_month
         description: The starting month of the fiscal calendar (e.g., JAN for January, APR for April).
       - name: is_default
-        description: "Boolean flag indicating whether this is the default fiscal calendar.
+        description: Boolean flag indicating whether this is the default fiscal calendar.
       - name: name
         description: Name of the fiscal calendar (e.g., 'Standard Fiscal Year')."
       - name: _fivetran_deleted
