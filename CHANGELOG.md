@@ -1,3 +1,8 @@
+# dbt_netsuite_source v0.12.1
+
+## Feature Update
+- Added pass through columns functionality to the `stg_netsuite__accounting_periods` and `stg_netsuite2__accounting_periods` models using the `fill_pass_through_columns` macro. This allows users to pass through additional columns from the source accounting periods tables.
+
 # dbt_netsuite_source v0.12.0
 
 ## Breaking Schema Changes
