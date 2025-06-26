@@ -16,6 +16,7 @@ db=$1
 echo `pwd`
 cd integration_tests
 dbt deps
+dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 
 if [ "$db" = "databricks-sql" ]; then
 dbt seed --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" --full-refresh
