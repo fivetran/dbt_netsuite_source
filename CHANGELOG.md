@@ -1,3 +1,30 @@
+# dbt_netsuite_source v0.13.0
+
+[PR #63](https://github.com/fivetran/dbt_netsuite_source/pull/63) includes the following updates:
+
+## Breaking Change for dbt Core < 1.9.6
+
+> *Note: This is not relevant to Fivetran Quickstart users.*
+
+Migrated `freshness` from a top-level source property to a source `config` in alignment with [recent updates](https://github.com/dbt-labs/dbt-core/issues/11506) from dbt Core. This will resolve the following deprecation warning that users running dbt >= 1.9.6 may have received:
+
+```
+[WARNING]: Deprecated functionality
+Found `freshness` as a top-level property of `netsuite` in file
+`models/netsuite/src_netsuite.yml`. The `freshness` top-level property should be moved
+into the `config` of `netsuite`.
+```
+
+**IMPORTANT:** Users running dbt Core < 1.9.6 will not be able to utilize freshness tests in this release or any subsequent releases, as older versions of dbt will not recognize freshness as a source `config` and therefore not run the tests.
+
+If you are using dbt Core < 1.9.6 and want to continue running Netsuite freshness tests, please elect **one** of the following options:
+  1. (Recommended) Upgrade to dbt Core >= 1.9.6
+  2. Do not upgrade your installed version of the `netsuite_source` package. Pin your dependency on v0.12.0 in your `packages.yml` file.
+  3. Utilize a dbt [override](https://docs.getdbt.com/reference/resource-properties/overrides) to overwrite the package's `netsuite` source and apply freshness via the previous release top-level property route. This will require you to copy and paste the entirety of the previous release `src_netsuite.yml` file and add an `overrides: netsuite_source` property.
+
+## Under the Hood
+- Updates to ensure integration tests use latest version of dbt.
+
 # dbt_netsuite_source v0.12.0
 
 ## Breaking Schema Changes
@@ -9,7 +36,6 @@
 - Corrected references to connectors and connections in the README. ([PR #60](https://github.com/fivetran/dbt_netsuite_source/pull/60))
 
 # dbt_netsuite_source v0.12.0-a1
-
 ## Breaking Schema Changes
 - Added optional `fiscalcalendar` source table to support accurate fiscal year start dates (currently defaulted to calendar year). This table and related models (`stg_netsuite2__fiscal_calendar_tmp` and `stg_netsuite2__fiscal_calendar`) are disabled by default. To enable this feature:
   - Quickstart users: enable the fiscalcalendar table in the connection schema tab.
