@@ -1,6 +1,6 @@
 # dbt_netsuite_source v0.13.0
 
-[PR #61](https://github.com/fivetran/dbt_netsuite_source/pull/61) includes the following updates:
+[PR #63](https://github.com/fivetran/dbt_netsuite_source/pull/63) includes the following updates:
 
 ## Breaking Change for dbt Core < 1.9.6
 

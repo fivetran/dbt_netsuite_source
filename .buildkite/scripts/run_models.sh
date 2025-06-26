@@ -16,10 +16,10 @@ db=$1
 echo `pwd`
 cd integration_tests
 dbt deps
-dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 
 if [ "$db" = "databricks-sql" ]; then
 dbt seed --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" --full-refresh
+dbt source freshness --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" || echo "...Only verifying freshness runs…"
 dbt compile --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
 dbt run --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db" --full-refresh
 dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --target "$db"
@@ -29,6 +29,7 @@ dbt test --vars '{netsuite_schema: netsuite_source_integrations_tests_sqlw}' --t
 else
 
 dbt seed --target "$db" --full-refresh
+dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{netsuite2__multibook_accounting_enabled: false, netsuite2__using_exchange_rate: false, netsuite2__using_vendor_categories: false, netsuite2__using_jobs: false, netsuite2__using_employees: false, netsuite2__fiscal_calendar_enabled: true}' --target "$db" --full-refresh
