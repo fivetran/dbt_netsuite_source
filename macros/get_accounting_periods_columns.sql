@@ -31,6 +31,8 @@
     {"name": "year_id", "datatype": dbt.type_float()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('accounting_periods_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
@@ -59,6 +61,8 @@
     {"name": "periodname", "datatype": dbt.type_string()},
     {"name": "startdate", "datatype": dbt.type_timestamp()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('accounting_periods_pass_through_columns')) }}
 
 {{ return(columns) }}
 
