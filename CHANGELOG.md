@@ -1,4 +1,5 @@
 # dbt_netsuite_source v0.13.1
+This release introduces the following updates:  
 
 ## Feature Update
 - Added pass through columns functionality to the `stg_netsuite__accounting_periods` and `stg_netsuite2__accounting_periods` models using a new `accounting_periods_pass_through_columns` variable. This allows users to pass through additional columns from the source accounting periods tables ([PR #62](https://github.com/fivetran/dbt_netsuite_source/pull/62) and [#63](https://github.com/fivetran/dbt_netsuite_source/pull/63))
@@ -6,7 +7,7 @@
 > Note: Columns specified by `accounting_periods_pass_through_columns` are not currently persisted downstream to Netsuite transform models. Please open an [issue](https://github.com/fivetran/dbt_netsuite/issues) on the `dbt_netsuite` repository if you would like to see accounting period custom columns persisted downstream.
 
 ## Under the Hood
-- Updated package maintainer PR template. ([PR #63](https://github.com/fivetran/dbt_netsuite_source/pull/62))
+- Updated package maintainer PR template. ([PR #63](https://github.com/fivetran/dbt_netsuite_source/pull/63))
 
 ## Contributors
 - [@atharv6](https://github.com/atharv6) ([PR #62](https://github.com/fivetran/dbt_netsuite_source/pull/62))
