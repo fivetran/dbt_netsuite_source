@@ -1,4 +1,5 @@
 # dbt_netsuite_source v0.13.1
+
 This release introduces the following updates:  
 
 ## Feature Update
