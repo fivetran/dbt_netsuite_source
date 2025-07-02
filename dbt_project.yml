@@ -59,7 +59,7 @@ vars:
     netsuite2_entity_address: "{{ source('netsuite2', 'entity_address') }}"
     netsuite2_location_main_address: "{{ source('netsuite2', 'location_main_address') }}"
     accounts_pass_through_columns: []
-    entities_pass_through_columns: []
+    accounting_periods_pass_through_columns: []
     classes_pass_through_columns: []
     departments_pass_through_columns: []
     transactions_pass_through_columns: []
@@ -70,7 +70,7 @@ vars:
     consolidated_exchange_rates_pass_through_columns: []
     vendors_pass_through_columns: []
     items_pass_through_columns: []
-    accounting_periods_pass_through_columns: []
+    entities_pass_through_columns: []
 
 clean-targets:
 - target

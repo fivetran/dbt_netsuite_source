@@ -175,6 +175,9 @@ vars:
         - name: "items_custom_field"
           alias: "items_field"
 ```
+
+> If you would like passthrough column support for any other source tables, please create a Feature Request [issue](https://github.com/fivetran/dbt_netsuite/issues).
+
 #### Change the build schema
 By default, this package builds the Netsuite staging models within a schema titled (`<target_schema>` + `_netsuite_source`) in your destination. If this is not where you would like your netsuite staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
