@@ -130,7 +130,7 @@ vars:
 > To determine if a table or field is activated by a feature, access the [Records Catalog](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_159367781370.html).
 
 ### (Optional) Step 6: Additional configurations
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand for configurations</summary>
 
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
@@ -140,6 +140,9 @@ vars:
     accounts_pass_through_columns: 
         - name: "new_custom_field"
           alias: "custom_field"
+    accounting_periods_pass_through_columns:
+        - name: "custom_field"
+          transform_sql: "cast(custom_field as string)"
     classes_pass_through_columns: 
         - name: "this_field"
     departments_pass_through_columns: 
@@ -172,6 +175,9 @@ vars:
         - name: "items_custom_field"
           alias: "items_field"
 ```
+
+> If you would like passthrough column support for any other source tables, please create a Feature Request [issue](https://github.com/fivetran/dbt_netsuite/issues).
+
 #### Change the build schema
 By default, this package builds the Netsuite staging models within a schema titled (`<target_schema>` + `_netsuite_source`) in your destination. If this is not where you would like your netsuite staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
