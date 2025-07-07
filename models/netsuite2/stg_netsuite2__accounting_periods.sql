@@ -37,6 +37,11 @@ final as (
         alllocked = 'T' as is_all_locked,
         arlocked = 'T' as is_ar_locked,
         aplocked = 'T' as is_ap_locked
+
+         --The below macro adds the fields defined within your accounting_periods_pass_through_columns variable into the staging model
+        {{ netsuite_source.fill_pass_through_columns(var('accounting_periods_pass_through_columns', [])) }}
+
+        
     from fields
     where not coalesce(_fivetran_deleted, false)
 )
