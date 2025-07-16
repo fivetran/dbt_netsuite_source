@@ -56,6 +56,8 @@ models:
   +schema: "{{ 'netsuite_source_integrations_tests_sqlw' if target.name == 'databricks-sql' else 'netsuite_source' }}"
 
 seeds:
+  +docs:
+    show: False
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   netsuite_source_integration_tests:
     +column_types:
@@ -71,3 +73,5 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
